@@ -10,24 +10,4 @@
 	<artifactId>blsk-web</artifactId>
 	<packaging>war</packaging>
 
-	<dependencies>
-		<dependency>
-			<groupId>zlxq</groupId>
-			<artifactId>zlxq-framework</artifactId>
-			<version>0.0.1</version>
-			<scope>jar</scope>
-		</dependency>
-		<dependency>
-			<groupId>servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>0</version>
-		</dependency>
-		<dependency>
-			<groupId>zlxq</groupId>
-			<artifactId>zlxq-rbac</artifactId>
-			<version>0.0.1</version>
-			<scope>jar</scope>
-		</dependency>
-	</dependencies>
-
 </project>
