@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:cache="http://www.springframework.org/schema/cache"
+	xsi:schemaLocation="
+ http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd
+ http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd
+ http://www.springframework.org/schema/tx
+ http://www.springframework.org/schema/tx/spring-tx.xsd
+ http://www.springframework.org/schema/jdbc
+ http://www.springframework.org/schema/jdbc/spring-jdbc-3.1.xsd
+http://www.springframework.org/schema/cache
+ http://www.springframework.org/schema/cache/spring-cache-3.1.xsd
+ http://www.springframework.org/schema/aop
+http://www.springframework.org/schema/aop/spring-aop.xsd
+http://www.springframework.org/schema/util
+http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<bean id="zlxqMenuDao" parent="baseDao"
+		class="com.zlxq.system.menu.dao.impl.ZlxqMenuDaoImpl" />
+
+	<bean id="zlxqMenuService" class="com.zlxq.system.menu.service.impl.ZlxqMenuServiceImpl">
+		<constructor-arg ref="zlxqMenuDao" index="0" />
+	</bean>
+	
+	<bean id="zlxqAccountDao" parent="baseDao"
+		class="com.zlxq.system.account.dao.impl.ZlxqAccountDaoImpl" />
+
+	<bean id="zlxqAccountService" class="com.zlxq.system.account.service.impl.ZlxqAccountServiceImpl">
+		<constructor-arg ref="zlxqAccountDao" index="0" />
+	</bean>
+	
+	<bean id="zlxqDictionaryDao" parent="baseDao"
+		class="com.zlxq.system.dict.dao.impl.ZlxqDictionaryDaoImpl" />
+
+	<bean id="zlxqDictionaryService" class="com.zlxq.system.dict.service.impl.ZlxqDictionaryServiceImpl">
+		<constructor-arg ref="zlxqDictionaryDao" index="0" />
+	</bean>
+	
+	<bean id="zlxqPartyDao" parent="baseDao"
+		class="com.zlxq.system.party.dao.impl.ZlxqPartyDaoImpl" />
+
+	<bean id="zlxqPartyService" class="com.zlxq.system.party.service.impl.ZlxqPartyServiceImpl">
+		<constructor-arg ref="zlxqPartyDao" index="0" />
+	</bean>
+	
+	<bean id="zlxqPartyRelationDao" parent="baseDao"
+		class="com.zlxq.system.partyrelation.dao.impl.ZlxqPartyRelationDaoImpl" />
+
+	<bean id="zlxqPartyRelationService" class="com.zlxq.system.partyrelation.service.impl.ZlxqPartyRelationServiceImpl">
+		<constructor-arg ref="zlxqPartyRelationDao" index="0" />
+	</bean>
+	
+	<bean id="zlxqAccountRoleDao" parent="baseDao"
+		class="com.zlxq.system.accountrole.dao.impl.ZlxqAccountRoleDaoImpl" />
+
+	<bean id="zlxqAccountRoleService" class="com.zlxq.system.accountrole.service.impl.ZlxqAccountRoleServiceImpl">
+		<constructor-arg ref="zlxqAccountRoleDao" index="0" />
+	</bean>
+	
+	<bean id="zlxqRoleDao" parent="baseDao"
+		class="com.zlxq.system.role.dao.impl.ZlxqRoleDaoImpl" />
+
+	<bean id="zlxqRoleService" class="com.zlxq.system.role.service.impl.ZlxqRoleServiceImpl">
+		<constructor-arg ref="zlxqRoleDao" index="0" />
+	</bean>
+	
+	<bean id="zlxqRoleMenuDao" parent="baseDao"
+		class="com.zlxq.system.rolemenu.dao.impl.ZlxqRoleMenuDaoImpl" />
+
+	<bean id="zlxqRoleMenuService" class="com.zlxq.system.rolemenu.service.impl.ZlxqRoleMenuServiceImpl">
+		<constructor-arg ref="zlxqRoleMenuDao" index="0" />
+	</bean>
+	
+	
+	
+	<bean id="examheaderDao" parent="baseDao"
+		class="com.zlxq.system.examheader.dao.impl.ZlxqExamheaderDaoImpl" />
+	<bean id="zlxqExamheaderService" class="com.zlxq.system.examheader.service.impl.ZlxqExamheaderServiceImpl">
+		<constructor-arg ref="examheaderDao" index="0" />
+	</bean>
+	
+	<bean id="zlxqExambodyDao" parent="baseDao"
+		class="com.zlxq.system.exambody.dao.impl.ZlxqExambodyDaoImpl" />
+	<bean id="zlxqExambodyService" class="com.zlxq.system.exambody.service.impl.ZlxqExambodyServiceImpl">
+		<constructor-arg ref="zlxqExambodyDao" index="0" />
+	</bean>
+	
+	<bean id="zlxqExamdetailDao" parent="baseDao"
+		class="com.zlxq.system.examdetail.dao.impl.ZlxqExamdetailDaoImpl" />
+	<bean id="zlxqExamdetailService" class="com.zlxq.system.examdetail.service.impl.ZlxqExamdetailServiceImpl">
+		<constructor-arg ref="zlxqExamdetailDao" index="0" />
+	</bean>
+	
+	<bean id="zlxqExampartyDao" parent="baseDao"
+		class="com.zlxq.system.examparty.dao.impl.ZlxqExampartyDaoImpl" />
+	<bean id="zlxqExampartyService" class="com.zlxq.system.examparty.service.impl.ZlxqExampartyServiceImpl">
+		<constructor-arg ref="zlxqExampartyDao" index="0" />
+	</bean>
+	
+	<bean id="zlxqStuExamRustDao" parent="baseDao"
+		class="com.zlxq.system.stuexamrust.dao.impl.ZlxqStuExamRustDaoImpl" />
+	<bean id="zlxqStuExamRustService" class="com.zlxq.system.stuexamrust.service.impl.ZlxqStuExamRustServiceImpl">
+		<constructor-arg ref="zlxqStuExamRustDao" index="0" />
+	</bean>
+	
+	<bean id="zlxqStuExamDao" parent="baseDao"
+		class="com.zlxq.system.stuexam.dao.impl.ZlxqStuExamDaoImpl" />
+	<bean id="zlxqStuExamService" class="com.zlxq.system.stuexam.service.impl.ZlxqStuExamServiceImpl">
+		<constructor-arg ref="zlxqStuExamDao" index="0" />
+	</bean>
+	
+	<bean id="zlxqExamresultDao" parent="baseDao"
+		class="com.zlxq.system.examresult.dao.impl.ZlxqExamresultDaoImpl" />
+	<bean id="zlxqExamresultService" class="com.zlxq.system.examresult.service.impl.ZlxqExamresultServiceImpl">
+		<constructor-arg ref="zlxqExamresultDao" index="0" />
+	</bean>
+	
+	<bean id="zlxqTalkrecordDao" parent="baseDao"
+		class="com.zlxq.system.talkrecord.dao.impl.ZlxqTalkrecordDaoImpl" />
+	<bean id="zlxqTalkrecordService" class="com.zlxq.system.talkrecord.service.impl.ZlxqTalkrecordServiceImpl">
+		<constructor-arg ref="zlxqTalkrecordDao" index="0" />
+	</bean>
+	
+		
+		
+	<bean id="zlxqDocManagerDao" parent="baseDao"
+		class="com.zlxq.system.doc.dao.impl.ZlxqDocManagerDaoImpl" />
+	<bean id="zlxqDocManagerService" class="com.zlxq.system.doc.service.impl.ZlxqDocManagerServiceImpl">
+		<constructor-arg ref="zlxqDocManagerDao" index="0" />
+	</bean>
+	
+	<bean id="zlxqDocRelationDao" parent="baseDao"
+		class="com.zlxq.system.doc.dao.impl.ZlxqDocRelationDaoImpl" />
+	<bean id="zlxqDocRelationService" class="com.zlxq.system.doc.service.impl.ZlxqDocRelationServiceImpl">
+		<constructor-arg ref="zlxqDocRelationDao" index="0" />
+	</bean>
+	
+	<bean id="zlxqDocDao" parent="baseDao"
+		class="com.zlxq.system.doc.dao.impl.ZlxqDocDaoImpl" />
+	<bean id="zlxqDocService" class="com.zlxq.system.doc.service.impl.ZlxqDocServiceImpl">
+		<constructor-arg ref="zlxqDocDao" index="0" />
+	</bean>
+	
+	<bean id="zlxqDocVersionDao" parent="baseDao"
+		class="com.zlxq.system.doc.dao.impl.ZlxqDocVersionDaoImpl" />
+	<bean id="zlxqDocVersionService" class="com.zlxq.system.doc.service.impl.ZlxqDocVersionServiceImpl">
+		<constructor-arg ref="zlxqDocVersionDao" index="0" />
+	</bean>
+	
+	<bean id="zlxqDocAssignDao" parent="baseDao"
+		class="com.zlxq.system.doc.dao.impl.ZlxqDocAssignDaoImpl" />
+	<bean id="zlxqDocAssignService" class="com.zlxq.system.doc.service.impl.ZlxqDocAssignServiceImpl">
+		<constructor-arg ref="zlxqDocAssignDao" index="0" />
+	</bean>
+	
+	<bean id="zlxqDocStudyDao" parent="baseDao"
+		class="com.zlxq.system.doc.dao.impl.ZlxqDocStudyDaoImpl" />
+	<bean id="zlxqDocStudyService" class="com.zlxq.system.doc.service.impl.ZlxqDocStudyServiceImpl">
+		<constructor-arg ref="zlxqDocStudyDao" index="0" />
+	</bean>
+	
+	<bean id="zlxqStuCollectionDao" parent="baseDao"
+		class="com.zlxq.system.stucollection.dao.impl.ZlxqStuCollectionDaoImpl" />
+	<bean id="zlxqStuCollectionService" class="com.zlxq.system.stucollection.service.impl.ZlxqStuCollectionServiceImpl">
+		<constructor-arg ref="zlxqStuCollectionDao" index="0" />
+	</bean>
+	
+	<bean id="zlxqStuNoteDao" parent="baseDao"
+		class="com.zlxq.system.stunote.dao.impl.ZlxqStuNoteDaoImpl" />
+	<bean id="zlxqStuNoteService" class="com.zlxq.system.stunote.service.impl.ZlxqStuNoteServiceImpl">
+		<constructor-arg ref="zlxqStuNoteDao" index="0" />
+	</bean>
+	
+	<bean id="zlxqStuThumbsDao" parent="baseDao"
+		class="com.zlxq.system.stuthumbs.dao.impl.ZlxqStuThumbsDaoImpl" />
+	<bean id="zlxqStuThumbsService" class="com.zlxq.system.stuthumbs.service.impl.ZlxqStuThumbsServiceImpl">
+		<constructor-arg ref="zlxqStuThumbsDao" index="0" />
+	</bean>
+	
+	<bean id="zlxqNoticeDao" parent="baseDao"
+		class="com.zlxq.system.notice.dao.impl.ZlxqNoticeDaoImpl" />
+	<bean id="zlxqNoticeService" class="com.zlxq.system.notice.service.impl.ZlxqNoticeServiceImpl">
+		<constructor-arg ref="zlxqNoticeDao" index="0" />
+	</bean>
+	
+	<bean id="zlxqNoticePartyDao" parent="baseDao"
+		class="com.zlxq.system.notice.dao.impl.ZlxqNoticePartyDaoImpl" />
+	<bean id="zlxqNoticePartyService" class="com.zlxq.system.notice.service.impl.ZlxqNoticePartyServiceImpl">
+		<constructor-arg ref="zlxqNoticePartyDao" index="0" />
+	</bean>
+	
+	<bean id="zlxqDocExamDao" parent="baseDao"
+		class="com.zlxq.system.doc.dao.impl.ZlxqDocExamDaoImpl" />
+	<bean id="zlxqDocExamService" class="com.zlxq.system.doc.service.impl.ZlxqDocExamServiceImpl">
+		<constructor-arg ref="zlxqDocExamDao" index="0" />
+	</bean>
+	
+	<bean id="zlxqLogDao" parent="baseDao"
+		class="com.zlxq.system.log.dao.impl.ZlxqLogDaoImpl" />
+	<bean id="zlxqLogService" class="com.zlxq.system.log.service.impl.ZlxqLogServiceImpl">
+		<constructor-arg ref="zlxqLogDao" index="0" />
+	</bean>
+	
+	<bean id="zlxqLogOperationDao" parent="baseDao"
+		class="com.zlxq.system.log.dao.impl.ZlxqLogOperationDaoImpl" />
+	<bean id="zlxqLogOperationService" class="com.zlxq.system.log.service.impl.ZlxqLogOperationServiceImpl">
+		<constructor-arg ref="zlxqLogOperationDao" index="0" />
+	</bean>
+	
+	<bean id="zlxqApiDao" parent="baseDao"
+		class="com.zlxq.system.api.dao.impl.ZlxqApiDaoImpl" />
+	<bean id="zlxqApiService" class="com.zlxq.system.api.service.impl.ZlxqApiServiceImpl">
+		<constructor-arg ref="zlxqApiDao" index="0" />
+	</bean>
+	
+</beans> 
