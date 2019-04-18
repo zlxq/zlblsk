@@ -1,6 +1,8 @@
-package com.framework.web.ssh.service;
+package com.rbac.base.core.service;
 
 import java.io.Serializable;
+
+import com.framework.web.ssh.service.GenericService;
 
 /**
  * 
@@ -10,7 +12,7 @@ import java.io.Serializable;
  * @date: 2019年4月17日 下午10:28:12
  *
  * @param <T>
- * @Copyright: 2019 www.zlxq.com Inc. All rights reserved.
+ * @Copyright: 2019 www.zlxq.com Inc. All rights reserved.	
  *
  */
 public abstract interface BaseService<T> extends GenericService<T, Serializable> {

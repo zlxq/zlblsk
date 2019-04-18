@@ -1,9 +1,9 @@
-package com.framework.web.filter;
+package com.rbac.base.filter;
+
 
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
@@ -15,7 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import com.framework.bean.OnlineUserBean;
+import com.framework.web.filter.ZlxqFrameworkFilter;
+import com.rbac.base.bean.OnlineUserBean;
 
 /**
  * url权限拦截过滤器
@@ -25,8 +26,8 @@ import com.framework.bean.OnlineUserBean;
  * @createtime 2017年5月29日
  * @version V1.0
  */
-public class UrlAssertFilter implements Filter {
-	private static final Log logger = LogFactory.getLog(UrlAssertFilter.class);
+public class UrlDispatchFilter extends ZlxqFrameworkFilter {
+	private static final Log logger = LogFactory.getLog(UrlDispatchFilter.class);
 
 	/**
 	 * 过滤地址栏请求，必须通过系统登陆后，才能访问系统具体页面

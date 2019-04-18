@@ -1,4 +1,4 @@
-package com.framework.web.ssh.action;
+package com.rbac.base.core.action;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;

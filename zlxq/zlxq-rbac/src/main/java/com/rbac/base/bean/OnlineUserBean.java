@@ -1,4 +1,4 @@
-package com.framework.bean;
+package com.rbac.base.bean;
 
 import java.util.HashMap;
 

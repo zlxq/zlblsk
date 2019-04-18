@@ -1,8 +1,9 @@
-package com.framework.web.ssh.dao.impl;
+package com.rbac.base.core.dao.impl;
 
 import java.io.Serializable;
 
-import com.framework.web.ssh.dao.BaseDao;
+import com.framework.web.ssh.dao.impl.GenericDaoImpl;
+import com.rbac.base.core.dao.BaseDao;
 
 /**
  * 

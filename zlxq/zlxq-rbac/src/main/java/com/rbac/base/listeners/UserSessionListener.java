@@ -1,4 +1,4 @@
-package com.framework.web.listener;
+package com.rbac.base.listeners;
 
 import java.util.Map;
 
@@ -6,7 +6,7 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
-import com.framework.bean.OnlineUserBean;
+import com.rbac.base.bean.OnlineUserBean;
 
 public class UserSessionListener implements HttpSessionListener {
 
