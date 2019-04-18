@@ -9,6 +9,7 @@
 	<modules>
 		<module>zlxq</module>
 		<module>blsk</module>
+		<module>web</module>
 	</modules>
 	
 	<dependencies>
