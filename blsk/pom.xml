@@ -8,7 +8,10 @@
   <artifactId>blsk</artifactId>
   <packaging>pom</packaging>
   <modules>
-  	<module>blsk-web</module>
+  	<module>blsk-base</module>
+  	<module>blsk-inv</module>
+  	<module>blsk-service</module>
+  	<module>blsk-report</module>
   </modules>
   
   <dependencies>
