@@ -68,13 +68,14 @@
 					addClass(document.querySelector(".sk-rotating-plane"), "active")
 					document.querySelector(".login").style.display = "none"
 				},800)
-				setTimeout(function(){
-					removeClass(document.querySelector(".login"), "active")
-					removeClass(document.querySelector(".sk-rotating-plane"), "active")
-					document.querySelector(".login").style.display = "block"
-					alert("登录成功")
+				window.location.href = "./testpage/home.jsp";
+// 				setTimeout(function(){
+// 					removeClass(document.querySelector(".login"), "active")
+// 					removeClass(document.querySelector(".sk-rotating-plane"), "active")
+// 					document.querySelector(".login").style.display = "block"
+// 					alert("登录成功")
 					
-				},5000)
+// 				},5000)
 		}
 </script>
 </body>

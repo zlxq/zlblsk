@@ -3,6 +3,13 @@
 	<name>web</name>
 	<comment></comment>
 	<projects>
+		<project>blsk-service</project>
+		<project>blsk-base</project>
+		<project>zlxq-framework</project>
+		<project>blsk-api</project>
+		<project>zlxq-rbac</project>
+		<project>blsk-inv</project>
+		<project>blsk-report</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

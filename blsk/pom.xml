@@ -12,6 +12,7 @@
   	<module>blsk-inv</module>
   	<module>blsk-service</module>
   	<module>blsk-report</module>
+  	<module>blsk-api</module>
   </modules>
   
   <dependencies>

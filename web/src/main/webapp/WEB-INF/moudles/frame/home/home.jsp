@@ -3,12 +3,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>源助教管理系统</title>
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/frame/js/jquery3.1.1/jquery-easyui-1.5.1/themes/default/easyui.css">
-<link rel="stylesheet" type="text/css" href="${rootPath }/frame/js/jquery3.1.1/jquery-easyui-1.5.1/themes/icon.css">
-<script type="text/javascript" src="<%=request.getContextPath()%>/frame/js/json.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/frame/js/jquery3.1.1/jquery-easyui-1.5.1/jquery.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/frame/js/jquery3.1.1/jquery-easyui-1.5.1/jquery.easyui.min.js"></script>
+<title>XX管理系统</title>
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/statics/frame/js/easyui/jquery-easyui-1.7.0/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/statics/frame/js/easyui/jquery-easyui-1.7.0/themes/icon.css">
+<script type="text/javascript" src="<%=request.getContextPath()%>/statics/frame/js/json/json.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/statics/frame/js/easyui/jquery-easyui-1.7.0/jquery.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/statics/frame/js/easyui/jquery-easyui-1.7.0/jquery.easyui.min.js"></script>
 <script type="text/javascript">
 	var __ctxPath = "<%=request.getContextPath()%>";
 </script>
@@ -102,9 +102,13 @@
 			}
 		}); */
 	}
+	
+	function loadFun() {
+		alert(1)
+	}
 </script>
 </head>
-<body style="width:100%;height:100%;">
+<body style="width:100%;height:100%;" onload="loadFun()">
 	<div class="easyui-layout" data-options="fit:true" style="margin: 0; padding: 0;">
 		<div data-options="region:'north'" style="overflow: hidden; height: 30px; background: #D2E0F2 repeat-x center 50%; line-height: 30px; color: #fff;">
 			<div style="float:left">
