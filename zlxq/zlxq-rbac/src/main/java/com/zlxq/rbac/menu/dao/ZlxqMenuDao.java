@@ -9,19 +9,73 @@
  */
 package com.zlxq.rbac.menu.dao;
 
+import java.util.List;
+
+import com.framework.util.PagingBean;
 import com.zlxq.rbac.base.core.dao.BaseDao;
-import com.zlxq.rbac.pojo.ZlxqMenu;
+
+import pojo.ZlxqMenu;
 
 public interface ZlxqMenuDao extends BaseDao<ZlxqMenu> {
+
+	/**
+	 * @MethodName: getAllMenu
+	 * @Description: TODO(这里用一句话描述这个方法的作用) 
+	 * @author: PUB
+	 * @date: 2019年5月5日 下午3:22:27
+	 * @return
+	 * @return: List<ZlxqMenu>
+	 * @throws
+	 */
+	List<ZlxqMenu> getAllMenu();
+
+	/**
+	 * @MethodName: getCMenuByMenuid
+	 * @Description: TODO(这里用一句话描述这个方法的作用) 
+	 * @author: PUB
+	 * @date: 2019年5月5日 下午3:24:23
+	 * @param id
+	 * @param userNo
+	 * @return
+	 * @return: List<ZlxqMenu>
+	 * @throws
+	 */
+	List<ZlxqMenu> getCMenuByMenuid(Long id, String userNo);
 
 	/**
 	 * @MethodName: getMenuPage
 	 * @Description: TODO(这里用一句话描述这个方法的作用) 
 	 * @author: PUB
-	 * @date: 2019年5月3日 上午5:43:46
-	 * @return: void
+	 * @date: 2019年5月6日 上午2:44:51
+	 * @param pb
+	 * @return
+	 * @return: String
 	 * @throws
 	 */
-	void getMenuPage();
+	String getMenuPage(PagingBean pb);
+
+	/**
+	 * @MethodName: getMenuByUserNo
+	 * @Description: TODO(这里用一句话描述这个方法的作用) 
+	 * @author: PUB
+	 * @date: 2019年5月6日 上午2:46:13
+	 * @param userNo
+	 * @return
+	 * @return: List<ZlxqMenu>
+	 * @throws
+	 */
+	List<ZlxqMenu> getMenuByUserNo(String userNo);
+
+	/**
+	 * @MethodName: getMenuTree
+	 * @Description: TODO(这里用一句话描述这个方法的作用) 
+	 * @author: PUB
+	 * @date: 2019年5月6日 上午2:49:18
+	 * @param id
+	 * @return
+	 * @return: String
+	 * @throws
+	 */
+	String getMenuTree(String id);
 
 }

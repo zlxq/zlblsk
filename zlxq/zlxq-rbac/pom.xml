@@ -16,21 +16,27 @@
 			<version>0.0.1</version>
 			<scope>jar</scope>
 		</dependency>
+		<dependency>
+			<groupId>zlxq</groupId>
+			<artifactId>zlxq-pojo</artifactId>
+			<version>0.0.1</version>
+			<scope>jar</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
 		<resources>
-            <resource>
-                <directory>src/main/java</directory>
-                <includes>
-                    <include>**/*.xml</include>
-                </includes>
-                <filtering>false</filtering>
-            </resource>
-            <resource>
-                <directory>src/main/resources</directory>
-            </resource>
-        </resources>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.xml</include>
+				</includes>
+				<filtering>false</filtering>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+		</resources>
 
 		<plugins>
 			<plugin>
@@ -42,38 +48,38 @@
 						F:/work/maven/maven-lib/zlxq/zlxq-rbac/0.0.1
 					</outputDirectory>
 					<!--不打入jar包的文件类型或者路径 -->
-					<!-- <excludes> -->
-					<!-- <exclude>**/*.properties</exclude> -->
-					<!-- <exclude>**/*.xml</exclude> -->
-					<!-- <exclude>**/*.yml</exclude> -->
-					<!-- <exclude>static/**</exclude> -->
-					<!-- <exclude>templates/**</exclude> -->
-					<!-- </excludes> -->
+					<excludes>
+						<exclude>**/*.properties</exclude>
+						<exclude>**/*.xml</exclude>
+						<exclude>**/*.yml</exclude>
+						<exclude>static/**</exclude>
+						<exclude>templates/**</exclude>
+					</excludes>
 				</configuration>
 			</plugin>
-			
+
 			<plugin>
-                <artifactId>maven-resources-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>copy-resources</id>
-                        <phase>validate</phase>
-                        <goals>
-                            <goal>copy-resources</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>F:/work/project/workspace/zlblsk/web/target/classes</outputDirectory>
-                            <resources>
-                                <resource>
-                                    <directory>src/main/resources</directory>
-                                    <filtering>true</filtering>
-                                </resource>
-                            </resources>
-                        </configuration>
- 
-                    </execution>
-                </executions>
-            </plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy-resources</id>
+						<phase>validate</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>F:/work/project/workspace/zlblsk/web/target/classes</outputDirectory>
+							<resources>
+								<resource>
+									<directory>src/main/resources</directory>
+									<filtering>true</filtering>
+								</resource>
+							</resources>
+						</configuration>
+
+					</execution>
+				</executions>
+			</plugin>
 
 		</plugins>
 	</build>

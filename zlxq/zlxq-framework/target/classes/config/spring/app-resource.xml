@@ -56,8 +56,14 @@ http://www.springframework.org/schema/util/spring-util.xsd">
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="mappingLocations">
-			<value>classpath:com/**/model/hbm/*.hbm.xml</value>
+		<!-- <property name="mappingLocations">
+			<value>classpath:/com/**/pojo/*.hbm.xml</value>
+		</property> -->
+		
+		<property name="mappingJarLocations">
+			<list>
+				<value>WEB-INF/lib/zlxq-pojo-0.0.1.jar</value>
+			</list>
 		</property>
 		<!-- spring管理hibernate事物（回滚、一级缓存、二级缓存等） -->
 		<property name="hibernateProperties">

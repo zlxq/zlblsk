@@ -2,6 +2,8 @@ package com.zlxq.rbac.base.bean;
 
 import java.util.HashMap;
 
+import pojo.ZlxqParty;
+
 /**
  * 在线用户
  * 
@@ -12,51 +14,29 @@ import java.util.HashMap;
  */
 public class OnlineUserBean {
 
-	private static final HashMap<String, Object> userLineMap = new HashMap<String, Object>();
+	/**
+	 * 用户session
+	 */
+	private static final HashMap<String, Object> USER_SESSION_MAP = new HashMap<String, Object>();
 
-	private static final HashMap<String, Object> REMOVE_USER_SESSION_LIST = new HashMap<String, Object>();
-	
-	public static void putRemoveUser(String sessionId, Object obj) {
-		REMOVE_USER_SESSION_LIST.put(sessionId, obj);
+	public static void putUserBySessionId(String sessionid, Object object) {
+		USER_SESSION_MAP.put(sessionid, object);
 	}
 	
-	public static Object getRemoveUser(String sessionId) {
-		return REMOVE_USER_SESSION_LIST.get(sessionId);
+	public static void removeUserBySessionId(String sessionid) {
+		USER_SESSION_MAP.remove(sessionid);
 	}
 	
-	public static void removeRemoveUser(String sessionId) {
-		REMOVE_USER_SESSION_LIST.remove(sessionId);
+	public static Object getUserBySessionId(String sessionid) {
+		return USER_SESSION_MAP.get(sessionid);
 	}
 	
-	public static void putUserLine(String sessionId, Object object) {
-		userLineMap.put(sessionId, object);
+	public static ZlxqParty getPartyBySessionId(String sessionid) {
+		return (ZlxqParty) getUserBySessionId(sessionid);
 	}
 	
-	public static void putUserLineByUserno(String userno, Object object) {
-		userLineMap.put(userno, object);
-	}
-
-	public static void removeUserLine(String sessionId) {
-		userLineMap.remove(sessionId);
-	}
-	
-	public static void removeUserLineByUserno(String userno) {
-		userLineMap.remove(userno);
-	}
-
-	public static void updateUserLine(String sessionId, Object object) {
-		putUserLine(sessionId, object);
-	}
-
 	public static int getUserLineCount() {
-		return userLineMap.size() / 2;
-	}
-
-	public static Object getUserLine(String sessionId) {
-		return userLineMap.get(sessionId);
+		return USER_SESSION_MAP.size();
 	}
 	
-	public static Object getUserLineByUserNo(String userno) {
-		return userLineMap.get(userno);
-	}
 }

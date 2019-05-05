@@ -21,6 +21,11 @@
 			<artifactId>zlxq-rbac</artifactId>
 			<version>0.0.1</version>
 		</dependency>
+		<dependency>
+			<groupId>zlxq</groupId>
+			<artifactId>zlxq-pojo</artifactId>
+			<version>0.0.1</version>
+		</dependency>
 	</dependencies>
 
 </project>

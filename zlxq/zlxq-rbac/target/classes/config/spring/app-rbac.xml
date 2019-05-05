@@ -26,9 +26,22 @@ http://www.springframework.org/schema/util/spring-util.xsd">
 
 	<bean id="zlxqMenuDao" parent="baseDao"
 		class="com.zlxq.rbac.menu.dao.impl.ZlxqMenuDaoImpl" />
-
 	<bean id="zlxqMenuService"
 		class="com.zlxq.rbac.menu.service.impl.ZlxqMenuServiceImpl">
 		<constructor-arg ref="zlxqMenuDao" index="0" />
+	</bean>
+	
+	<bean id="zlxqPartyRelationDao" parent="baseDao"
+		class="com.zlxq.rbac.party.dao.impl.ZlxqPartyRelationDaoImpl" />
+	<bean id="zlxqPartyRelationService"
+		class="com.zlxq.rbac.party.service.impl.ZlxqPartyRelationServiceImpl">
+		<constructor-arg ref="zlxqPartyRelationDao" index="0" />
+	</bean>
+	
+	<bean id="zlxqPartyDao" parent="baseDao"
+		class="com.zlxq.rbac.party.dao.impl.ZlxqPartyDaoImpl" />
+	<bean id="zlxqPartyService"
+		class="com.zlxq.rbac.party.service.impl.ZlxqPartyServiceImpl">
+		<constructor-arg ref="zlxqPartyDao" index="0" />
 	</bean>
 </beans>

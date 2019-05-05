@@ -50,7 +50,7 @@ public class PropertiesUtil {
 	 * @return
 	 */
 	public static String getPropertyFromConfig(String key) {
-		return load("config/config.properties").getProperty(key);
+		return getProperty("config.properties", key);
 	}
 
 	public static void main(String[] args) {

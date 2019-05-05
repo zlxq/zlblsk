@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-5-2 12:31:23 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="pojo.ZlxqMenu" table="zlxq_menu" catalog="blsk">
+        <id name="id" type="java.lang.Long">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="zlxqMenu" class="pojo.ZlxqMenu" fetch="select">
+            <column name="PID">
+                <comment>&#184;&#184;&#214;&#247;&#188;&#252;id</comment>
+            </column>
+        </many-to-one>
+        <property name="menucode" type="string">
+            <column name="MENUCODE" length="200">
+                <comment>&#178;&#203;&#181;&#165;&#177;&#224;&#186;&#197;</comment>
+            </column>
+        </property>
+        <property name="menuname" type="string">
+            <column name="MENUNAME" length="200">
+                <comment>&#178;&#203;&#181;&#165;&#195;&#251;&#179;&#198;</comment>
+            </column>
+        </property>
+        <property name="menuurl" type="string">
+            <column name="MENUURL" length="200">
+                <comment>&#178;&#203;&#181;&#165;url</comment>
+            </column>
+        </property>
+        <property name="menutype" type="string">
+            <column name="MENUTYPE" length="110">
+                <comment>
+                &#178;&#203;&#181;&#165;&#192;&#224;&#208;&#205;(1&#210;&#187;&#188;&#182;&#178;&#203;&#181;&#165;&#163;&#172;2&#182;&#254;&#188;&#182;&#178;&#203;&#181;&#165;&#163;&#172;3&#200;&#253;&#188;&#182;&#178;&#203;&#181;&#165;)</comment>
+            </column>
+        </property>
+        <property name="menusort" type="java.lang.Integer">
+            <column name="MENUSORT">
+                <comment>&#197;&#197;&#208;&#242;</comment>
+            </column>
+        </property>
+        <property name="isleaf" type="string">
+            <column name="ISLEAF" length="200">
+                <comment>&#202;&#199;&#183;&#241;&#202;&#199;&#210;&#182;&#215;&#211;&#163;&#172;true&#187;&#242;false</comment>
+            </column>
+        </property>
+        <property name="iconcls" type="string">
+            <column name="ICONCLS" length="200" />
+        </property>
+        <property name="creator" type="java.lang.Long">
+            <column name="CREATOR">
+                <comment>&#180;&#180;&#189;&#168;&#213;&#223;</comment>
+            </column>
+        </property>
+        <property name="createtime" type="timestamp">
+            <column name="CREATETIME" length="19">
+                <comment>&#180;&#180;&#189;&#168;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="updatetime" type="timestamp">
+            <column name="UPDATETIME" length="19">
+                <comment>&#208;&#222;&#184;&#196;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="isvalidate" type="string">
+            <column name="ISVALIDATE" length="1">
+                <comment>&#202;&#199;&#183;&#241;&#211;&#208;&#208;&#167;</comment>
+            </column>
+        </property>
+        <set name="zlxqRoleMenus" table="zlxq_role_menu" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="MENU_ID">
+                    <comment>&#178;&#203;&#181;&#165;&#177;&#237;id</comment>
+                </column>
+            </key>
+            <one-to-many class="pojo.ZlxqRoleMenu" />
+        </set>
+        <set name="zlxqMenus" table="zlxq_menu" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="PID">
+                    <comment>&#184;&#184;&#214;&#247;&#188;&#252;id</comment>
+                </column>
+            </key>
+            <one-to-many class="pojo.ZlxqMenu" />
+        </set>
+    </class>
+</hibernate-mapping>

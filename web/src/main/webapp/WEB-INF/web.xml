@@ -7,7 +7,7 @@
 	<display-name>Web Application</display-name>
 
 	<welcome-file-list>
-		<welcome-file>/WEB-INF/moudles/frame/index/index.html</welcome-file>
+		<welcome-file>/moudles/frame/index/index.html</welcome-file>
 	</welcome-file-list>
 
 

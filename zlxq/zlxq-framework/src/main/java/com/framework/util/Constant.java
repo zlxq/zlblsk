@@ -9,5 +9,7 @@ package com.framework.util;
  */
 public class Constant {
 
-	public static final String WEB_APP_TITLE = "XX管理系统";
+	public static final String IS_SUPER = "1";
+	public static final String Y_ISVALIDATE = "1";
+	public static final String N_ISVALIDATE = "0";
 }

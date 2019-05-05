@@ -4,10 +4,41 @@
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
+	<package name="login" namespace="/" extends="struts-default">
+<!-- 		<action name="login" class="com.zlxq.rbac.login.LoginAction" method="login"> -->
+<!-- 			<result>${successResultValue}</result> -->
+<!-- 		</action> -->
+		<action name="login" class="com.zlxq.rbac.login.LoginAction" method="login">
+			<result name="success">moudles/frame/home/home.jsp</result>
+			<result name="failure">moudles/frame/index/index.html</result>
+		</action>
+		<action name="layout" class="com.zlxq.rbac.login.LoginAction" method="layout">
+			<result name="success">moudles/frame/index/index.html</result>
+		</action>
+	</package>
 	<package name="menu" namespace="/menu" extends="struts-default">
-		<action name="getMenuPage"
-			class="com.zlxq.rbac.menu.action.ZlxqMenuAction"
-			method="getMenuPage">
+		<action name="getMenuPage" class="com.zlxq.rbac.menu.action.ZlxqMenuAction" method="getMenuPage">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="saveMenuInfo" class="com.zlxq.rbac.menu.action.ZlxqMenuAction" method="saveMenuInfo">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="getMenuTree" class="com.zlxq.rbac.menu.action.ZlxqMenuAction" method="getMenuTree">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="getRoleMenu" class="com.zlxq.rbac.menu.action.ZlxqMenuAction" method="getRoleMenu">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="getNoRoleMenu" class="com.zlxq.rbac.menu.action.ZlxqMenuAction" method="getNoRoleMenu">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="saveRoleMenu" class="com.zlxq.rbac.menu.action.ZlxqMenuAction" method="saveRoleMenu">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="getNoRoleMenu" class="com.zlxq.rbac.menu.action.ZlxqMenuAction" method="getNoRoleMenu">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="delMenu" class="com.zlxq.rbac.menu.action.ZlxqMenuAction" method="delMenu">
 			<result>${successResultValue}</result>
 		</action>
 	</package>

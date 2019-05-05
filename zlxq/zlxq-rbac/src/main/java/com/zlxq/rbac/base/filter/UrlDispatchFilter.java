@@ -39,7 +39,7 @@ public class UrlDispatchFilter extends ZlxqFrameworkFilter {
 
 		String uri = request.getRequestURI();
 
-		Object object = OnlineUserBean.getUserLine(request.getSession().getId());
+		Object object = null;
 
 		if (uri.indexOf("api.jsp") != -1) {
 			arg2.doFilter(request, response);

@@ -18,14 +18,14 @@ public class BaseAction implements ServletRequestAware, ServletResponseAware, Se
 	public static final String SUCCESS = "success"; // 数据处理成功 （成功页面）
 	public static final String NONE = "none"; // 页面不跳转 return null; 效果一样，常用于ajax请求时
 	public static final String ERROR = "error"; // 数据处理发送错误 (错误页面)
-	public static final String INPUT = "input"; // 用户输入数据有误，通常用于表单数据校验 （输入页面）
+	public static final String FAILURE = "failure"; // 用户输入数据有误，通常用于表单数据校验 （输入页面）
 	public static final String LOGIN = "login"; // 主要权限认证不通过 (登陆页面)
 
 	protected String successResultValue;
 	protected String jsonString;
 
 	public BaseAction() {
-		setSuccessResultValue("/frame/json/jsonString.jsp");
+		setSuccessResultValue("/moudles/frame/json/jsonString.jsp");
 	}
 
 	@Override

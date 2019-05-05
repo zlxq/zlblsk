@@ -9,29 +9,91 @@
  */
 package com.zlxq.rbac.menu.action;
 
-import java.io.IOException;
-
 import javax.annotation.Resource;
 
+import com.framework.util.PagingBean;
 import com.zlxq.rbac.base.core.action.BaseAction;
 import com.zlxq.rbac.menu.service.ZlxqMenuService;
+
+import pojo.ZlxqMenu;
 
 public class ZlxqMenuAction extends BaseAction {
 	
 	@Resource
 	private ZlxqMenuService zlxqMenuService;
+	
+	public ZlxqMenu zlxqMenu;
 
-	public void getMenuPage() {
-		System.out.println("进入方法");
-		
-		zlxqMenuService.getMenuPage();
-		
-		try {
-			this.getResponse().getWriter().print("123");
-			
-			this.getResponse().getWriter().write("321231");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+	/**
+	 * @MethodName: getMenuPage
+	 * @Description: TODO(这里用一句话描述这个方法的作用) 
+	 * @author: PUB
+	 * @date: 2019年5月6日 上午2:43:45
+	 * @return
+	 * @return: String
+	 * @throws
+	 */
+	public String getMenuPage() {
+		PagingBean pb = this.getInitPagingBean();
+		String json = this.zlxqMenuService.getMenuPage(pb);
+		setJsonString(json);
+		return SUCCESS;
+	}
+	
+	/**
+	 * @MethodName: getMenuTree
+	 * @Description: TODO(这里用一句话描述这个方法的作用) 
+	 * @author: PUB
+	 * @date: 2019年5月6日 上午2:48:26
+	 * @return
+	 * @return: String
+	 * @throws
+	 */
+	public String getMenuTree() {
+		String id = this.getRequest().getParameter("id");
+		String json = this.zlxqMenuService.getMenuTree(id);
+		setJsonString(json);
+		return SUCCESS;
+	}
+	
+	/**
+	 * @MethodName: saveMenuInfo
+	 * @Description: TODO(这里用一句话描述这个方法的作用) 
+	 * @author: PUB
+	 * @date: 2019年5月6日 上午2:50:38
+	 * @return
+	 * @return: String
+	 * @throws
+	 */
+	public String saveMenuInfo() {
+		String pid = this.getRequest().getParameter("pid");
+		String menuid = this.getRequest().getParameter("menuid");
+		String msg = this.zlxqMenuService.saveMenuInfo(this.zlxqMenu, menuid, pid);
+		setMessage(msg);
+		return SUCCESS;
+	}
+	
+	/**
+	 * @MethodName: delMenu
+	 * @Description: TODO(这里用一句话描述这个方法的作用) 
+	 * @author: PUB
+	 * @date: 2019年5月6日 上午2:54:07
+	 * @return
+	 * @return: String
+	 * @throws
+	 */
+	public String delMenu() {
+		String id = this.getRequest().getParameter("id");
+		String msg = this.zlxqMenuService.delMenu(id);
+		setMessage(msg);
+		return SUCCESS;
+	}
+	
+	public ZlxqMenu getZlxqMenu() {
+		return zlxqMenu;
+	}
+
+	public void setZlxqMenu(ZlxqMenu zlxqMenu) {
+		this.zlxqMenu = zlxqMenu;
 	}
 }

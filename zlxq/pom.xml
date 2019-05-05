@@ -12,6 +12,7 @@
 	<modules>
 		<module>zlxq-framework</module>
 		<module>zlxq-rbac</module>
+		<module>zlxq-pojo</module>
 	</modules>
 	
 </project>
