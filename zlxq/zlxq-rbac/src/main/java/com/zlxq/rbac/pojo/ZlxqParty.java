@@ -1,5 +1,6 @@
 package com.zlxq.rbac.pojo;
-// Generated 2019-5-2 12:31:23 by Hibernate Tools 3.4.0.CR1
+
+// Generated 2019-5-5 10:23:12 by Hibernate Tools 3.4.0.CR1
 
 import java.util.Date;
 import java.util.HashSet;
@@ -12,7 +13,9 @@ public class ZlxqParty implements java.io.Serializable {
 
 	private Long id;
 	private String partyno;
+	private String loginno;
 	private String partname;
+	private String password;
 	private String sex;
 	private String partytype;
 	private String email;
@@ -29,11 +32,13 @@ public class ZlxqParty implements java.io.Serializable {
 	public ZlxqParty() {
 	}
 
-	public ZlxqParty(String partyno, String partname, String sex, String partytype, String email, String tel,
-			Long deptid, Long creator, Date createtime, Date updatetime, String isvalidate, Set zlxqUserRoles,
-			Set zlxqPartyRelationsForPartyid1, Set zlxqPartyRelationsForPartyid2) {
+	public ZlxqParty(String partyno, String loginno, String partname, String password, String sex, String partytype,
+			String email, String tel, Long deptid, Long creator, Date createtime, Date updatetime, String isvalidate,
+			Set zlxqUserRoles, Set zlxqPartyRelationsForPartyid1, Set zlxqPartyRelationsForPartyid2) {
 		this.partyno = partyno;
+		this.loginno = loginno;
 		this.partname = partname;
+		this.password = password;
 		this.sex = sex;
 		this.partytype = partytype;
 		this.email = email;
@@ -64,12 +69,28 @@ public class ZlxqParty implements java.io.Serializable {
 		this.partyno = partyno;
 	}
 
+	public String getLoginno() {
+		return this.loginno;
+	}
+
+	public void setLoginno(String loginno) {
+		this.loginno = loginno;
+	}
+
 	public String getPartname() {
 		return this.partname;
 	}
 
 	public void setPartname(String partname) {
 		this.partname = partname;
+	}
+
+	public String getPassword() {
+		return this.password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public String getSex() {

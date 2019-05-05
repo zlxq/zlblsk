@@ -3,7 +3,7 @@
     
     
     
-    <wb-module deploy-name="WEBAPP">
+    <wb-module deploy-name="web-0.0.1">
                 
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
                 
@@ -17,7 +17,7 @@
         
         
         <property name="java-output-path" value="/web/target/classes"/>
-        <property name="context-root" value="WEBAPP"/>
+        <property name="context-root" value="web"/>
                                     
     
     
