@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-5-15 22:56:17 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="pojo.BlskEquipItem" table="blsk_equip_item" catalog="blsk">
+        <id name="id" type="java.lang.Long">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="blskInvItem" class="pojo.BlskInvItem" fetch="select">
+            <column name="ITEMID">
+                <comment>&#179;&#246;&#200;&#235;&#191;&#226;&#195;&#247;&#207;&#184;ID</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="blskEquipInfo" class="pojo.BlskEquipInfo" fetch="select">
+            <column name="EQUIPID">
+                <comment>&#201;&#232;&#177;&#184;ID</comment>
+            </column>
+        </many-to-one>
+        <property name="state" type="string">
+            <column name="STATE" length="110">
+                <comment>&#212;&#203;&#208;&#208;&#215;&#180;&#204;&#172;</comment>
+            </column>
+        </property>
+        <property name="deptid" type="java.lang.Long">
+            <column name="DEPTID" />
+        </property>
+        <property name="creator" type="java.lang.Long">
+            <column name="CREATOR">
+                <comment>&#180;&#180;&#189;&#168;&#213;&#223;</comment>
+            </column>
+        </property>
+        <property name="createtime" type="timestamp">
+            <column name="CREATETIME" length="19">
+                <comment>&#180;&#180;&#189;&#168;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="updatetime" type="timestamp">
+            <column name="UPDATETIME" length="19">
+                <comment>&#208;&#222;&#184;&#196;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="isvalidate" type="string">
+            <column name="ISVALIDATE" length="1">
+                <comment>&#202;&#199;&#183;&#241;&#211;&#208;&#208;&#167;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>
