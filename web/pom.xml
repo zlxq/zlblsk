@@ -28,11 +28,6 @@
 		</dependency>
 		<dependency>
 			<groupId>blsk</groupId>
-			<artifactId>blsk-pojo</artifactId>
-			<version>0.0.1</version>
-		</dependency>
-		<dependency>
-			<groupId>blsk</groupId>
 			<artifactId>blsk-api</artifactId>
 			<version>0.0.1</version>
 		</dependency>

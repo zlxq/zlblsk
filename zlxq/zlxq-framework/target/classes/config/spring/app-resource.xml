@@ -65,6 +65,7 @@ http://www.springframework.org/schema/util/spring-util.xsd">
 				<value>WEB-INF/lib/zlxq-pojo-0.0.1.jar</value>
 			</list>
 		</property>
+		
 		<!-- spring管理hibernate事物（回滚、一级缓存、二级缓存等） -->
 		<property name="hibernateProperties">
 			<value>
