@@ -6,7 +6,7 @@
     <class name="pojo.ZlxqUserRole" table="zlxq_user_role" catalog="blsk">
         <id name="id" type="long">
             <column name="ID" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <many-to-one name="zlxqParty" class="pojo.ZlxqParty" fetch="select">
             <column name="USERID">

@@ -6,7 +6,7 @@
     <class name="pojo.ZlxqRoleMenu" table="zlxq_role_menu" catalog="blsk">
         <id name="id" type="long">
             <column name="ID" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <many-to-one name="zlxqMenu" class="pojo.ZlxqMenu" fetch="select">
             <column name="MENU_ID">
