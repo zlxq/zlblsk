@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-5-15 17:43:01 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="pojo.BlskInvStore" table="blsk_inv_store" catalog="blsk">
+        <id name="id" type="java.lang.Long">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="billid" type="java.lang.Long">
+            <column name="BILLID">
+                <comment>&#181;&#165;&#190;&#221;ID</comment>
+            </column>
+        </property>
+        <property name="ioid" type="java.lang.Long">
+            <column name="IOID">
+                <comment>&#214;&#180;&#208;&#208;ID</comment>
+            </column>
+        </property>
+        <property name="materialid" type="java.lang.Long">
+            <column name="MATERIALID">
+                <comment>&#206;&#239;&#193;&#207;ID</comment>
+            </column>
+        </property>
+        <property name="spaceid" type="java.lang.Long">
+            <column name="SPACEID">
+                <comment>&#191;&#226;&#183;&#191;id</comment>
+            </column>
+        </property>
+        <property name="invunitid" type="java.lang.Long">
+            <column name="INVUNITID">
+                <comment>&#181;&#165;&#212;&#170;id</comment>
+            </column>
+        </property>
+        <property name="kwid" type="java.lang.Long">
+            <column name="KWID">
+                <comment>&#191;&#226;&#206;&#187;id</comment>
+            </column>
+        </property>
+        <property name="spacename" type="string">
+            <column name="SPACENAME" length="50">
+                <comment>&#191;&#226;&#183;&#191;&#195;&#251;&#179;&#198;</comment>
+            </column>
+        </property>
+        <property name="unitname" type="string">
+            <column name="UNITNAME" length="50">
+                <comment>&#181;&#165;&#212;&#170;&#195;&#251;&#179;&#198;</comment>
+            </column>
+        </property>
+        <property name="billno" type="string">
+            <column name="BILLNO" length="50">
+                <comment>&#181;&#165;&#190;&#221;&#186;&#197;</comment>
+            </column>
+        </property>
+        <property name="iono" type="string">
+            <column name="IONO" length="50">
+                <comment>&#214;&#180;&#208;&#208;&#186;&#197;</comment>
+            </column>
+        </property>
+        <property name="mno" type="string">
+            <column name="MNO" length="50">
+                <comment>&#206;&#239;&#193;&#207;&#186;&#197;</comment>
+            </column>
+        </property>
+        <property name="mcode" type="string">
+            <column name="MCODE" length="50">
+                <comment>&#206;&#239;&#193;&#207;&#177;&#224;&#194;&#235;</comment>
+            </column>
+        </property>
+        <property name="mname" type="string">
+            <column name="MNAME" length="50">
+                <comment>&#206;&#239;&#193;&#207;&#195;&#251;&#179;&#198;</comment>
+            </column>
+        </property>
+        <property name="invCount" type="java.lang.Long">
+            <column name="INV_COUNT">
+                <comment>&#191;&#226;&#180;&#230;&#202;&#253;&#193;&#191;</comment>
+            </column>
+        </property>
+        <property name="deptid" type="java.lang.Long">
+            <column name="DEPTID" />
+        </property>
+        <property name="creator" type="java.lang.Long">
+            <column name="CREATOR">
+                <comment>&#180;&#180;&#189;&#168;&#213;&#223;</comment>
+            </column>
+        </property>
+        <property name="createtime" type="timestamp">
+            <column name="CREATETIME" length="19">
+                <comment>&#180;&#180;&#189;&#168;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="updatetime" type="timestamp">
+            <column name="UPDATETIME" length="19">
+                <comment>&#208;&#222;&#184;&#196;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="isvalidate" type="string">
+            <column name="ISVALIDATE" length="1">
+                <comment>&#202;&#199;&#183;&#241;&#211;&#208;&#208;&#167;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

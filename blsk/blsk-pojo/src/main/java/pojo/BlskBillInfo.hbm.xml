@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-5-15 17:43:01 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="pojo.BlskBillInfo" table="blsk_bill_info" catalog="blsk">
+        <id name="id" type="java.lang.Long">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="billno" type="string">
+            <column name="BILLNO" length="50">
+                <comment>&#181;&#165;&#190;&#221;&#177;&#224;&#186;&#197;</comment>
+            </column>
+        </property>
+        <property name="billname" type="string">
+            <column name="BILLNAME" length="50">
+                <comment>&#181;&#165;&#190;&#221;&#195;&#251;&#179;&#198;</comment>
+            </column>
+        </property>
+        <property name="billtype" type="string">
+            <column name="BILLTYPE" length="110">
+                <comment>&#200;&#235;&#191;&#226;&#181;&#165;&#161;&#162;&#179;&#246;&#191;&#226;&#181;&#165;&#161;&#162;&#197;&#204;&#181;&#227;&#181;&#165;</comment>
+            </column>
+        </property>
+        <property name="billLevel" type="string">
+            <column name="BILL_LEVEL" length="110">
+                <comment>&#181;&#165;&#190;&#221;&#211;&#197;&#207;&#200;&#188;&#182;</comment>
+            </column>
+        </property>
+        <property name="userid" type="java.lang.Long">
+            <column name="USERID">
+                <comment>&#183;&#162;&#198;&#240;&#200;&#203;ID</comment>
+            </column>
+        </property>
+        <property name="username" type="string">
+            <column name="USERNAME" length="50">
+                <comment>&#183;&#162;&#198;&#240;&#200;&#203;&#195;&#251;</comment>
+            </column>
+        </property>
+        <property name="reqTime" type="timestamp">
+            <column name="REQ_TIME" length="19">
+                <comment>&#183;&#162;&#198;&#240;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="deptid" type="java.lang.Long">
+            <column name="DEPTID">
+                <comment>&#181;&#165;&#206;&#187;ID</comment>
+            </column>
+        </property>
+        <property name="creator" type="java.lang.Long">
+            <column name="CREATOR">
+                <comment>&#180;&#180;&#189;&#168;&#213;&#223;</comment>
+            </column>
+        </property>
+        <property name="createtime" type="timestamp">
+            <column name="CREATETIME" length="19">
+                <comment>&#180;&#180;&#189;&#168;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="updatetime" type="timestamp">
+            <column name="UPDATETIME" length="19">
+                <comment>&#208;&#222;&#184;&#196;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="isvalidate" type="string">
+            <column name="ISVALIDATE" length="1">
+                <comment>&#202;&#199;&#183;&#241;&#211;&#208;&#208;&#167;</comment>
+            </column>
+        </property>
+        <set name="blskBillDetails" table="blsk_bill_detail" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="BILLID">
+                    <comment>&#181;&#165;&#190;&#221;ID</comment>
+                </column>
+            </key>
+            <one-to-many class="pojo.BlskBillDetail" />
+        </set>
+        <set name="blskInvIos" table="blsk_inv_io" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="BILLID">
+                    <comment>&#181;&#165;&#190;&#221;ID</comment>
+                </column>
+            </key>
+            <one-to-many class="pojo.BlskInvIo" />
+        </set>
+    </class>
+</hibernate-mapping>

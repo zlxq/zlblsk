@@ -3,6 +3,7 @@ package com.zlxq.rbac.party.dao.impl;
 import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
+import org.hibernate.query.Query;
 
 import com.zlxq.rbac.base.core.dao.impl.BaseDaoImpl;
 import com.zlxq.rbac.party.dao.ZlxqPartyDao;
@@ -51,6 +52,9 @@ public class ZlxqPartyDaoImpl extends BaseDaoImpl<ZlxqParty> implements ZlxqPart
 		if (StringUtils.isNotEmpty(password)) {
 			hql += " and t.password = '" + password.toUpperCase() + "'";
 		}
+//		Query<?> query = this.createQuery(hql);
+//		query.setString("0", userno.toUpperCase());
+//		query.setString("1", password.toUpperCase());
 		@SuppressWarnings("unchecked")
 		List<ZlxqParty> list = (List<ZlxqParty>) findByHQL(hql);
 		if (list.size() > 0) {

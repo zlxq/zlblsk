@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-5-15 17:43:01 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="pojo.BlskMaterialInfo" table="blsk_material_info" catalog="blsk">
+        <id name="id" type="java.lang.Long">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="code" type="string">
+            <column name="CODE" length="50">
+                <comment>&#177;&#224;&#194;&#235;</comment>
+            </column>
+        </property>
+        <property name="no" type="string">
+            <column name="NO" length="50">
+                <comment>&#177;&#224;&#186;&#197;</comment>
+            </column>
+        </property>
+        <property name="model" type="string">
+            <column name="MODEL" length="50">
+                <comment>&#208;&#205;&#186;&#197;</comment>
+            </column>
+        </property>
+        <property name="name" type="string">
+            <column name="NAME" length="50">
+                <comment>&#195;&#251;&#179;&#198;</comment>
+            </column>
+        </property>
+        <property name="type" type="string">
+            <column name="TYPE" length="110">
+                <comment>&#192;&#224;&#208;&#205;</comment>
+            </column>
+        </property>
+        <property name="length" type="string">
+            <column name="LENGTH" length="50">
+                <comment>&#179;&#164;</comment>
+            </column>
+        </property>
+        <property name="width" type="string">
+            <column name="WIDTH" length="50">
+                <comment>&#191;&#237;</comment>
+            </column>
+        </property>
+        <property name="hight" type="string">
+            <column name="HIGHT" length="50">
+                <comment>&#184;&#223;</comment>
+            </column>
+        </property>
+        <property name="unit" type="string">
+            <column name="UNIT" length="50">
+                <comment>&#188;&#198;&#193;&#191;&#181;&#165;&#206;&#187;</comment>
+            </column>
+        </property>
+        <property name="creator" type="java.lang.Long">
+            <column name="CREATOR">
+                <comment>&#180;&#180;&#189;&#168;&#213;&#223;</comment>
+            </column>
+        </property>
+        <property name="createtime" type="timestamp">
+            <column name="CREATETIME" length="19">
+                <comment>&#180;&#180;&#189;&#168;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="updatetime" type="timestamp">
+            <column name="UPDATETIME" length="19">
+                <comment>&#208;&#222;&#184;&#196;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="isvalidate" type="string">
+            <column name="ISVALIDATE" length="1">
+                <comment>&#202;&#199;&#183;&#241;&#211;&#208;&#208;&#167;</comment>
+            </column>
+        </property>
+        <set name="blskMaterialProperties" table="blsk_material_property" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="MATERIALID">
+                    <comment>&#206;&#239;&#193;&#207;ID</comment>
+                </column>
+            </key>
+            <one-to-many class="pojo.BlskMaterialProperty" />
+        </set>
+    </class>
+</hibernate-mapping>

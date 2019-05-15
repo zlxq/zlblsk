@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-5-15 17:43:01 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="pojo.BlskSpaceAddress" table="blsk_space_address" catalog="blsk">
+        <id name="id" type="java.lang.Long">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="blskInvSpace" class="pojo.BlskInvSpace" fetch="select">
+            <column name="SPACEID">
+                <comment>&#191;&#226;&#183;&#191;</comment>
+            </column>
+        </many-to-one>
+        <property name="partyid" type="java.lang.Long">
+            <column name="PARTYID">
+                <comment>&#191;&#205;&#187;&#167;&#181;&#165;&#206;&#187;</comment>
+            </column>
+        </property>
+        <property name="ip" type="string">
+            <column name="IP" length="50">
+                <comment>IP&#181;&#216;&#214;&#183;</comment>
+            </column>
+        </property>
+        <property name="longitude" type="string">
+            <column name="LONGITUDE" length="50">
+                <comment>&#190;&#173;&#182;&#200;&#163;&#168;&#181;&#216;&#205;&#188;&#215;&#221;&#215;&#248;&#177;&#234;&#163;&#169;</comment>
+            </column>
+        </property>
+        <property name="latitude" type="string">
+            <column name="LATITUDE" length="50">
+                <comment>&#206;&#179;&#182;&#200;&#163;&#168;&#181;&#216;&#205;&#188;&#186;&#225;&#215;&#248;&#177;&#234;&#163;&#169;</comment>
+            </column>
+        </property>
+        <property name="deptid" type="java.lang.Long">
+            <column name="DEPTID">
+                <comment>&#181;&#165;&#206;&#187;ID</comment>
+            </column>
+        </property>
+        <property name="creator" type="java.lang.Long">
+            <column name="CREATOR">
+                <comment>&#180;&#180;&#189;&#168;&#213;&#223;</comment>
+            </column>
+        </property>
+        <property name="createtime" type="timestamp">
+            <column name="CREATETIME" length="19">
+                <comment>&#180;&#180;&#189;&#168;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="updatetime" type="timestamp">
+            <column name="UPDATETIME" length="19">
+                <comment>&#208;&#222;&#184;&#196;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="isvalidate" type="string">
+            <column name="ISVALIDATE" length="1">
+                <comment>&#202;&#199;&#183;&#241;&#211;&#208;&#208;&#167;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

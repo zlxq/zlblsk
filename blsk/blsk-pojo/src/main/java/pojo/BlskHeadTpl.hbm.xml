@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-5-15 17:43:01 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="pojo.BlskHeadTpl" table="blsk_head_tpl" catalog="blsk">
+        <id name="id" type="java.lang.Long">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="no" type="string">
+            <column name="NO" length="50">
+                <comment>&#207;&#181;&#205;&#179;&#206;&#168;&#210;&#187;&#177;&#224;&#186;&#197;</comment>
+            </column>
+        </property>
+        <property name="code" type="string">
+            <column name="CODE" length="50">
+                <comment>&#202;&#253;&#190;&#221;&#191;&#226;&#182;&#212;&#211;&#166;&#215;&#214;&#182;&#206;&#195;&#251;&#179;&#198;</comment>
+            </column>
+        </property>
+        <property name="text" type="string">
+            <column name="TEXT" length="50">
+                <comment>&#189;&#231;&#195;&#230;&#207;&#212;&#202;&#190;&#181;&#196;&#196;&#218;&#200;&#221;</comment>
+            </column>
+        </property>
+        <property name="comment" type="string">
+            <column name="COMMENT" length="50">
+                <comment>&#215;&#214;&#182;&#206;&#195;&#232;&#202;&#246;</comment>
+            </column>
+        </property>
+        <property name="type" type="string">
+            <column name="TYPE" length="50">
+                <comment>&#215;&#214;&#182;&#206;&#192;&#224;&#208;&#205;</comment>
+            </column>
+        </property>
+        <property name="issearch" type="string">
+            <column name="ISSEARCH" length="50">
+                <comment>&#202;&#199;&#183;&#241;&#178;&#233;&#209;&#175;&#204;&#245;&#188;&#254;</comment>
+            </column>
+        </property>
+        <property name="operator" type="string">
+            <column name="OPERATOR" length="50">
+                <comment>&#212;&#203;&#203;&#227;&#183;&#251;</comment>
+            </column>
+        </property>
+        <property name="moudle" type="string">
+            <column name="MOUDLE" length="50">
+                <comment>&#203;&#249;&#202;&#244;&#196;&#163;&#191;&#233;</comment>
+            </column>
+        </property>
+        <property name="deptid" type="java.lang.Long">
+            <column name="DEPTID">
+                <comment>&#203;&#249;&#202;&#244;&#181;&#165;&#206;&#187;</comment>
+            </column>
+        </property>
+        <property name="creator" type="java.lang.Long">
+            <column name="CREATOR">
+                <comment>&#180;&#180;&#189;&#168;&#213;&#223;</comment>
+            </column>
+        </property>
+        <property name="createtime" type="timestamp">
+            <column name="CREATETIME" length="19">
+                <comment>&#180;&#180;&#189;&#168;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="updatetime" type="timestamp">
+            <column name="UPDATETIME" length="19">
+                <comment>&#208;&#222;&#184;&#196;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="isvalidate" type="string">
+            <column name="ISVALIDATE" length="1">
+                <comment>&#202;&#199;&#183;&#241;&#211;&#208;&#208;&#167;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

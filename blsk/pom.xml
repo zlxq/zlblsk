@@ -13,5 +13,6 @@
   	<module>blsk-service</module>
   	<module>blsk-report</module>
   	<module>blsk-api</module>
+  	<module>blsk-pojo</module>
   </modules>
 </project>

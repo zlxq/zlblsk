@@ -26,6 +26,36 @@
 			<artifactId>zlxq-pojo</artifactId>
 			<version>0.0.1</version>
 		</dependency>
+		<dependency>
+			<groupId>blsk</groupId>
+			<artifactId>blsk-pojo</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>blsk</groupId>
+			<artifactId>blsk-api</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>blsk</groupId>
+			<artifactId>blsk-base</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>blsk</groupId>
+			<artifactId>blsk-inv</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>blsk</groupId>
+			<artifactId>blsk-report</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>blsk</groupId>
+			<artifactId>blsk-service</artifactId>
+			<version>0.0.1</version>
+		</dependency>
 	</dependencies>
 
 </project>

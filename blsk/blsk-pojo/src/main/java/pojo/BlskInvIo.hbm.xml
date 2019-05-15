@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-5-15 17:43:01 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="pojo.BlskInvIo" table="blsk_inv_io" catalog="blsk">
+        <id name="id" type="java.lang.Long">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="blskBillInfo" class="pojo.BlskBillInfo" fetch="select">
+            <column name="BILLID">
+                <comment>&#181;&#165;&#190;&#221;ID</comment>
+            </column>
+        </many-to-one>
+        <property name="billno" type="string">
+            <column name="BILLNO" length="50">
+                <comment>&#181;&#165;&#190;&#221;&#177;&#224;&#186;&#197;</comment>
+            </column>
+        </property>
+        <property name="iono" type="string">
+            <column name="IONO" length="50">
+                <comment>
+                &#184;&#249;&#190;&#221;&#202;&#181;&#188;&#202;&#179;&#246;&#200;&#235;&#191;&#226;&#199;&#233;&#191;&#246;&#163;&#172;&#201;&#250;&#178;&#250;&#202;&#181;&#188;&#202;&#181;&#165;&#186;&#197;</comment>
+            </column>
+        </property>
+        <property name="iotype" type="string">
+            <column name="IOTYPE" length="110">
+                <comment>&#179;&#246;&#191;&#226;&#161;&#162;&#200;&#235;&#191;&#226;&#161;&#162;&#197;&#204;&#181;&#227;</comment>
+            </column>
+        </property>
+        <property name="level" type="string">
+            <column name="LEVEL" length="110">
+                <comment>&#211;&#197;&#207;&#200;&#188;&#182;</comment>
+            </column>
+        </property>
+        <property name="execType" type="string">
+            <column name="EXEC_TYPE" length="110">
+                <comment>
+                &#181;&#165;&#190;&#221;&#214;&#180;&#208;&#208;&#192;&#224;&#208;&#205;&#163;&#168;&#207;&#200;&#200;&#235;&#207;&#200;&#179;&#246;&#161;&#162;&#207;&#200;&#189;&#248;&#186;&#243;&#212;&#182;&#181;&#200;&#163;&#169;</comment>
+            </column>
+        </property>
+        <property name="deptid" type="java.lang.Long">
+            <column name="DEPTID">
+                <comment>&#181;&#165;&#206;&#187;ID</comment>
+            </column>
+        </property>
+        <property name="creator" type="java.lang.Long">
+            <column name="CREATOR">
+                <comment>&#180;&#180;&#189;&#168;&#213;&#223;</comment>
+            </column>
+        </property>
+        <property name="createtime" type="timestamp">
+            <column name="CREATETIME" length="19">
+                <comment>&#180;&#180;&#189;&#168;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="updatetime" type="timestamp">
+            <column name="UPDATETIME" length="19">
+                <comment>&#208;&#222;&#184;&#196;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="isvalidate" type="string">
+            <column name="ISVALIDATE" length="1">
+                <comment>&#202;&#199;&#183;&#241;&#211;&#208;&#208;&#167;</comment>
+            </column>
+        </property>
+        <set name="blskInvItems" table="blsk_inv_item" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IOID">
+                    <comment>&#214;&#180;&#208;&#208;&#181;&#165;&#190;&#221;ID</comment>
+                </column>
+            </key>
+            <one-to-many class="pojo.BlskInvItem" />
+        </set>
+        <set name="blskSpaceItems" table="blsk_space_item" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ITEMID">
+                    <comment>&#195;&#247;&#207;&#184;ID</comment>
+                </column>
+            </key>
+            <one-to-many class="pojo.BlskSpaceItem" />
+        </set>
+    </class>
+</hibernate-mapping>
