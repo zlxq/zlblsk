@@ -159,4 +159,48 @@ public class ZlxqMenuDaoImpl extends BaseDaoImpl<ZlxqMenu> implements ZlxqMenuDa
 		return findByJDBCReturnJSON(sql);
 	}
 
+	/**
+	 * @MethodName: getRoleMenu
+	 * @Description: TODO(这里用一句话描述这个方法的作用)
+	 * @author: PUB
+	 * @date: 2019年5月17日 上午12:07:31
+	 * @param id
+	 * @return
+	 * @throws
+	 */
+	@Override
+	public String getRoleMenu(String id) {
+		String sql = "select t.id,\n" + "       t.menuname name,\n" + "       t.pid      _parentId,\n"
+				+ "       t.isleaf   state,\n" + "       t.iconcls  iconCls,\n" + "       t.menucode,\n"
+				+ "       t.menuurl,\n" + "       t.menutype,\n" + "       t.menusort\n"
+				+ "  from zlxq_menu t, zlxq_role_menu zrm\n" + " where t.id = zrm.menu_id\n"
+				+ "   and t.isvalidate = '1'\n" + "   and zrm.isvalidate = '1'";
+		if (StringUtils.isNotEmpty(id)) {
+			sql += " and zrm.role_id = '" + id + "'";
+		}
+
+		sql += " order by menusort";
+		return findByJDBCReturnJSON(sql);
+	}
+
+	/**
+	 * @MethodName: getNoRoleMenu
+	 * @Description: TODO(这里用一句话描述这个方法的作用)
+	 * @author: PUB
+	 * @date: 2019年5月17日 上午12:11:06
+	 * @param id
+	 * @return
+	 * @throws
+	 */
+	@Override
+	public String getNoRoleMenu(String id) {
+		String sql = "SELECT\n" + "  t.id,\n" + "  t.menuname name,\n" + "  t.pid _parentId,\n" + "  t.isleaf state,\n"
+				+ "  t.iconcls iconCls,\n" + "  t.menucode,\n" + "  t.menuurl,\n" + "  t.menutype,\n" + "  t.menusort\n"
+				+ "FROM\n" + "  zlxq_menu t\n" + "WHERE t.id NOT IN\n" + "  (SELECT\n" + "    zm.id\n" + "  FROM\n"
+				+ "    zlxq_role_menu zr,\n" + "    zlxq_menu zm\n" + "  WHERE zr.role_id = " + id + "\n"
+				+ "    AND zm.id = zr.menu_id\n" + "    AND zm.pid IS NOT NULL\n" + "    AND zm.isvalidate = '1'\n"
+				+ "    AND zr.isvalidate = '1')\n" + "  AND t.isvalidate = '1'\n" + "ORDER BY t.menusort";
+		return findByJDBCReturnJSON(sql);
+	}
+
 }

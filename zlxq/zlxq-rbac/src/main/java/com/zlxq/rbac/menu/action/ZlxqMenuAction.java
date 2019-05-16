@@ -89,6 +89,38 @@ public class ZlxqMenuAction extends BaseAction {
 		return SUCCESS;
 	}
 	
+	/**
+	 * 查询角色菜单
+	 * 
+	 * @author zhangl
+	 *
+	 * @return
+	 * @createtime 2017年7月12日
+	 * @version V1.0
+	 */
+	public String getRoleMenu() {
+		String id = this.getRequest().getParameter("id");
+		String json = this.zlxqMenuService.getRoleMenu(id);
+		setJsonString(json);
+		return SUCCESS;
+	}
+	
+	/**
+	 * 查询未被授权的角色菜单
+	 * 
+	 * @author zhangl
+	 *
+	 * @return
+	 * @createtime 2017年7月12日
+	 * @version V1.0
+	 */
+	public String getNoRoleMenu() {
+		String id = this.getRequest().getParameter("id");
+		String json = this.zlxqMenuService.getNoRoleMenu(id);
+		setJsonString(json);
+		return SUCCESS;
+	}
+	
 	public ZlxqMenu getZlxqMenu() {
 		return zlxqMenu;
 	}

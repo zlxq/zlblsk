@@ -176,4 +176,32 @@ public class ZlxqMenuServiceImpl extends BaseServiceImpl<ZlxqMenu> implements Zl
 		}
 	}
 
+	/**
+	 * @MethodName: getRoleMenu
+	 * @Description: TODO(这里用一句话描述这个方法的作用)
+	 * @author: PUB
+	 * @date: 2019年5月17日 上午12:07:03
+	 * @param id
+	 * @return
+	 * @throws
+	 */
+	@Override
+	public String getRoleMenu(String id) {
+		return this.zlxqMenuDao.getRoleMenu(id);
+	}
+
+	/**
+	 * @MethodName: getNoRoleMenu
+	 * @Description: TODO(这里用一句话描述这个方法的作用)
+	 * @author: PUB
+	 * @date: 2019年5月17日 上午12:10:38
+	 * @param id
+	 * @return
+	 * @throws
+	 */
+	@Override
+	public String getNoRoleMenu(String id) {
+		return this.zlxqMenuDao.getNoRoleMenu(id);
+	}
+
 }

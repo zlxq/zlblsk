@@ -81,4 +81,28 @@ public interface ZlxqMenuService extends BaseService<ZlxqMenu> {
 	 */
 	String delMenu(String id);
 
+	/**
+	 * @MethodName: getRoleMenu
+	 * @Description: TODO(这里用一句话描述这个方法的作用) 
+	 * @author: PUB
+	 * @date: 2019年5月17日 上午12:06:40
+	 * @param id
+	 * @return
+	 * @return: String
+	 * @throws
+	 */
+	String getRoleMenu(String id);
+
+	/**
+	 * @MethodName: getNoRoleMenu
+	 * @Description: TODO(这里用一句话描述这个方法的作用) 
+	 * @author: PUB
+	 * @date: 2019年5月17日 上午12:10:29
+	 * @param id
+	 * @return
+	 * @return: String
+	 * @throws
+	 */
+	String getNoRoleMenu(String id);
+
 }

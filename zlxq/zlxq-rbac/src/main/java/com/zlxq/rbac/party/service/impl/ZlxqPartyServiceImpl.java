@@ -133,14 +133,18 @@ public class ZlxqPartyServiceImpl extends BaseServiceImpl<ZlxqParty> implements 
 	 */
 	private String putOnlineUser(HttpServletRequest request, ZlxqParty zlxqParty) {
 		String newSid = request.getSession().getId();
-		String oldSid = OnlineUserBean.getUserById(zlxqParty.getId());
-		if (null != oldSid && !oldSid.equals(newSid)) {
-			return null;
-		} else {
-			OnlineUserBean.putUserBySessionId(newSid, zlxqParty);
-			OnlineUserBean.putUserById(zlxqParty.getId(), newSid);
-			return "success";
-		}
+//		String oldSid = OnlineUserBean.getUserById(zlxqParty.getId());
+//		if (null != oldSid && !oldSid.equals(newSid)) {
+//			return null;
+//		} else {
+//			OnlineUserBean.putUserBySessionId(newSid, zlxqParty);
+//			OnlineUserBean.putUserById(zlxqParty.getId(), newSid);
+//			return "success";
+//		}
+		
+		OnlineUserBean.putUserBySessionId(newSid, zlxqParty);
+		OnlineUserBean.putUserById(zlxqParty.getId(), newSid);
+		return "success";
 	}
 
 
