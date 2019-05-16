@@ -6,6 +6,8 @@ $(function() {
 
 	$('#btn-save-auth,#btn-cancel-auth').linkbutton();
 	win = $('#sysauthform-window').window({
+	    width : "100%",
+	    height : "100%",
 		closed : true,
 		modal : true,
 		shadow : false

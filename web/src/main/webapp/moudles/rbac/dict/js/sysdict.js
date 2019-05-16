@@ -1,5 +1,5 @@
 $(function() {
-	grid = $('#sysdictgrid');
+	dictgrid = $('#sysdictgrid');
 	tree = $('#sysdicttree');
 
 	$('#btn-save-dict,#btn-cancel-dict').linkbutton();
@@ -31,7 +31,7 @@ $(function() {
 		}
 	});
 
-	grid.datagrid({
+	dictgrid.datagrid({
 		url : __ctxPath + '/dict/getDictGrid.do',
 		sortName : 'id',
 		sortOrder : 'asc',
@@ -47,16 +47,16 @@ $(function() {
 			checkbox : true
 		}, {
 			field : 'dic_code',
-			title : '字典编号',
+			title : '系统编号',
 			width : 100
 		}, {
 			field : 'dic_name',
-			title : '字典名称',
+			title : '系统名称',
 			width : 100,
 			sortable : true
 		}, {
 			field : 'dic_type',
-			title : '字典类型',
+			title : '系统类型',
 			width : 100,
 			sortable : true
 		} ] ],
@@ -80,12 +80,12 @@ $(function() {
 var win;
 var form
 var tree;
-var grid;
+var dictgrid;
 
 function clickTree(nodeid) {
-	grid.datagrid('loadData',{total:0,rows:[]});
-	grid.datagrid({ url: __ctxPath + '/dict/getDictGrid.do?id=' + nodeid });
-	grid.datagrid('clearSelections');
+	dictgrid.datagrid('loadData',{total:0,rows:[]});
+	dictgrid.datagrid({ url: __ctxPath + '/dict/getDictGrid.do?id=' + nodeid });
+	dictgrid.datagrid('clearSelections');
 }
 
 function addDictFun() {
@@ -121,7 +121,7 @@ function saveDictFun() {
 		},
 		success : function(e, f) {
 			refreshTree();
-			grid.datagrid('reload');
+			dictgrid.datagrid('reload');
 			win.window('close');
 
 			var m = eval('(' + e + ')');
@@ -141,62 +141,67 @@ function saveDictFun() {
 }
 
 function delDictFun() {
-	var rows = grid.datagrid('getSelections');
-	var num = rows.length;
-	if (num == 0) {
-		$.messager.show({
-			title : '提示',
-			msg : '请选择记录进行操作!',
-			timeout : 500,
-			style:{
-				top:1, // 与左边界的距离
-				left:document.body.clientWidth - document.body.clientWidth / 1.5 // 与顶部的距离
-			}
-		});
-        return;
-    }
-	
-	var ids = [];
+	$.messager.confirm('确认','确定删除菜单信息?',function(r){
+	    if (r){
+	    	var rows = dictgrid.datagrid('getSelections');
+	    	var num = rows.length;
+	    	if (num == 0) {
+	    		$.messager.show({
+	    			title : '提示',
+	    			msg : '请选择记录进行操作!',
+	    			timeout : 500,
+	    			style:{
+	    				top:1, // 与左边界的距离
+	    				left:document.body.clientWidth - document.body.clientWidth / 1.5 // 与顶部的距离
+	    			}
+	    		});
+	            return;
+	        }
+	    	
+	    	var ids = [];
 
-	for (var i = 0; i < num; i++) {
-		ids.push(rows[i].id);
-	}
-	
-	$.ajax({
-		url : __ctxPath + '/dict/delDict.do',
-		type : 'post',
-		data : {
-			ids : JSON.stringify(ids)
-		},
-		beforeSend: function () {
-			$.messager.progress({ 
-				title: '提示', 
-				msg: '正在处理,请稍候……', 
-				text: '' 
-			});
-		},
-		complete: function () {
-			$.messager.progress('close');
-		},
-		success : function(e, f) {
-			grid.datagrid('reload');
-			var m = eval('(' + e + ')');
-			
-			$.messager.show({
-				title : '提示',
-				msg : m.msg,
-				timeout : 500,
-				style:{
-					top:1, // 与左边界的距离
-					left:document.body.clientWidth - document.body.clientWidth / 1.5 // 与顶部的距离
-				}
-			});
-		}
+	    	for (var i = 0; i < num; i++) {
+	    		ids.push(rows[i].id);
+	    	}
+	    	
+	    	$.ajax({
+	    		url : __ctxPath + '/dict/delDict.do',
+	    		type : 'post',
+	    		data : {
+	    			ids : JSON.stringify(ids)
+	    		},
+	    		beforeSend: function () {
+	    			$.messager.progress({ 
+	    				title: '提示', 
+	    				msg: '正在处理,请稍候……', 
+	    				text: '' 
+	    			});
+	    		},
+	    		complete: function () {
+	    			$.messager.progress('close');
+	    		},
+	    		success : function(e, f) {
+	    			refreshTree();
+	    			dictgrid.datagrid('reload');
+	    			var m = eval('(' + e + ')');
+	    			
+	    			$.messager.show({
+	    				title : '提示',
+	    				msg : m.msg,
+	    				timeout : 500,
+	    				style:{
+	    					top:1, // 与左边界的距离
+	    					left:document.body.clientWidth - document.body.clientWidth / 1.5 // 与顶部的距离
+	    				}
+	    			});
+	    		}
+	    	});
+	    }
 	});
 }
 
 function editDictFun() {
-	var rows = grid.datagrid('getSelections');
+	var rows = dictgrid.datagrid('getSelections');
     var num = rows.length;
     if (num == 0) {
         $.messager.show({

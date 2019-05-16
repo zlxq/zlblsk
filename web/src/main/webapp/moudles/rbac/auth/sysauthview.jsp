@@ -23,7 +23,7 @@
 		<div id="sysauthgrid" fit="true"></div>
 	</div>
 	
-	<div id="sysauthform-window" title="角色授权" style="width: 600px; height: 400px; padding: 5px">
+	<div id="sysauthform-window" title="角色授权" style="padding: 5px">
 		<div class="easyui-layout" data-options="fit:true">
 			<div class="easyui-layout" data-options="fit:true">
 				<div data-options="region:'center'" style="border: 0;">
@@ -46,7 +46,7 @@
 						</div>
 					</div>
 				</div>
-				<div data-options="region:'south'" style="padding: 10px">
+				<div data-options="region:'south'" style="background-color: #C0C0C0; padding: 5px 0px 20px 0px; overflow-y: hidden" scroll="no">
 					<div style="text-align: center;">
 						<a href="javascript:void(0)" onclick="saveAuthFun()" id="btn-save-auth" icon="icon-save">保存</a> <a href="javascript:void(0)" onclick="closeWindow()" id="btn-cancel-auth" icon="icon-cancel"> 取消</a>
 					</div>
