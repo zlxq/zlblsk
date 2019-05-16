@@ -44,4 +44,28 @@ http://www.springframework.org/schema/util/spring-util.xsd">
 		class="com.zlxq.rbac.party.service.impl.ZlxqPartyServiceImpl">
 		<constructor-arg ref="zlxqPartyDao" index="0" />
 	</bean>
+	
+	<bean id="zlxqDictionaryDao" parent="baseDao"
+		class="com.zlxq.rbac.dict.dao.impl.ZlxqDictionaryDaoImpl" />
+	<bean id="zlxqDictionaryService" class="com.zlxq.rbac.dict.service.impl.ZlxqDictionaryServiceImpl">
+		<constructor-arg ref="zlxqDictionaryDao" index="0" />
+	</bean>
+	
+	<bean id="zlxqLogDao" parent="baseDao"
+		class="com.zlxq.rbac.log.dao.impl.ZlxqLogDaoImpl" />
+	<bean id="zlxqLogService" class="com.zlxq.rbac.log.service.impl.ZlxqLogServiceImpl">
+		<constructor-arg ref="zlxqLogDao" index="0" />
+	</bean>
+	
+	<bean id="zlxqRoleDao" parent="baseDao"
+		class="com.zlxq.rbac.role.dao.impl.ZlxqRoleDaoImpl" />
+	<bean id="zlxqRoleService" class="com.zlxq.rbac.role.service.impl.ZlxqRoleServiceImpl">
+		<constructor-arg ref="zlxqRoleDao" index="0" />
+	</bean>
+	
+	<bean id="zlxqRoleMenuDao" parent="baseDao"
+		class="com.zlxq.rbac.rolemenu.dao.impl.ZlxqRoleMenuDaoImpl" />
+	<bean id="zlxqRoleMenuService" class="com.zlxq.rbac.rolemenu.service.impl.ZlxqRoleMenuServiceImpl">
+		<constructor-arg ref="zlxqRoleMenuDao" index="0" />
+	</bean>
 </beans>

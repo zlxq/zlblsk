@@ -42,4 +42,37 @@
 			<result>${successResultValue}</result>
 		</action>
 	</package>
+	
+	<package name="dict" namespace="/dict" extends="struts-default">
+		<action name="getDictTree" class="com.zlxq.rbac.dict.action.ZlxqDictionaryAction" method="getDictTree">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="getDictGrid" class="com.zlxq.rbac.dict.action.ZlxqDictionaryAction" method="getDictGrid">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="saveDict" class="com.zlxq.rbac.dict.action.ZlxqDictionaryAction" method="saveDict">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="editDict" class="com.zlxq.rbac.dict.action.ZlxqDictionaryAction" method="editDict">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="delDict" class="com.zlxq.rbac.dict.action.ZlxqDictionaryAction" method="delDict">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
+	
+	<package name="log" namespace="/log" extends="struts-default">
+		<action name="getLogInfo" class="com.zlxq.rbac.log.action.ZlxqLogAction" method="getLogInfo">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="exportSysLog" class="com.zlxq.rbac.log.action.ZlxqLogAction" method="exportSysLog">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
+	
+	<package name="role" namespace="/role" extends="struts-default">
+		<action name="getRoleInfo" class="com.zlxq.rbac.role.action.ZlxqRoleAction" method="getRoleInfo">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
 </struts>
