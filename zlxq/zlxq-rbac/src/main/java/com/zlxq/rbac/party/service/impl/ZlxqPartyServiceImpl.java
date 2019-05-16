@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import com.framework.util.Constant;
 import com.framework.util.MD5Util;
 import com.framework.util.PropertiesUtil;
+import com.zlxq.rbac.base.bean.OnlineUserBean;
 import com.zlxq.rbac.base.core.service.impl.BaseServiceImpl;
 import com.zlxq.rbac.base.util.ConstantRBAC;
 import com.zlxq.rbac.base.util.DictUtil;
@@ -108,9 +109,38 @@ public class ZlxqPartyServiceImpl extends BaseServiceImpl<ZlxqParty> implements 
 		
 		zlxqParty.setMenuList(menuList);
 		
+		String s = putOnlineUser(request, zlxqParty);
+		
+		if (null == s) {
+			return ConstantRBAC.REDIECT;
+		}
+		
 		pubSession(request, zlxqParty);
 		
 		return ConstantRBAC.SUCCESS;
+	}
+
+
+	/**
+	 * @MethodName: putOnlineUser
+	 * @Description: TODO(这里用一句话描述这个方法的作用) 
+	 * @author: PUB
+	 * @date: 2019年5月16日 下午7:11:50
+	 * @param request
+	 * @param zlxqParty
+	 * @return: void
+	 * @throws
+	 */
+	private String putOnlineUser(HttpServletRequest request, ZlxqParty zlxqParty) {
+		String newSid = request.getSession().getId();
+		String oldSid = OnlineUserBean.getUserById(zlxqParty.getId());
+		if (null != oldSid && !oldSid.equals(newSid)) {
+			return null;
+		} else {
+			OnlineUserBean.putUserBySessionId(newSid, zlxqParty);
+			OnlineUserBean.putUserById(zlxqParty.getId(), newSid);
+			return "success";
+		}
 	}
 
 
@@ -128,6 +158,7 @@ public class ZlxqPartyServiceImpl extends BaseServiceImpl<ZlxqParty> implements 
 		String sessionId = request.getSession().getId();
 		String webAppName = PropertiesUtil.getPropertyFromConfig("WEB_APP_NAME");
 		request.getSession().setAttribute("sessionId", sessionId);
+		request.getSession().setAttribute(sessionId, zlxqParty);
 		request.getSession().setAttribute("user", zlxqParty);
 		request.getSession().setAttribute("rootPath", request.getContextPath());
 		request.getSession().setAttribute("__ctxPath", request.getServletContext().getRealPath("/"));
