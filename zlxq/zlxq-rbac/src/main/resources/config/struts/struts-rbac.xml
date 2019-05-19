@@ -75,4 +75,13 @@
 			<result>${successResultValue}</result>
 		</action>
 	</package>
+	
+	<package name="party" namespace="/party" extends="struts-default">
+		<action name="getCompanyPage" class="com.zlxq.rbac.party.action.ZlxqPartyAction" method="getCompanyPage">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="saveCompany" class="com.zlxq.rbac.party.action.ZlxqPartyAction" method="saveCompany">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
 </struts>
