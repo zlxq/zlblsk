@@ -4,6 +4,8 @@ $(function() {
 
 	$('#btn-save-dict,#btn-cancel-dict').linkbutton();
 	win = $('#sysdictform-window').window({
+		width : "100%",
+	    height : "100%",
 		closed : true,
 		modal : true,
 		shadow : false
