@@ -1,30 +1,32 @@
 package com.zlxq.rbac.party.dao.impl;
 
+import java.util.List;
+
 import com.zlxq.rbac.base.core.dao.impl.BaseDaoImpl;
+import com.zlxq.rbac.base.util.ConstantRBAC;
 import com.zlxq.rbac.party.dao.ZlxqPartyRelationDao;
 
 import pojo.ZlxqPartyRelation;
 
-/**
- * @ClassName: ZlxqPartyRelationDaoImpl.java
- * @Description: TODO(方法描述)
- * @author: PUB
- * @date: 2019年4月17日 下午10:30:24
- *
- * @param <T>
- * @Copyright: 2019 www.zlxq.com Inc. All rights reserved.
- *
- */
 public class ZlxqPartyRelationDaoImpl extends BaseDaoImpl<ZlxqPartyRelation> implements ZlxqPartyRelationDao {
 
-	/**
-	 * @Title: ZlxqPartyRelationDaoImpl
-	 * @Description: TODO(这里用一句话描述这个方法的作用) 
-	 * @param persistType
-	 * @throws
-	 */
 	public ZlxqPartyRelationDaoImpl() {
 		super(ZlxqPartyRelation.class);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.zlxq.rbac.party.dao.ZlxqPartyRelationDao#getCPartyByPartyno(java.lang.
+	 * String)
+	 */
+	@Override
+	public List getCPartyByPartyno(String partyno) {
+		String sql = "SELECT ZPR.* FROM ZLXQ_PARTY ZP, ZLXQ_PARTY_RELATION ZPR WHERE ZP.PARTYNO = '" + partyno
+				+ " AND 'ZPR.PARTYID1 = ZP.ID AND ZP.ISVALIDATE = '" + ConstantRBAC.Y_ISVALIDATE
+				+ "' AND ZPR.ISVALIDATE = '" + ConstantRBAC.Y_ISVALIDATE + "'";
+		return findByJDBCReturnList(sql);
 	}
 
 }

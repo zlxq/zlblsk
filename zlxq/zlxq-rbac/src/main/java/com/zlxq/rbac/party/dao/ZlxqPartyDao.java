@@ -1,5 +1,8 @@
 package com.zlxq.rbac.party.dao;
 
+import java.util.List;
+
+import com.framework.util.PagingBean;
 import com.zlxq.rbac.base.core.dao.BaseDao;
 
 import pojo.ZlxqParty;
@@ -27,5 +30,28 @@ public interface ZlxqPartyDao extends BaseDao<ZlxqParty>{
 	 * @throws
 	 */
 	ZlxqParty getPartyByUser(String userno, String password);
+
+	/**
+	 * @TODO 通过编号查询PartyLIst
+	 * @author zhangl
+	 *
+	 * @param partyno
+	 * @return
+	 * @createtime 2019年5月19日
+	 * @version V1.0
+	 */
+	List getPartyByPartno(String partyno);
+
+	/**
+	 * @TODO 通过类型查询party界面
+	 * @author zhangl
+	 *
+	 * @param pb
+	 * @param partytype
+	 * @return
+	 * @createtime 2019年5月20日
+	 * @version V1.0
+	 */
+	String getCompanyPage(PagingBean pb, String partytype);
 
 }
