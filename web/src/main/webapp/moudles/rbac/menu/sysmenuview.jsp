@@ -18,40 +18,46 @@
 		<ul id="sysmenuview"></ul>
 	</div>
 	
-	<div id="addmenu-window" title="编辑菜单" style="width: 600px; height: 400px;">
-		<div style="padding: 20px 20px 20px 40px;">
-			<form method="post">
-				<table>
-					<tr>
-						<td>菜单编号：</td>
-						<td><input class="easyui-textbox" name="zlxqMenu.menucode" required="true" style="width: 200px;" /></td>
-					</tr>
-					<tr>
-						<td>菜单名称：</td>
-						<td><input class="easyui-textbox" name="zlxqMenu.menuname" required="true" style="width: 200px;" /></td>
-					</tr>
-					<tr>
-						<td>URL：</td>
-						<td><input class="easyui-textbox" name="zlxqMenu.menuurl" style="width: 200px;" /></td>
-					</tr>
-					<tr>
-						<td>菜单类型：</td>
-						<td><select class="easyui-combobox" data-options="editable:false" name="zlxqMenu.menutype" required="true" style="width: 200px;">
-								<option value="0" selected="selected">一级菜单</option>
-								<option value="1">二级菜单</option>
-								<option value="2">按钮</option>
-								<option value="3">url</option>
-						</select></td>
-					</tr>
-					<tr>
-						<td>菜单排序：</td>
-						<td><input class="easyui-numberbox" type="text" name="zlxqMenu.menusort" required="true" style="width: 200px;" /></td>
-					</tr>
-				</table>
-			</form>
-		</div>
-		<div style="text-align: center; padding: 10px; margin-top: 100px;">
-			<a href="javascript:void(0)" onclick="saveMenu()" id="btn-save-menu" icon="icon-save">保存</a> <a href="javascript:void(0)" onclick="closeWindow()" id="btn-cancel-menu" icon="icon-cancel"> 取消</a>
+	<div id="addmenu-window" title="编辑菜单" style="padding: 5px">
+		<div class="easyui-layout" data-options="fit:true">
+			<div data-options="region:'center'" style="border: 0;">
+				<div style="padding: 20px 20px 20px 40px;">
+					<form method="post">
+						<table>
+							<tr>
+								<td>菜单编号：</td>
+								<td><input class="easyui-textbox" name="zlxqMenu.menucode" required="true" style="width: 200px;" /></td>
+							</tr>
+							<tr>
+								<td>菜单名称：</td>
+								<td><input class="easyui-textbox" name="zlxqMenu.menuname" required="true" style="width: 200px;" /></td>
+							</tr>
+							<tr>
+								<td>URL：</td>
+								<td><input class="easyui-textbox" name="zlxqMenu.menuurl" style="width: 200px;" /></td>
+							</tr>
+							<tr>
+								<td>菜单类型：</td>
+								<td><select class="easyui-combobox" data-options="editable:false" name="zlxqMenu.menutype" required="true" style="width: 200px;">
+										<option value="0" selected="selected">一级菜单</option>
+										<option value="1">二级菜单</option>
+										<option value="2">按钮</option>
+										<option value="3">url</option>
+								</select></td>
+							</tr>
+							<tr>
+								<td>菜单排序：</td>
+								<td><input class="easyui-numberbox" type="text" name="zlxqMenu.menusort" required="true" style="width: 200px;" /></td>
+							</tr>
+						</table>
+					</form>
+				</div>
+			</div>
+			<div data-options="region:'south'" style="background-color: #C0C0C0; padding: 5px 0px 20px 0px; overflow-y: hidden" scroll="no">
+				<div style="text-align: center;">
+					<a href="javascript:void(0)" onclick="saveMenu()" id="btn-save-menu" icon="icon-save">保存</a> <a href="javascript:void(0)" onclick="closeWindow()" id="btn-cancel-menu" icon="icon-cancel"> 取消</a>
+				</div>
+			</div>
 		</div>
 	</div>
 </body>

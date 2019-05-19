@@ -4,6 +4,8 @@ $(function() {
 	$('#btn-save-menu,#btn-cancel-menu').linkbutton();
 
 	win = $('#addmenu-window').window({
+		width : "100%",
+	    height : "100%",
 		closed : true,
 		modal : true,
 		shadow : false
