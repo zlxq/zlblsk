@@ -49,7 +49,7 @@ public class ZlxqMenuServiceImpl extends BaseServiceImpl<ZlxqMenu> implements Zl
 	@Override
 	public List<ZlxqMenu> getAllMenu(String userNo, String userType) {
 		List<ZlxqMenu> menuList = null;
-		if (DictUtil.role_lx.role_lx_super.equals(userType)) {
+		if (DictUtil.role_lx.role_super.equals(userType)) {
 			menuList = this.zlxqMenuDao.getAllMenu();
 		} else {
 			menuList =  this.zlxqMenuDao.getMenuByUserNo(userNo);
