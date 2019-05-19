@@ -53,6 +53,14 @@
                 <comment>&#181;&#231;&#187;&#176;</comment>
             </column>
         </property>
+        <property name="isleaf" type="string">
+            <column name="ISLEAF" length="50">
+            </column>
+        </property>
+        <property name="iconcls" type="string">
+            <column name="ICONCLS" length="50">
+            </column>
+        </property>
         <property name="deptid" type="java.lang.Long">
             <column name="DEPTID">
                 <comment>&#181;&#165;&#206;&#187;ID</comment>
