@@ -1,12 +1,3 @@
-/**
- * @Title: ZlxqMenuAction.java
- * @Package: com.rbac.menu.action
- * @Description: TODO(用一句话描述该文件做什么)
- * @author: PUB
- * @date: 2019年5月2日 下午12:39:35
- * @version V1.0
- * @Copyright: 2019 www.zlxq.com Inc. All rights reserved.
- */
 package com.zlxq.rbac.menu.action;
 
 import javax.annotation.Resource;
@@ -24,15 +15,6 @@ public class ZlxqMenuAction extends BaseAction {
 	
 	public ZlxqMenu zlxqMenu;
 
-	/**
-	 * @MethodName: getMenuPage
-	 * @Description: TODO(这里用一句话描述这个方法的作用) 
-	 * @author: PUB
-	 * @date: 2019年5月6日 上午2:43:45
-	 * @return
-	 * @return: String
-	 * @throws
-	 */
 	public String getMenuPage() {
 		PagingBean pb = this.getInitPagingBean();
 		String json = this.zlxqMenuService.getMenuPage(pb);
@@ -40,15 +22,6 @@ public class ZlxqMenuAction extends BaseAction {
 		return SUCCESS;
 	}
 	
-	/**
-	 * @MethodName: getMenuTree
-	 * @Description: TODO(这里用一句话描述这个方法的作用) 
-	 * @author: PUB
-	 * @date: 2019年5月6日 上午2:48:26
-	 * @return
-	 * @return: String
-	 * @throws
-	 */
 	public String getMenuTree() {
 		String id = this.getRequest().getParameter("id");
 		String json = this.zlxqMenuService.getMenuTree(id);
@@ -56,15 +29,6 @@ public class ZlxqMenuAction extends BaseAction {
 		return SUCCESS;
 	}
 	
-	/**
-	 * @MethodName: saveMenuInfo
-	 * @Description: TODO(这里用一句话描述这个方法的作用) 
-	 * @author: PUB
-	 * @date: 2019年5月6日 上午2:50:38
-	 * @return
-	 * @return: String
-	 * @throws
-	 */
 	public String saveMenuInfo() {
 		String pid = this.getRequest().getParameter("pid");
 		String menuid = this.getRequest().getParameter("menuid");
@@ -73,15 +37,6 @@ public class ZlxqMenuAction extends BaseAction {
 		return SUCCESS;
 	}
 	
-	/**
-	 * @MethodName: delMenu
-	 * @Description: TODO(这里用一句话描述这个方法的作用) 
-	 * @author: PUB
-	 * @date: 2019年5月6日 上午2:54:07
-	 * @return
-	 * @return: String
-	 * @throws
-	 */
 	public String delMenu() {
 		String id = this.getRequest().getParameter("id");
 		String msg = this.zlxqMenuService.delMenu(id);
@@ -89,15 +44,6 @@ public class ZlxqMenuAction extends BaseAction {
 		return SUCCESS;
 	}
 	
-	/**
-	 * 查询角色菜单
-	 * 
-	 * @author zhangl
-	 *
-	 * @return
-	 * @createtime 2017年7月12日
-	 * @version V1.0
-	 */
 	public String getRoleMenu() {
 		String id = this.getRequest().getParameter("id");
 		String json = this.zlxqMenuService.getRoleMenu(id);
@@ -105,19 +51,18 @@ public class ZlxqMenuAction extends BaseAction {
 		return SUCCESS;
 	}
 	
-	/**
-	 * 查询未被授权的角色菜单
-	 * 
-	 * @author zhangl
-	 *
-	 * @return
-	 * @createtime 2017年7月12日
-	 * @version V1.0
-	 */
 	public String getNoRoleMenu() {
 		String id = this.getRequest().getParameter("id");
 		String json = this.zlxqMenuService.getNoRoleMenu(id);
 		setJsonString(json);
+		return SUCCESS;
+	}
+	
+	public String saveRoleMenu() {
+		String roleid = this.getRequest().getParameter("roleid");
+		String selFuns = this.getRequest().getParameter("selFuns");
+		String msg = this.zlxqMenuService.saveRoleMenu(roleid, selFuns);
+		setMessage(msg);
 		return SUCCESS;
 	}
 	
