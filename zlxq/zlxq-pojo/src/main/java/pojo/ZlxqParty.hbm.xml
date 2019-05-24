@@ -18,8 +18,8 @@
                 <comment>&#181;&#199;&#194;&#188;&#186;&#197;</comment>
             </column>
         </property>
-        <property name="partname" type="string">
-            <column name="PARTNAME" length="50">
+        <property name="partyname" type="string">
+            <column name="PARTYNAME" length="50">
                 <comment>&#200;&#203;&#212;&#177;/&#215;&#233;&#214;&#175;&#195;&#251;&#179;&#198;</comment>
             </column>
         </property>

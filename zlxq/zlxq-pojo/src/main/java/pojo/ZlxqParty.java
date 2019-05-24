@@ -17,7 +17,7 @@ public class ZlxqParty implements java.io.Serializable {
 	private Long cruDeptId;
 	private String partyno;
 	private String loginno;
-	private String partname;
+	private String partyname;
 	private String password;
 	private String sex;
 	private String partytype;
@@ -40,12 +40,12 @@ public class ZlxqParty implements java.io.Serializable {
 	public ZlxqParty() {
 	}
 
-	public ZlxqParty(String partyno, String loginno, String partname, String password, String sex, String partytype,
+	public ZlxqParty(String partyno, String loginno, String partyname, String password, String sex, String partytype,
 			String email, String tel,String isleaf, String iconcls, Long deptid, Long creator, Date createtime, Date updatetime, String isvalidate,
 			Set zlxqUserRoles, Set zlxqPartyRelationsForPartyid1, Set zlxqPartyRelationsForPartyid2) {
 		this.partyno = partyno;
 		this.loginno = loginno;
-		this.partname = partname;
+		this.partyname = partyname;
 		this.password = password;
 		this.sex = sex;
 		this.partytype = partytype;
@@ -87,12 +87,12 @@ public class ZlxqParty implements java.io.Serializable {
 		this.loginno = loginno;
 	}
 
-	public String getPartname() {
-		return this.partname;
+	public String getPartyname() {
+		return this.partyname;
 	}
 
-	public void setPartname(String partname) {
-		this.partname = partname;
+	public void setPartyname(String partyname) {
+		this.partyname = partyname;
 	}
 
 	public String getPassword() {
