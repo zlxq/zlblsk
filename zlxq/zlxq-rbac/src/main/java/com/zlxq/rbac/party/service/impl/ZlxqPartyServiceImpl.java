@@ -7,6 +7,9 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang.StringUtils;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import com.framework.util.MD5Util;
 import com.framework.util.PagingBean;
@@ -114,7 +117,7 @@ public class ZlxqPartyServiceImpl extends BaseServiceImpl<ZlxqParty> implements 
 		
 		ZlxqParty pParty = null;
 		if (StringUtils.isNotEmpty(pid) && !"null".equals(pid)) {
-			pParty = this.zlxqPartyDao.findByPk(pid);
+			pParty = this.zlxqPartyDao.findByPk(Long.parseLong(pid));
 			pParty.setIsleaf(ConstantRBAC.IS_LEAF_C);
 
 			pParty = this.zlxqPartyDao.save(pParty);
@@ -158,6 +161,38 @@ public class ZlxqPartyServiceImpl extends BaseServiceImpl<ZlxqParty> implements 
 	@Override
 	public String getCompanyPage(PagingBean pb, String partytype) {
 		return zlxqPartyDao.getCompanyPage(pb, partytype);
+	}
+
+	/* (non-Javadoc)
+	 * @see com.zlxq.rbac.party.service.ZlxqPartyService#getDeptTree(java.lang.String)
+	 */
+	@Override
+	public String getDeptTree(String id) {
+		String json = this.zlxqPartyDao.getDeptTree(id);
+		try {
+			JSONObject jo = new JSONObject(json);
+			JSONArray ja = jo.getJSONArray("rows");
+			json = ja.toString();
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		return json;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.zlxq.rbac.party.service.ZlxqPartyService#getDeptGrid(com.framework.util.PagingBean, java.lang.String, java.lang.String, java.lang.String)
+	 */
+	@Override
+	public String getDeptGrid(PagingBean pb, String id, String partyno, String partyname) {
+		return this.zlxqPartyDao.getDeptGrid(pb, id, partyno, partyname);
+	}
+
+	/* (non-Javadoc)
+	 * @see com.zlxq.rbac.party.service.ZlxqPartyService#getUserPage(com.framework.util.PagingBean, java.lang.String, java.lang.String, java.lang.String)
+	 */
+	@Override
+	public String getUserPage(PagingBean pb, String id, String partyno, String partyname) {
+		return this.zlxqPartyDao.getUserPage(pb, id, partyno, partyname);
 	}
 
 

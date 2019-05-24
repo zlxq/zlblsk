@@ -1,6 +1,7 @@
 package com.zlxq.rbac.base.filter;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -47,16 +48,24 @@ public class UrlDispatchFilter extends ZlxqFrameworkFilter {
 		ZlxqParty zp = (ZlxqParty) OnlineUserBean.getUserBySessionId(session.getId());
 		
 		if (null == zp) {
-			if (uri.indexOf(".jsp") != -1) {
-				logger.debug("被拦截：跳转到login页面！");
-				request.getRequestDispatcher("/").forward(request, response);
-			} else {
-				arg2.doFilter(request, response);
-			}
-		} else {
-			arg2.doFilter(request, response);
+			logger.debug("被拦截：跳转到login页面！");
+			PrintWriter out = response.getWriter();
+			out.println("<html>");
+			out.println("<script>");
+			out.println("window.open ('" + request.getContextPath() + "','_top')");
+			out.println("</script>");
+			out.println("</html>");
+//			if (uri.indexOf(".jsp") != -1) {
+//				logger.debug("被拦截：跳转到login页面！");
+//				PrintWriter out = response.getWriter();
+//				out.println("<html>");
+//				out.println("<script>");
+//				out.println("window.open ('" + request.getContextPath() + "','_top')");
+//				out.println("</script>");
+//				out.println("</html>");
+//			} 
 		}
-		
+		arg2.doFilter(request, response);
 	}
 
 	@Override

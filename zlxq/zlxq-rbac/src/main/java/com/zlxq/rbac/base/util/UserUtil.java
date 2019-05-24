@@ -47,6 +47,6 @@ public class UserUtil {
 	}
 	
 	public static String getPartyName() {
-		return getZlxqParty().getPartname();
+		return getZlxqParty().getPartyname();
 	}
 }

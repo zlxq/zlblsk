@@ -19,7 +19,7 @@ public abstract interface ZlxqRoleService extends BaseService<ZlxqRole> {
 	ZlxqRole findByRoleType(String roletype);
 
 	/**
-	 * 查询角色信息
+	 * @TODO查询角色信息
 	 * @author zhangl
 	 *
 	 * @param pb
@@ -28,5 +28,16 @@ public abstract interface ZlxqRoleService extends BaseService<ZlxqRole> {
 	 * @version V1.0
 	 */
 	String getRoleInfo(PagingBean pb);
+
+	/**
+	 * @TODO 保存角色
+	 * @author zhangl
+	 *
+	 * @param zlxqRole
+	 * @return
+	 * @createtime 2019年5月21日
+	 * @version V1.0
+	 */
+	String saveRole(ZlxqRole zlxqRole);
 
 }

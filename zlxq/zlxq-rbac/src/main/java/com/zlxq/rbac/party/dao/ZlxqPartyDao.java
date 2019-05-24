@@ -54,4 +54,43 @@ public interface ZlxqPartyDao extends BaseDao<ZlxqParty>{
 	 */
 	String getCompanyPage(PagingBean pb, String partytype);
 
+	/**
+	 * @TODO 查询组织树
+	 * @author zhangl
+	 *
+	 * @param id
+	 * @return
+	 * @createtime 2019年5月24日
+	 * @version V1.0
+	 */
+	String getDeptTree(String id);
+
+	/**
+	 * @TODO 点击组织树，平铺展示字典信息
+	 * @author zhangl
+	 *
+	 * @param pb
+	 * @param id
+	 * @param partyno
+	 * @param partyname
+	 * @return
+	 * @createtime 2019年5月24日
+	 * @version V1.0
+	 */
+	String getDeptGrid(PagingBean pb, String id, String partyno, String partyname);
+
+	/**
+	 * @TODO 查询用户信息
+	 * @author zhangl
+	 *
+	 * @param pb
+	 * @param id
+	 * @param partyno
+	 * @param partyname
+	 * @return
+	 * @createtime 2019年5月24日
+	 * @version V1.0
+	 */
+	String getUserPage(PagingBean pb, String id, String partyno, String partyname);
+
 }

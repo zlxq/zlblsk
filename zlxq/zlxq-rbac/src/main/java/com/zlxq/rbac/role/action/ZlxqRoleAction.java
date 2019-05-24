@@ -6,13 +6,17 @@ import com.framework.util.PagingBean;
 import com.zlxq.rbac.base.core.action.BaseAction;
 import com.zlxq.rbac.role.service.ZlxqRoleService;
 
+import pojo.ZlxqRole;
+
 public class ZlxqRoleAction extends BaseAction {
 
 	@Resource
 	private ZlxqRoleService zlxqRoleService;
 	
+	private ZlxqRole zlxqRole;
+	
 	/**
-	 * 查询角色信息
+	 * @TODO 查询角色信息
 	 * @author zhangl
 	 *
 	 * @return
@@ -24,5 +28,33 @@ public class ZlxqRoleAction extends BaseAction {
 		String json = this.zlxqRoleService.getRoleInfo(pb);
 		setJsonString(json);
 		return SUCCESS;
+	}
+	
+	/**
+	 * @TODO 保存角色
+	 * @author zhangl
+	 *
+	 * @return
+	 * @createtime 2019年5月21日
+	 * @version V1.0
+	 */
+	public String saveRole() {
+		String msg = this.zlxqRoleService.saveRole(this.zlxqRole);
+		setMessage(msg);
+		return SUCCESS;
+	}
+
+	/**
+	 * @return the zlxqRole
+	 */
+	public ZlxqRole getZlxqRole() {
+		return zlxqRole;
+	}
+
+	/**
+	 * @param zlxqRole the zlxqRole to set
+	 */
+	public void setZlxqRole(ZlxqRole zlxqRole) {
+		this.zlxqRole = zlxqRole;
 	}
 }

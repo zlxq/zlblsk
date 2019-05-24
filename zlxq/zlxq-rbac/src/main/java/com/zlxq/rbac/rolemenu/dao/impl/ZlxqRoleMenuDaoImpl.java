@@ -14,7 +14,7 @@ public class ZlxqRoleMenuDaoImpl extends BaseDaoImpl<ZlxqRoleMenu> implements Zl
 
 	@Override
 	public void delRoleAllMenuByRoleid(long rid) {
-		String sql = "DELETE FROM zlxq_rolemenu WHERE role_id = "+rid+" AND isvalidate = '1'";
+		String sql = "DELETE FROM zlxq_role_menu WHERE role_id = "+rid+" AND isvalidate = '1'";
 		this.jdbcTemplate.execute(sql);
 	}
 

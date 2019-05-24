@@ -46,22 +46,22 @@ public class LoginAction extends BaseAction {
 		String password = this.getRequest().getParameter("password");
 		
 		if (StringUtils.isEmpty(userno) || StringUtils.isEmpty(password)) {
-			setJsonString("用户名或密码为空，请重新输入！");
-			return FAILURE;
+			setMessage("用户名或密码为空，请重新输入！");
+			return SUCCESS;
 		}
 		
 		String msg = zlxqPartyService.login(userno, password, this.getRequest());
 		
 		if (FAILURE.equals(msg)) {
-			setJsonString("用户名或密码错误，请重新输入？");
-			return FAILURE;
+			setMessage("用户名或密码错误，请重新输入？");
+			return SUCCESS;
 		} else if (ConstantRBAC.REDIECT.equals(msg)) {
-			return FAILURE;
 		}
 		
 		
 		System.out.println("\t\n" + "登陆人ip:" + IPUtil.getIpAddr(this.getRequest()) + "\t\n");
 		
+		setMessage("success");
 		return SUCCESS;
 	}
 	

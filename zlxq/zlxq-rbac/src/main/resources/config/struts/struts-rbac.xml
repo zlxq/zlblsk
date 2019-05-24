@@ -5,13 +5,13 @@
 
 <struts>
 	<package name="login" namespace="/" extends="struts-default">
-<!-- 		<action name="login" class="com.zlxq.rbac.login.LoginAction" method="login"> -->
-<!-- 			<result>${successResultValue}</result> -->
-<!-- 		</action> -->
 		<action name="login" class="com.zlxq.rbac.login.LoginAction" method="login">
-			<result name="success">moudles/frame/home/home.jsp</result>
-			<result name="failure">moudles/frame/index/index.html</result>
+			<result>${successResultValue}</result>
 		</action>
+<!-- 		<action name="login" class="com.zlxq.rbac.login.LoginAction" method="login"> -->
+<!-- 			<result name="success">moudles/frame/home/home.jsp</result> -->
+<!-- 			<result name="failure">moudles/frame/index/index.html</result> -->
+<!-- 		</action> -->
 		<action name="layout" class="com.zlxq.rbac.login.LoginAction" method="layout">
 			<result name="success">moudles/frame/index/index.html</result>
 		</action>
@@ -74,6 +74,9 @@
 		<action name="getRoleInfo" class="com.zlxq.rbac.role.action.ZlxqRoleAction" method="getRoleInfo">
 			<result>${successResultValue}</result>
 		</action>
+		<action name="saveRole" class="com.zlxq.rbac.role.action.ZlxqRoleAction" method="saveRole">
+			<result>${successResultValue}</result>
+		</action>
 	</package>
 	
 	<package name="party" namespace="/party" extends="struts-default">
@@ -81,6 +84,21 @@
 			<result>${successResultValue}</result>
 		</action>
 		<action name="saveCompany" class="com.zlxq.rbac.party.action.ZlxqPartyAction" method="saveCompany">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="getDeptTree" class="com.zlxq.rbac.party.action.ZlxqPartyAction" method="getDeptTree">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="getDeptGrid" class="com.zlxq.rbac.party.action.ZlxqPartyAction" method="getDeptGrid">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="saveDept" class="com.zlxq.rbac.party.action.ZlxqPartyAction" method="saveDept">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="getUserPage" class="com.zlxq.rbac.party.action.ZlxqPartyAction" method="getUserPage">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="saveParty" class="com.zlxq.rbac.party.action.ZlxqPartyAction" method="saveParty">
 			<result>${successResultValue}</result>
 		</action>
 	</package>
