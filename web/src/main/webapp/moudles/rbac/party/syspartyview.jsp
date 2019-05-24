@@ -52,92 +52,45 @@
 		</div>
 	</div>
 	
-	<div id="addparty-window" title="编辑菜单" style="width: 600px; height: 400px;">
-		<div style="padding: 20px 20px 20px 40px;">
-			<form method="post">
-				<table>
-					<tr>
-						<td>编号：</td>
-						<td><input class="easyui-textbox" name="zlxqParty.partyno" required="true" style="width: 200px;" /></td>
-					</tr>
-					<tr>
-						<td>姓名：</td>
-						<td><input class="easyui-textbox" name="zlxqParty.partyname" required="true" style="width: 200px;" /></td>
-					</tr>
-					<tr>
-						<td>性别：</td>
-						<td><select class="easyui-combobox" data-options="editable:false" name="zlxqParty.sex" required="true" style="width: 200px;">
-								<option value="0" selected="selected">男</option>
-								<option value="1">女</option>
-						</select></td>
-					</tr>
-					<tr>
-						<td>邮箱：</td>
-						<td><input class="easyui-textbox" name="zlxqParty.email" required="true" style="width: 200px;" /></td>
-					</tr>
-					<tr>
-						<td>电话：</td>
-						<td><input class="easyui-numberbox" name="zlxqParty.tel" required="true" style="width: 200px;" /></td>
-					</tr>
-				</table>
-			</form>
+	<div id="addparty-window" title="编辑用户" style="padding: 5px">
+		<div class="easyui-layout" data-options="fit:true">
+			<div data-options="region:'center'" style="border: 0;">
+				<div style="padding: 20px 20px 20px 40px;">
+					<form method="post">
+						<table>
+							<tr>
+								<td>编号：</td>
+								<td><input class="easyui-textbox" name="zlxqParty.partyno" required="true" style="width: 200px;" /></td>
+							</tr>
+							<tr>
+								<td>姓名：</td>
+								<td><input class="easyui-textbox" name="zlxqParty.partyname" required="true" style="width: 200px;" /></td>
+							</tr>
+							<tr>
+								<td>性别：</td>
+								<td><select class="easyui-combobox" data-options="editable:false" name="zlxqParty.sex" required="true" style="width: 200px;">
+										<option value="0" selected="selected">男</option>
+										<option value="1">女</option>
+								</select></td>
+							</tr>
+							<tr>
+								<td>邮箱：</td>
+								<td><input class="easyui-textbox" name="zlxqParty.email" required="true" style="width: 200px;" /></td>
+							</tr>
+							<tr>
+								<td>电话：</td>
+								<td><input class="easyui-numberbox" name="zlxqParty.tel" required="true" style="width: 200px;" /></td>
+							</tr>
+						</table>
+					</form>
+				</div>
+			</div>
+			<div data-options="region:'south'" style="background-color: #C0C0C0; padding: 5px 0px 20px 0px; overflow-y: hidden" scroll="no">
+				<div style="text-align: center;">
+					<a href="javascript:void(0)" onclick="savePartyFun()" id="btn-save-party" icon="icon-save">保存</a> <a href="javascript:void(0)" onclick="closeWindow()" id="btn-cancel-party" icon="icon-cancel"> 取消</a>
+				</div>
+			</div>
 		</div>
-		<div style="text-align: center; padding: 5px;">
-			<a href="javascript:void(0)" onclick="savePartyFun()" id="btn-save-party" icon="icon-save">保存</a> <a href="javascript:void(0)" onclick="closeWindow()" id="btn-cancel-party" icon="icon-cancel"> 取消</a>
-		</div>
-	</div>
-	<!-- 导入数据弹窗 -->
-
-<!-- 	<div id="excelparty-window" class="easyui-panel" title="上传文件"
-		style="width: 450px; height: 200px; padding: 30px 30px 30px 30px;">
-		<div style="margin-bottom: 20px">
-			<div>文件：</div>
-			<input id="fileImport" class="easyui-filebox" name="myfile"
-				data-options="prompt:'选择文件...'" style="width: 100%">
-		</div>
-		<div>
-			<a id="uploadFile" class="easyui-linkbutton"
-				onclick="saveImportFun()" href="javascript:void(0)">上传</a> <a
-				class="easyui-linkbutton" onclick="closeImportClick()"
-				href="javascript:void(0)" href="javascript:void(0)">关闭</a>
-		</div>
-
-	</div> -->
-
-
-	<div id="excelparty-window" title="excel导入"
-		style="width: 600px; height: 400px;">
-		<form method="post"enctype="multipart/form-data">
-		<div style="margin-bottom: 10px; margin: 80px 80px 0px 80px">
-				<div>文件：</div>
-				<input id="importfile" class="easyui-filebox" name="myfile" required="true"
-					data-options="prompt:'选择文件...'" style="width: 400px;">
-		</div>
-		<div style="text-align: center; padding: 5px;">
-			<a id="uploadFile" class="easyui-linkbutton"
-				onclick="saveImportFun()" href="javascript:void(0)">上传</a> <a
-				class="easyui-linkbutton" onclick="closeImportClick()"
-				href="javascript:void(0)" href="javascript:void(0)">关闭</a>
-		</div>
-		</form>
-		<!-- <div style="padding: 20px 20px 20px 40px;">
-			<form method="post">
-				<table style="margin:5px;height:70px;">
-		            <tr>
-		                <td>请选择文件</td>
-		                <td width="5px;"></td>
-		                <td><input type="file" class="easyui-filebox" id="fileImport" name="myfile" style="width:260px;"></td>
-		                <td></td>
-		            </tr>
-           
-              </table>
-        <div style="text-align: center; padding: 5px;">
-            <a id="uploadFile" class="easyui-linkbutton" onclick="saveImportFun()" href="javascript:void(0)">上传</a>
-            <a class="easyui-linkbutton" onclick="closeImportClick()" href="javascript:void(0)" href="javascript:void(0)">关闭</a>
-        </div>
-			</form>
-		</div>
-		 -->
 	</div>
 </body>
 </html>

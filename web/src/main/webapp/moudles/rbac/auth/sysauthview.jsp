@@ -52,5 +52,40 @@
 			</div>
 		</div>
 	</div>
+	<div id="sysroleform-window" title="角色编辑" style="padding: 5px">
+		<div class="easyui-layout" data-options="fit:true">
+			<div data-options="region:'center'" style="border: 0;">
+				<div style="padding: 20px 20px 20px 40px;">
+					<form method="post">
+						<table>
+							<tr>
+								<td>角色编号：</td>
+								<td><input class="easyui-textbox" name="zlxqRole.roleno" required="true" style="width: 200px;" /></td>
+							</tr>
+							<tr>
+								<td>角色名称：</td>
+								<td><input class="easyui-textbox" name="zlxqRole.rolename" required="true" style="width: 200px;" /></td>
+							</tr>
+							<tr>
+								<td>角色类型：</td>
+								<td>
+									<select class="easyui-combobox" data-options="editable:false" name="zlxqRole.roletype" required="true" style="width: 200px;">
+										<option value="100100">超级管理员</option>
+										<option value="100200">系统管理员</option>
+										<option value="100300" selected="selected">普通角色</option>
+									</select>
+								</td>
+							</tr>
+						</table>
+					</form>
+				</div>
+			</div>
+			<div data-options="region:'south'" style="background-color: #C0C0C0; padding: 5px 0px 20px 0px; overflow-y: hidden" scroll="no">
+				<div style="text-align: center;">
+					<a href="javascript:void(0)" onclick="saveRoleFun()" id="btn-save-auth" icon="icon-save">保存</a> <a href="javascript:void(0)" onclick="closeRoleWindow()" id="btn-cancel-auth" icon="icon-cancel"> 取消</a>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

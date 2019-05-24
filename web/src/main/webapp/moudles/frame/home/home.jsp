@@ -112,7 +112,7 @@
 			<img style="position:fixed;" src="<%=request.getContextPath() %>/frame/images/logo1.png" height="4%" width="5%" />
 			</div>
 			<div style="float:right; margin-right:30px">
-				<font color="black"><a href="javascript:;" onclick="editPasswordFun()">欢迎:${user.getPartname() }</a></font>
+				<font color="black"><a href="javascript:;" onclick="editPasswordFun()">欢迎:${user.getPartyname() }</a></font>
 				|
 				<a href="javascript:;" onclick="layout()">退出</a>
 			</div>

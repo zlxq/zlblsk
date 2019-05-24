@@ -15,7 +15,7 @@
 <script type="text/javascript">
 
 	function doSearch() {
-		grid.datagrid('load',{
+		companygrid.datagrid('load',{
 			partyno: $('#partyno').val(),
 			partyname: $('#partyname').val()
 		});
@@ -58,7 +58,7 @@
 							</tr>
 							<tr>
 								<td>公司名称：</td>
-								<td><input class="easyui-textbox" name="zlxqParty.partname" required="true" style="width: 200px;" /></td>
+								<td><input class="easyui-textbox" name="zlxqParty.partyname" required="true" style="width: 200px;" /></td>
 							</tr>
 							<tr>
 								<td>公司地址：</td>

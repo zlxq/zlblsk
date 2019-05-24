@@ -35,7 +35,7 @@ $(function() {
 			title : '公司编号',
 			width : 100
 		}, {
-			field : 'PARTNAME',
+			field : 'PARTYNAME',
 			title : '公司名称',
 			width : 100,
 			sortable : true
@@ -46,7 +46,7 @@ $(function() {
 			sortable : true
 		}, {
 			field : 'MANAGER',
-			title : '管理员姓名',
+			title : '管理员',
 			width : 100,
 			sortable : true
 		} ] ],

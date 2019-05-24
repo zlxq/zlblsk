@@ -4,18 +4,13 @@ $(function() {
 
 	$('#btn-save-dept,#btn-cancel-dept').linkbutton();
 	win = $('#sysdeptform-window').window({
+		width : "100%",
+	    height : "100%",
 		closed : true,
 		modal : true,
 		shadow : false
 	});
 	form = win.find('form');
-
-	$('#btn-search,#btn-search-cancel').linkbutton();
-	searchWin = $('#search-window').window({
-		closed : true,
-		modal : true
-	});
-	searchForm = searchWin.find('form');
 
 	tree.tree({
 		checkbox : false,
@@ -92,7 +87,7 @@ function addDeptFun() {
 	} else {
 		$.messager.show({
 			title : '提示',
-			msg : '请选择学校节点',
+			msg : '请选择公司',
 			timeout : 500,
 			style:{
 				top:1, // 与左边界的距离

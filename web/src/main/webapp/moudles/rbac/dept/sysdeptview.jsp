@@ -51,23 +51,29 @@
 		</div>
 	</div>
 	
-	<div id="sysdeptform-window" title="编辑组织" style="width: 600px; height: 400px;">
-		<div style="padding: 20px 20px 20px 40px;">
-			<form method="post">
-				<table>
-					<tr>
-						<td>组织编号：</td>
-						<td><input class="easyui-textbox" name="zlxqParty.partyno" required="true" style="width: 200px;" /></td>
-					</tr>
-					<tr>
-						<td>组织名称：</td>
-						<td><input class="easyui-textbox" name="zlxqParty.partyname" required="true" style="width: 200px;" /></td>
-					</tr>
-				</table>
-			</form>
-		</div>
-		<div style="text-align: center; padding: 10px; margin-top: 100px;">
-			<a href="javascript:void(0)" onclick="saveDeptFun()" id="btn-save-dept" icon="icon-save">保存</a> <a href="javascript:void(0)" onclick="closeWindow()" id="btn-cancel-dept" icon="icon-cancel"> 取消</a>
+	<div id="sysdeptform-window" title="编辑组织" style="padding: 5px">
+		<div class="easyui-layout" data-options="fit:true">
+			<div data-options="region:'center'" style="border: 0;">
+				<div style="padding: 20px 20px 20px 40px;">
+					<form method="post">
+						<table>
+							<tr>
+								<td>组织编号：</td>
+								<td><input class="easyui-textbox" name="zlxqParty.partyno" required="true" style="width: 200px;" /></td>
+							</tr>
+							<tr>
+								<td>组织名称：</td>
+								<td><input class="easyui-textbox" name="zlxqParty.partyname" required="true" style="width: 200px;" /></td>
+							</tr>
+						</table>
+					</form>
+				</div>
+			</div>
+			<div data-options="region:'south'" style="background-color: #C0C0C0; padding: 5px 0px 20px 0px; overflow-y: hidden" scroll="no">
+				<div style="text-align: center;">
+					<a href="javascript:void(0)" onclick="saveDeptFun()" id="btn-save-dept" icon="icon-save">保存</a> <a href="javascript:void(0)" onclick="closeWindow()" id="btn-cancel-dept" icon="icon-cancel"> 取消</a>
+				</div>
+			</div>
 		</div>
 	</div>
 </body>
