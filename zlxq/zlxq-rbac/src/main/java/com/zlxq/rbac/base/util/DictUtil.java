@@ -6,6 +6,8 @@ public class DictUtil {
 	public static String deptString = "200"; //party表中partytype类型
 	public static String partyRelationString = "300"; //partyrelation表中type类型
 	
+	public static String equipString = "400"; //设备类型
+	
 	
 	public static final class role_lx {
 		public static String role_super = "100100";//超级管理员
@@ -24,5 +26,10 @@ public class DictUtil {
 		public static String partyRel_zzhyhz = "300200";//组织和用户组
 		public static String partyRel_zzhr = "300300";//组织和人
 		public static String partyRel_yhzhr = "300400";//用户组和人
+	}
+	
+	public static final class equip_lx {
+		public static String equip_ddj = "400100";//堆垛机
+		public static String equip_cgq = "400200";//传感器
 	}
 }
