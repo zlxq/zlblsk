@@ -14,4 +14,5 @@ import com.zlxq.rbac.base.core.action.BaseAction;
  */
 public class BlskEquipInfoAction extends BaseAction {
 
+	
 }
