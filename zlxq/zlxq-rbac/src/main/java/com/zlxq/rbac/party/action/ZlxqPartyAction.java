@@ -136,6 +136,7 @@ public class ZlxqPartyAction extends BaseAction {
 		String pid = this.getRequest().getParameter("pid");
 		String partytype = DictUtil.dept_lx.dept_ry;
 		String relationType = DictUtil.partyRel_lx.partyRel_zzhr;
+		this.zlxqParty.setLoginno(this.zlxqParty.getPartyno());
 		String msg = this.zlxqPartyService.saveDept(this.zlxqParty, pid, partytype, relationType);
 		setMessage(msg);
 		return SUCCESS;

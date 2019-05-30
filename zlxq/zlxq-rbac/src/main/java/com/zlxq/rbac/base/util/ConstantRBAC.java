@@ -22,7 +22,7 @@ public class ConstantRBAC extends Constant {
 	public static final String FAILURE = "failure";
 	public static final String REDIECT = "rediect";
 	
-	public static final String IS_LEAF_O = "open";
-	public static final String IS_LEAF_C = "close";
+	public static final String IS_LEAF_OPEN = "open";
+	public static final String IS_LEAF_CLOSED = "closed";
 	public static final String ICONCLS_DEFAULT = "icon-city";
 }

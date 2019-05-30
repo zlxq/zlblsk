@@ -3,6 +3,9 @@ package com.zlxq.rbac.party.service.impl;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
+
+import com.framework.util.JsonUtil;
 import com.zlxq.rbac.base.core.service.impl.BaseServiceImpl;
 import com.zlxq.rbac.base.util.ConstantRBAC;
 import com.zlxq.rbac.base.util.UserUtil;
@@ -38,11 +41,24 @@ public class ZlxqPartyRelationServiceImpl extends BaseServiceImpl<ZlxqPartyRelat
 		zpr.setZlxqPartyByPartyid1(pParty);
 		zpr.setZlxqPartyByPartyid2(zlxqParty);
 		zpr.setType(relationType);
-		zpr.setDeptid(UserUtil.getCompanyId());
+		zpr.setCreator(UserUtil.getUserId());
+		zpr.setDeptid(zlxqParty.getDeptid());
 		zpr.setCreatetime(new Date());
 		zpr.setIsvalidate(ConstantRBAC.Y_ISVALIDATE);
 		
 		this.zlxqPartyRelationDao.save(zpr);
+	}
+
+	/* (non-Javadoc)
+	 * @see com.zlxq.rbac.party.service.ZlxqPartyRelationService#getPidByCid(java.lang.Long)
+	 */
+	@Override
+	public Long getPidByCid(Long cid) {
+		ZlxqPartyRelation zpr = this.zlxqPartyRelationDao.getPidByCid(cid);
+		if (null == zpr.getZlxqPartyByPartyid1()) {
+			return null;
+		}
+		return zpr.getZlxqPartyByPartyid1().getId();
 	}
 
 }

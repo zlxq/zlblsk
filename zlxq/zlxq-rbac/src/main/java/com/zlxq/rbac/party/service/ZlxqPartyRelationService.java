@@ -32,4 +32,15 @@ public interface ZlxqPartyRelationService extends BaseService<ZlxqPartyRelation>
 	 */
 	void savePartyRelation(ZlxqParty pParty, ZlxqParty zlxqParty, String relationType);
 
+	/**
+	 * @TODO 通过子节点查询父节点
+	 * @author zhangl
+	 *
+	 * @param cid
+	 * @return
+	 * @createtime 2019年5月30日
+	 * @version V1.0
+	 */
+	Long getPidByCid(Long cid);
+
 }

@@ -118,5 +118,27 @@ public interface ZlxqPartyService extends BaseService<ZlxqParty> {
 	 * @version V1.0
 	 */
 	String getUserPage(PagingBean pb, String id, String partyno, String partyname);
+	
+	/**
+	 * @TODO 查询当前ID的根节点
+	 * @author zhangl
+	 *
+	 * @param cid
+	 * @return
+	 * @createtime 2019年5月30日
+	 * @version V1.0
+	 */
+	Long getCompanyId(Long cid);
+	
+	/**
+	 * @TODO 查询当前节点的单位节点
+	 * @author zhangl
+	 *
+	 * @param cid
+	 * @return
+	 * @createtime 2019年5月30日
+	 * @version V1.0
+	 */
+	Long getCurDeptid(Long cid);
 
 }

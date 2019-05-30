@@ -19,4 +19,15 @@ public interface ZlxqPartyRelationDao extends BaseDao<ZlxqPartyRelation> {
 	 */
 	List getCPartyByPartyno(String partyno);
 
+	/**
+	 * @TODO
+	 * @author zhangl
+	 *
+	 * @param cid
+	 * @return
+	 * @createtime 2019年5月30日
+	 * @version V1.0
+	 */
+	ZlxqPartyRelation getPidByCid(Long cid);
+
 }

@@ -36,6 +36,8 @@ public class ZlxqPartyServiceImpl extends BaseServiceImpl<ZlxqParty> implements 
 	@Resource
 	private ZlxqPartyRelationService zlxqPartyRelationService;
 	
+	private Long companyId;
+	
 	public ZlxqPartyServiceImpl(ZlxqPartyDao zlxqPartyDao) {
 		super(zlxqPartyDao);
 		this.zlxqPartyDao = zlxqPartyDao;
@@ -66,6 +68,8 @@ public class ZlxqPartyServiceImpl extends BaseServiceImpl<ZlxqParty> implements 
 		List<ZlxqMenu> menuList = this.zlxqMenuService.getAllMenu(userno, userType);
 		
 		zlxqParty.setMenuList(menuList);
+		
+		zlxqParty.setCompanyId(zlxqParty.getDeptid());
 		
 		String s = putOnlineUser(request, zlxqParty);
 		
@@ -118,12 +122,13 @@ public class ZlxqPartyServiceImpl extends BaseServiceImpl<ZlxqParty> implements 
 		ZlxqParty pParty = null;
 		if (StringUtils.isNotEmpty(pid) && !"null".equals(pid)) {
 			pParty = this.zlxqPartyDao.findByPk(Long.parseLong(pid));
-			pParty.setIsleaf(ConstantRBAC.IS_LEAF_C);
+			pParty.setIsleaf(ConstantRBAC.IS_LEAF_CLOSED);
 
 			pParty = this.zlxqPartyDao.save(pParty);
 		}
 		
-		zlxqParty.setIsleaf(ConstantRBAC.IS_LEAF_O);
+		zlxqParty.setCreator(UserUtil.getUserId());
+		zlxqParty.setIsleaf(ConstantRBAC.IS_LEAF_OPEN);
 		zlxqParty.setIconcls(ConstantRBAC.ICONCLS_DEFAULT);
 		zlxqParty.setPartytype(partytype);
 		zlxqParty.setCreatetime(new Date());
@@ -134,6 +139,12 @@ public class ZlxqPartyServiceImpl extends BaseServiceImpl<ZlxqParty> implements 
 		}
 		
 		try {
+			
+			if (null != pParty) {
+				Long id = this.getCompanyId(pParty.getId());
+				zlxqParty.setDeptid(id);
+			}
+			
 			zlxqParty = this.zlxqPartyDao.save(zlxqParty);
 			
 			if (partytype.equals(DictUtil.dept_lx.dept_gs)) {
@@ -193,6 +204,29 @@ public class ZlxqPartyServiceImpl extends BaseServiceImpl<ZlxqParty> implements 
 	@Override
 	public String getUserPage(PagingBean pb, String id, String partyno, String partyname) {
 		return this.zlxqPartyDao.getUserPage(pb, id, partyno, partyname);
+	}
+
+	/* (non-Javadoc)
+	 * @see com.zlxq.rbac.party.service.ZlxqPartyService#getCompanyId(java.lang.Long)
+	 */
+	@Override
+	public Long getCompanyId(Long cid) {
+		Long pid = this.zlxqPartyRelationService.getPidByCid(cid);
+		if (null != pid) {
+			getCompanyId(pid);
+		} else {
+			companyId = cid;
+		}
+		
+		return companyId;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.zlxq.rbac.party.service.ZlxqPartyService#getCurDeptid(java.lang.Long)
+	 */
+	@Override
+	public Long getCurDeptid(Long cid) {
+		return this.zlxqPartyRelationService.getPidByCid(cid);
 	}
 
 

@@ -6,6 +6,7 @@ import com.zlxq.rbac.base.core.dao.impl.BaseDaoImpl;
 import com.zlxq.rbac.base.util.ConstantRBAC;
 import com.zlxq.rbac.party.dao.ZlxqPartyRelationDao;
 
+import pojo.ZlxqParty;
 import pojo.ZlxqPartyRelation;
 
 public class ZlxqPartyRelationDaoImpl extends BaseDaoImpl<ZlxqPartyRelation> implements ZlxqPartyRelationDao {
@@ -27,6 +28,19 @@ public class ZlxqPartyRelationDaoImpl extends BaseDaoImpl<ZlxqPartyRelation> imp
 				+ " AND 'ZPR.PARTYID1 = ZP.ID AND ZP.ISVALIDATE = '" + ConstantRBAC.Y_ISVALIDATE
 				+ "' AND ZPR.ISVALIDATE = '" + ConstantRBAC.Y_ISVALIDATE + "'";
 		return findByJDBCReturnList(sql);
+	}
+
+	/* (non-Javadoc)
+	 * @see com.zlxq.rbac.party.dao.ZlxqPartyRelationDao#getPidByCid(java.lang.Long)
+	 */
+	@Override
+	public ZlxqPartyRelation getPidByCid(Long cid) {
+		String hql = "select t from ZlxqPartyRelation t where t.zlxqPartyByPartyid2.id = "+cid+" and t.isvalidate = '"+ConstantRBAC.Y_ISVALIDATE+"'";
+		List<ZlxqPartyRelation> list = (List<ZlxqPartyRelation>) findByHQL(hql);
+		if (list.size() > 0) {
+			return list.get(0);
+		}
+		return null;
 	}
 
 }
