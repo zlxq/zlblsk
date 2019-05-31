@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-5-31 14:43:34 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="pojo.BlskTemplateMain" table="blsk_template_main" catalog="blsk">
+        <id name="id" type="java.lang.Long">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="docid" type="java.lang.Long">
+            <column name="DOCID" />
+        </property>
+        <property name="no" type="string">
+            <column name="NO" length="50">
+                <comment>&#196;&#163;&#176;&#229;&#177;&#224;&#186;&#197;</comment>
+            </column>
+        </property>
+        <property name="type" type="string">
+            <column name="TYPE" length="110">
+                <comment>
+                &#196;&#163;&#176;&#229;&#192;&#224;&#208;&#205;&#163;&#168;&#200;&#235;&#191;&#226;&#161;&#162;&#179;&#246;&#191;&#226;&#161;&#162;&#197;&#204;&#181;&#227;&#163;&#169;</comment>
+            </column>
+        </property>
+        <property name="orderno" type="string">
+            <column name="ORDERNO" length="50">
+                <comment>&#181;&#165;&#190;&#221;&#177;&#224;&#186;&#197;</comment>
+            </column>
+        </property>
+        <property name="onoLine" type="java.lang.Long">
+            <column name="ONO_LINE">
+                <comment>&#181;&#165;&#190;&#221;&#177;&#224;&#186;&#197;&#203;&#249;&#212;&#218;&#208;&#208;</comment>
+            </column>
+        </property>
+        <property name="header" type="string">
+            <column name="HEADER" length="2000">
+                <comment>&#193;&#208;&#205;&#183;</comment>
+            </column>
+        </property>
+        <property name="headerLine" type="java.lang.Long">
+            <column name="HEADER_LINE">
+                <comment>&#193;&#208;&#205;&#183;&#203;&#249;&#212;&#218;&#208;&#208;</comment>
+            </column>
+        </property>
+        <property name="deptid" type="java.lang.Long">
+            <column name="DEPTID">
+                <comment>&#203;&#249;&#202;&#244;&#181;&#165;&#206;&#187;</comment>
+            </column>
+        </property>
+        <property name="creator" type="java.lang.Long">
+            <column name="CREATOR">
+                <comment>&#180;&#180;&#189;&#168;&#213;&#223;</comment>
+            </column>
+        </property>
+        <property name="createtime" type="timestamp">
+            <column name="CREATETIME" length="19">
+                <comment>&#180;&#180;&#189;&#168;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="updatetime" type="timestamp">
+            <column name="UPDATETIME" length="19">
+                <comment>&#208;&#222;&#184;&#196;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="isvalidate" type="string">
+            <column name="ISVALIDATE" length="1">
+                <comment>&#202;&#199;&#183;&#241;&#211;&#208;&#208;&#167;</comment>
+            </column>
+        </property>
+        <set name="blskTemplateDetails" table="blsk_template_detail" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="TEMPLATEID">
+                    <comment>&#196;&#163;&#176;&#229;ID</comment>
+                </column>
+            </key>
+            <one-to-many class="pojo.BlskTemplateDetail" />
+        </set>
+        <set name="blskTemplateDetails_1" table="blsk_template_detail" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="TEMPLATEID">
+                    <comment>&#196;&#163;&#176;&#229;ID</comment>
+                </column>
+            </key>
+            <one-to-many class="pojo.BlskTemplateDetail" />
+        </set>
+    </class>
+</hibernate-mapping>

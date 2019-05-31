@@ -3,6 +3,7 @@
  */
 package com.blsk.inv.qrcode.service.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.json.JSONArray;
@@ -13,8 +14,9 @@ import com.blsk.inv.qrcode.dao.BlskQrcodeInfoDao;
 import com.blsk.inv.qrcode.service.BlskQrcodeInfoService;
 import com.framework.util.JsonUtil;
 import com.zlxq.rbac.base.core.service.impl.BaseServiceImpl;
-import com.zlxq.rbac.base.util.QrcodeUtil;
+import com.zlxq.rbac.base.util.ConstantRBAC;
 import com.zlxq.rbac.base.util.SequenceUtil;
+import com.zlxq.rbac.base.util.UserUtil;
 
 import pojo.BlskQrcodeInfo;
 
@@ -47,7 +49,7 @@ public class BlskQrcodeInfoServiceImpl extends BaseServiceImpl<BlskQrcodeInfo> i
 	 */
 	@Override
 	public String getQrcodeByCompanyId(Long companyId) {
-		List qrList = this.blskQrcodeInfoDao.getQrcodeByCompanyId(companyId);
+		List<?> qrList = this.blskQrcodeInfoDao.getQrcodeByCompanyId(companyId);
 		String qrcode = SequenceUtil.getQrcode();
 		if (qrList.size() > 0) {
 			String listTOJson = JsonUtil.listTOJson(qrList);
@@ -58,21 +60,16 @@ public class BlskQrcodeInfoServiceImpl extends BaseServiceImpl<BlskQrcodeInfo> i
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}
+		} else {
+			BlskQrcodeInfo blskQrcodeInfo = new BlskQrcodeInfo();
+			blskQrcodeInfo.setQrcode(qrcode);
+			blskQrcodeInfo.setDeptid(UserUtil.getCompanyId());
+			blskQrcodeInfo.setCreator(UserUtil.getUserId());
+			blskQrcodeInfo.setCreatetime(new Date());
+			blskQrcodeInfo.setIsvalidate(ConstantRBAC.Y_ISVALIDATE);
+			this.blskQrcodeInfoDao.save(blskQrcodeInfo);
 		}
 		return qrcode;
-	}
-
-	/**
-	 * @TODO
-	 * @author zhangl
-	 *
-	 * @return
-	 * @createtime 2019年5月31日
-	 * @version V1.0
-	 */
-	private String generalQrcode() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

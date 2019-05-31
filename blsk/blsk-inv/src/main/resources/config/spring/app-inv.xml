@@ -51,4 +51,39 @@ http://www.springframework.org/schema/util/spring-util.xsd">
 		class="com.blsk.inv.qrcode.service.impl.BlskQrcodeInfoServiceImpl">
 		<constructor-arg ref="blskQrcodeInfoDao" index="0" />
 	</bean>
+	
+	<bean id="blskBillDetailDao" parent="baseDao"
+		class="com.blsk.inv.invorder.dao.impl.BlskBillDetailDaoImpl" />
+	<bean id="blskBillDetailService"
+		class="com.blsk.inv.invorder.service.impl.BlskBillDetailServiceImpl">
+		<constructor-arg ref="blskBillDetailDao" index="0" />
+	</bean>
+	
+	<bean id="blskBillInfoDao" parent="baseDao"
+		class="com.blsk.inv.invorder.dao.impl.BlskBillInfoDaoImpl" />
+	<bean id="blskBillInfoService"
+		class="com.blsk.inv.invorder.service.impl.BlskBillInfoServiceImpl">
+		<constructor-arg ref="blskBillInfoDao" index="0" />
+	</bean>
+	
+	<bean id="blskInvIoDao" parent="baseDao"
+		class="com.blsk.inv.invworkbench.dao.impl.BlskInvIoDaoImpl" />
+	<bean id="blskInvIoService"
+		class="com.blsk.inv.invworkbench.service.impl.BlskInvIoServiceImpl">
+		<constructor-arg ref="blskInvIoDao" index="0" />
+	</bean>
+	
+	<bean id="blskInvItemDao" parent="baseDao"
+		class="com.blsk.inv.invworkbench.dao.impl.BlskInvItemDaoImpl" />
+	<bean id="blskInvItemService"
+		class="com.blsk.inv.invworkbench.service.impl.BlskInvItemServiceImpl">
+		<constructor-arg ref="blskInvItemDao" index="0" />
+	</bean>
+	
+	<bean id="blskInvStoreDao" parent="baseDao"
+		class="com.blsk.inv.invworkbench.dao.impl.BlskInvStoreDaoImpl" />
+	<bean id="blskInvStoreService"
+		class="com.blsk.inv.invworkbench.service.impl.BlskInvStoreServiceImpl">
+		<constructor-arg ref="blskInvStoreDao" index="0" />
+	</bean>
 </beans>

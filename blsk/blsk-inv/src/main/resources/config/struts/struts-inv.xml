@@ -27,4 +27,29 @@
 			<result>${successResultValue}</result>
 		</action>
 	</package>
+	
+	<package name="invorder" namespace="/" extends="struts-default">
+		<action name="getIOrderDetailPage" class="com.blsk.inv.invorder.action.BlskBillDetailAction" method="getIOrderDetailPage">
+			<result>${successResultValue}</result>
+		</action>
+		
+		
+		<action name="getIOrderPage" class="com.blsk.inv.invorder.action.BlskBillInfoAction" method="getIOrderPage">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
+	
+	<package name="invworkbench" namespace="/" extends="struts-default">
+		<action name="rkHandle" class="com.blsk.inv.invworkbench.action.BlskInvIoAction" method="rkHandle">
+			<result>${successResultValue}</result>
+		</action>
+		
+		<action name="rkHandle" class="com.blsk.inv.invworkbench.action.BlskInvItemAction" method="rkHandle">
+			<result>${successResultValue}</result>
+		</action>
+		
+		<action name="rkHandle" class="com.blsk.inv.invworkbench.action.BlskInvStoreAction" method="rkHandle">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
 </struts>
