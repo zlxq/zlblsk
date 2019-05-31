@@ -25,5 +25,6 @@ http://www.springframework.org/schema/util/spring-util.xsd">
 	<import resource="classpath:config/spring/app-resource.xml"/>
 	
 	<import resource="classpath:config/spring/app-rbac.xml"/>
+	<import resource="classpath:config/spring/app-inv.xml"/>
 	
 </beans> 
