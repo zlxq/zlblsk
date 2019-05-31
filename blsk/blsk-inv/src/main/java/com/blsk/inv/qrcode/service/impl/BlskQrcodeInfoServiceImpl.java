@@ -63,7 +63,7 @@ public class BlskQrcodeInfoServiceImpl extends BaseServiceImpl<BlskQrcodeInfo> i
 		} else {
 			BlskQrcodeInfo blskQrcodeInfo = new BlskQrcodeInfo();
 			blskQrcodeInfo.setQrcode(qrcode);
-			blskQrcodeInfo.setDeptid(UserUtil.getCompanyId());
+			blskQrcodeInfo.setDeptid(companyId);
 			blskQrcodeInfo.setCreator(UserUtil.getUserId());
 			blskQrcodeInfo.setCreatetime(new Date());
 			blskQrcodeInfo.setIsvalidate(ConstantRBAC.Y_ISVALIDATE);
