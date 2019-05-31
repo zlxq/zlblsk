@@ -38,11 +38,17 @@ http://www.springframework.org/schema/util/spring-util.xsd">
 		<constructor-arg ref="blskEquipItemDao" index="0" />
 	</bean>
 	
-	
 	<bean id="blskMaterialInfoDao" parent="baseDao"
 		class="com.blsk.inv.material.dao.impl.BlskMaterialInfoDaoImpl" />
 	<bean id="blskMaterialInfoService"
 		class="com.blsk.inv.material.service.impl.BlskMaterialInfoServiceImpl">
 		<constructor-arg ref="blskMaterialInfoDao" index="0" />
+	</bean>
+	
+	<bean id="blskQrcodeInfoDao" parent="baseDao"
+		class="com.blsk.inv.qrcode.dao.impl.BlskQrcodeInfoDaoImpl" />
+	<bean id="blskQrcodeInfoService"
+		class="com.blsk.inv.qrcode.service.impl.BlskQrcodeInfoServiceImpl">
+		<constructor-arg ref="blskQrcodeInfoDao" index="0" />
 	</bean>
 </beans>

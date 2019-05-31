@@ -21,4 +21,10 @@
 			<result>${successResultValue}</result>
 		</action>
 	</package>
+	
+	<package name="qrcode" namespace="/" extends="struts-default">
+		<action name="printQrcode" class="com.blsk.inv.qrcode.action.BlskQrcodeInfoAction" method="printQrcode">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
 </struts>
