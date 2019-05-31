@@ -15,7 +15,7 @@
 <script type="text/javascript">
 
 	function doSearch() {
-		companygrid.datagrid('load',{
+		equipgrid.datagrid('load',{
 			partyno: $('#partyno').val(),
 			partyname: $('#partyname').val()
 		});
@@ -41,12 +41,12 @@
 		    	</div>
 			</div>
 			<div region="center" split="true" style="padding: 1px; background: #eee; overflow-y: hidden">
-				<div id="companygrid" fit="true"></div>
+				<div id="equipgrid" fit="true"></div>
 			</div>
 		</div>
 	</div>
 	
-	<div id="companyform-window" title="编辑设备信息" style="padding: 5px">
+	<div id="equipform-window" title="编辑设备信息" style="padding: 5px">
 		<div class="easyui-layout" data-options="fit:true">
 			<div data-options="region:'center'" style="border: 0;">
 				<div style="padding: 20px 20px 20px 40px;">
@@ -70,7 +70,7 @@
 			</div>
 			<div data-options="region:'south'" style="background-color: #C0C0C0; padding: 5px 0px 20px 0px; overflow-y: hidden" scroll="no">
 				<div style="text-align: center;">
-					<a href="javascript:void(0)" onclick="saveFun()" id="btn-save-company" icon="icon-save">保存</a> <a href="javascript:void(0)" onclick="closeWindow()" id="btn-cancel-company" icon="icon-cancel"> 取消</a>
+					<a href="javascript:void(0)" onclick="saveFun()" id="btn-save-equip" icon="icon-save">保存</a> <a href="javascript:void(0)" onclick="closeWindow()" id="btn-cancel-equip" icon="icon-cancel"> 取消</a>
 				</div>
 			</div>
 		</div>

@@ -15,7 +15,7 @@
 <script type="text/javascript">
 
 	function doSearch() {
-		companygrid.datagrid('load',{
+		materialgrid.datagrid('load',{
 			partyno: $('#partyno').val(),
 			partyname: $('#partyname').val()
 		});
@@ -41,12 +41,12 @@
 		    	</div>
 			</div>
 			<div region="center" split="true" style="padding: 1px; background: #eee; overflow-y: hidden">
-				<div id="companygrid" fit="true"></div>
+				<div id="materialgrid" fit="true"></div>
 			</div>
 		</div>
 	</div>
 	
-	<div id="companyform-window" title="编辑设备信息" style="padding: 5px">
+	<div id="materialform-window" title="编辑设备信息" style="padding: 5px">
 		<div class="easyui-layout" data-options="fit:true">
 			<div data-options="region:'center'" style="border: 0;">
 				<div style="padding: 20px 20px 20px 40px;">
@@ -54,31 +54,31 @@
 						<table>
 							<tr>
 								<td>物料编码：</td>
-								<td><input class="easyui-textbox" name="blskEquipInfo.equipNo" required="true" style="width: 200px;" /></td>
+								<td><input class="easyui-textbox" name="blskMaterialInfo.code" required="true" style="width: 200px;" /></td>
 							</tr>
 							<tr>
 								<td>型号规格：</td>
-								<td><input class="easyui-textbox" name="blskEquipInfo.sort" required="true" style="width: 200px;" /></td>
+								<td><input class="easyui-textbox" name="blskMaterialInfo.model" required="true" style="width: 200px;" /></td>
 							</tr>
 							<tr>
 								<td>物料名称：</td>
-								<td><input class="easyui-textbox" name="blskEquipInfo.equipName" required="true" style="width: 200px;" /></td>
+								<td><input class="easyui-textbox" name="blskMaterialInfo.name" required="true" style="width: 200px;" /></td>
 							</tr>
 							<tr>
 								<td>计量单位：</td>
-								<td><input class="easyui-textbox" name="blskEquipInfo.equipName" required="true" style="width: 200px;" /></td>
+								<td><input class="easyui-textbox" name="blskMaterialInfo.unit" required="true" style="width: 200px;" /></td>
 							</tr>
 							<tr>
 								<td>长：</td>
-								<td><input class="easyui-textbox" name="blskEquipInfo.equipName" required="true" style="width: 200px;" /></td>
+								<td><input class="easyui-textbox" name="blskMaterialInfo.length" required="true" style="width: 200px;" /></td>
 							</tr>
 							<tr>
 								<td>宽：</td>
-								<td><input class="easyui-textbox" name="blskEquipInfo.equipName" required="true" style="width: 200px;" /></td>
+								<td><input class="easyui-textbox" name="blskMaterialInfo.width" required="true" style="width: 200px;" /></td>
 							</tr>
 							<tr>
 								<td>高：</td>
-								<td><input class="easyui-textbox" name="blskEquipInfo.equipName" required="true" style="width: 200px;" /></td>
+								<td><input class="easyui-textbox" name="blskMaterialInfo.height" required="true" style="width: 200px;" /></td>
 							</tr>
 						</table>
 					</form>
@@ -86,7 +86,7 @@
 			</div>
 			<div data-options="region:'south'" style="background-color: #C0C0C0; padding: 5px 0px 20px 0px; overflow-y: hidden" scroll="no">
 				<div style="text-align: center;">
-					<a href="javascript:void(0)" onclick="saveFun()" id="btn-save-company" icon="icon-save">保存</a> <a href="javascript:void(0)" onclick="closeWindow()" id="btn-cancel-company" icon="icon-cancel"> 取消</a>
+					<a href="javascript:void(0)" onclick="saveFun()" id="btn-save-material" icon="icon-save">保存</a> <a href="javascript:void(0)" onclick="closeWindow()" id="btn-cancel-material" icon="icon-cancel"> 取消</a>
 				</div>
 			</div>
 		</div>

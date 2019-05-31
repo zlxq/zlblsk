@@ -1,24 +1,24 @@
 /**
  * 
  */
-package com.blsk.inv.equip.service;
+package com.blsk.inv.material.service;
 
 import com.framework.util.PagingBean;
 import com.zlxq.rbac.base.core.service.BaseService;
 
-import pojo.BlskEquipInfo;
+import pojo.BlskMaterialInfo;
 
 /**
  * @TODO
  * @author zhangl
  *
- * @createtime 2019年5月30日
+ * @createtime 2019年5月31日
  * @version V1.0
  */
-public interface BlskEquipInfoService extends BaseService<BlskEquipInfo> {
+public interface BlskMaterialInfoService extends BaseService<BlskMaterialInfo> {
 
 	/**
-	 * @TODO
+	 * @TODO 保存物料信息
 	 * @author zhangl
 	 *
 	 * @param pb
@@ -26,17 +26,17 @@ public interface BlskEquipInfoService extends BaseService<BlskEquipInfo> {
 	 * @createtime 2019年5月31日
 	 * @version V1.0
 	 */
-	String getEquipPage(PagingBean pb);
+	String getMaterialPage(PagingBean pb);
 
 	/**
 	 * @TODO
 	 * @author zhangl
 	 *
-	 * @param blskEquipInfo
+	 * @param blskMaterialInfo
 	 * @return
 	 * @createtime 2019年5月31日
 	 * @version V1.0
 	 */
-	String saveEquip(BlskEquipInfo blskEquipInfo);
+	String saveMaterial(BlskMaterialInfo blskMaterialInfo);
 
 }

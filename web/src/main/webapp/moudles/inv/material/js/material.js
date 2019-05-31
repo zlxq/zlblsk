@@ -1,23 +1,23 @@
-var companygrid;
-var companywin;
-var companyform;
+var materialgrid;
+var materialwin;
+var materialform;
 
 $(function() {
-	companygrid = $('#companygrid');
+	materialgrid = $('#materialgrid');
 	
-	$('#btn-save-company,#btn-cancel-company').linkbutton();
+	$('#btn-save-material,#btn-cancel-material').linkbutton();
 	
-	companywin = $('#companyform-window').window({
+	materialwin = $('#materialform-window').window({
 		width : "100%",
 	    height : "100%",
 		closed : true,
 		modal : true,
 		shadow : false
 	});
-	companyform = companywin.find('form');
+	materialform = materialwin.find('form');
 	
-	companygrid.datagrid({
-		url : __ctxPath + '/party/getCompanyPage.do',
+	materialgrid.datagrid({
+		url : __ctxPath + '/material/getMaterialPage.do',
 		sortName : 'id',
 		sortOrder : 'asc',
 		idField : 'id',
@@ -31,21 +31,21 @@ $(function() {
 			field : 'ck',
 			checkbox : true
 		}, {
-			field : 'PARTYNO',
+			field : 'CODE',
 			title : '物料编码',
 			width : 150
 		}, {
-			field : 'PARTYNAME',
+			field : 'MODEL',
 			title : '型号规格',
 			width : 150,
 			sortable : true
 		}, {
-			field : 'ADDR',
+			field : 'NAME',
 			title : '物料名称',
 			width : 150,
 			sortable : true
 		}, {
-			field : 'ADDR',
+			field : 'UNIT',
 			title : '计量单位',
 			width : 50,
 			sortable : true
@@ -55,17 +55,17 @@ $(function() {
 			align : 'center',
 			"colspan":3
 		}], [ {
-			field : 'MANAGER6',
+			field : 'LENGTH',
 			title : '长',
 			width : 50,
 			sortable : true
 		}, {
-			field : 'MANAGER2',
+			field : 'WIDTH',
 			title : '宽',
 			width : 50,
 			sortable : true
 		}, {
-			field : 'MANAGER3',
+			field : 'HEIGHT',
 			title : '高',
 			width : 50,
 			sortable : true
@@ -73,15 +73,15 @@ $(function() {
 		toolbar : [ {
 			text : '增加',
 			iconCls : 'icon-add',
-			handler : addCompanyFun
+			handler : addmaterialFun
 		}, {
 			text : '删除',
 			iconCls : 'icon-remove',
-			handler : delCompanyFun
+			handler : delmaterialFun
 		}, {
 			text : '修改',
 			iconCls : 'icon-edit',
-			handler : editCompanyFun
+			handler : editmaterialFun
 		} ]
 	});
 	$('body').layout();
@@ -91,14 +91,14 @@ function refreshGrid() {
 }
 
 function closeWindow() {
-	companywin.window('close');
+	materialwin.window('close');
 }
 
 function saveFun() {
 	$.messager.progress();
 	
-	companyform.form('submit', {
-		url : companyform.url,
+	materialform.form('submit', {
+		url : materialform.url,
 		onSubmit : function() {
 			var isValid = $(this).form('validate');
 			if (!isValid){
@@ -107,8 +107,8 @@ function saveFun() {
 			return isValid;
 		},
 		success : function(e, f) {
-			companygrid.datagrid('reload');
-			companywin.window('close');
+			materialgrid.datagrid('reload');
+			materialwin.window('close');
 
 			$.messager.progress('close');
 			var m = eval('(' + e + ')');
@@ -125,13 +125,13 @@ function saveFun() {
 	});
 }
 
-function addCompanyFun() {
-	companywin.window('open');
-	companyform.form('clear');
-	companyform.url = __ctxPath + '/party/saveCompany.do';
+function addmaterialFun() {
+	materialwin.window('open');
+	materialform.form('clear');
+	materialform.url = __ctxPath + '/material/saveMaterial.do';
 }
 
-function delCompanyFun() {}
+function delmaterialFun() {}
 
-function editCompanyFun() {}
+function editmaterialFun() {}
 

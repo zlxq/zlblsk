@@ -37,4 +37,12 @@ http://www.springframework.org/schema/util/spring-util.xsd">
 		class="com.blsk.inv.equip.service.impl.BlskEquipItemServiceImpl">
 		<constructor-arg ref="blskEquipItemDao" index="0" />
 	</bean>
+	
+	
+	<bean id="blskMaterialInfoDao" parent="baseDao"
+		class="com.blsk.inv.material.dao.impl.BlskMaterialInfoDaoImpl" />
+	<bean id="blskMaterialInfoService"
+		class="com.blsk.inv.material.service.impl.BlskMaterialInfoServiceImpl">
+		<constructor-arg ref="blskMaterialInfoDao" index="0" />
+	</bean>
 </beans>

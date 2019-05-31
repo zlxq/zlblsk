@@ -1,21 +1,21 @@
 /**
  * 
  */
-package com.blsk.inv.equip.dao;
+package com.blsk.inv.material.dao;
 
 import com.framework.util.PagingBean;
 import com.zlxq.rbac.base.core.dao.BaseDao;
 
-import pojo.BlskEquipInfo;
+import pojo.BlskMaterialInfo;
 
 /**
  * @TODO
  * @author zhangl
  *
- * @createtime 2019年5月30日
+ * @createtime 2019年5月31日
  * @version V1.0
  */
-public interface BlskEquipInfoDao extends BaseDao<BlskEquipInfo> {
+public interface BlskMaterialInfoDao extends BaseDao<BlskMaterialInfo> {
 
 	/**
 	 * @TODO
@@ -26,6 +26,6 @@ public interface BlskEquipInfoDao extends BaseDao<BlskEquipInfo> {
 	 * @createtime 2019年5月31日
 	 * @version V1.0
 	 */
-	String getEquipPage(PagingBean pb);
+	String getMaterialPage(PagingBean pb);
 
 }

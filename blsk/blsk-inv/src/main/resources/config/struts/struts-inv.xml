@@ -8,5 +8,17 @@
 		<action name="getEquipPage" class="com.blsk.inv.equip.action.BlskEquipInfoAction" method="getEquipPage">
 			<result>${successResultValue}</result>
 		</action>
+		<action name="saveEquip" class="com.blsk.inv.equip.action.BlskEquipInfoAction" method="saveEquip">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
+	
+	<package name="material" namespace="/" extends="struts-default">
+		<action name="getMaterialPage" class="com.blsk.inv.material.action.BlskMaterialInfoAction" method="getMaterialPage">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="saveMaterial" class="com.blsk.inv.material.action.BlskMaterialInfoAction" method="saveMaterial">
+			<result>${successResultValue}</result>
+		</action>
 	</package>
 </struts>
