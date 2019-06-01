@@ -26,7 +26,8 @@ public interface BlskQrcodeInfoDao extends BaseDao<BlskQrcodeInfo> {
 	 * @return
 	 * @createtime 2019年5月31日
 	 * @version V1.0
+	 * @param qrtype 
 	 */
-	List getQrcodeByCompanyId(Long companyId);
+	List getQrcodeByCompanyId(Long companyId, String qrtype);
 
 }

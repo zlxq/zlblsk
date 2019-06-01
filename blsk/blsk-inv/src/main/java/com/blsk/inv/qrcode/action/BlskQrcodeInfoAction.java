@@ -32,12 +32,14 @@ public class BlskQrcodeInfoAction extends BaseAction {
 	 * @version V1.0
 	 */
 	public String printQrcode() {
+		String qrtype = this.getRequest().getParameter("qrtype");
 		String path = WebAppUtil.getGetCtxPath();
 		Long companyId = UserUtil.getCompanyId();
-		String qrcode = this.blskQrcodeInfoService.getQrcodeByCompanyId(companyId);
-		path = "c://qrcode//qrcode.png";
+		String qrcode = this.blskQrcodeInfoService.getQrcodeByCompanyId(companyId, qrtype);
+		String serverPath = "http://localhost:8080/web/statics/file/qrcode/qrcode-" +qrtype+ ".png";
+		path = path + "/statics/file/qrcode/qrcode-" +qrtype+ ".png";
 		QrcodeUtil.createQrcode(qrcode, path);
-		setMessage(path);
+		setMessage(serverPath);
 		System.out.println();
 		return SUCCESS;
 	}

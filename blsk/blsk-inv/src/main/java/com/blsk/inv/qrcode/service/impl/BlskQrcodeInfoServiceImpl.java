@@ -48,8 +48,8 @@ public class BlskQrcodeInfoServiceImpl extends BaseServiceImpl<BlskQrcodeInfo> i
 	 * @see com.blsk.inv.qrcode.service.BlskQrcodeInfoService#getQrcodeByCompanyId(java.lang.Long)
 	 */
 	@Override
-	public String getQrcodeByCompanyId(Long companyId) {
-		List<?> qrList = this.blskQrcodeInfoDao.getQrcodeByCompanyId(companyId);
+	public String getQrcodeByCompanyId(Long companyId, String qrtype) {
+		List<?> qrList = this.blskQrcodeInfoDao.getQrcodeByCompanyId(companyId, qrtype);
 		String qrcode = SequenceUtil.getQrcode();
 		if (qrList.size() > 0) {
 			String listTOJson = JsonUtil.listTOJson(qrList);
@@ -63,6 +63,7 @@ public class BlskQrcodeInfoServiceImpl extends BaseServiceImpl<BlskQrcodeInfo> i
 		} else {
 			BlskQrcodeInfo blskQrcodeInfo = new BlskQrcodeInfo();
 			blskQrcodeInfo.setQrcode(qrcode);
+			blskQrcodeInfo.setType(qrtype);
 			blskQrcodeInfo.setDeptid(companyId);
 			blskQrcodeInfo.setCreator(UserUtil.getUserId());
 			blskQrcodeInfo.setCreatetime(new Date());

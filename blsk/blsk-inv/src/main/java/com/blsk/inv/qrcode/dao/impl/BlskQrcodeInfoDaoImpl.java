@@ -36,8 +36,8 @@ public class BlskQrcodeInfoDaoImpl extends BaseDaoImpl<BlskQrcodeInfo> implement
 	 * @see com.blsk.inv.qrcode.dao.BlskQrcodeInfoDao#getQrcodeByCompanyId(java.lang.Long)
 	 */
 	@Override
-	public List getQrcodeByCompanyId(Long companyId) {
-		String sql = "SELECT * FROM BLSK_QRCODE_INFO WHERE DEPTID = '"+companyId+"' AND ISVALIDATE = '"+ConstantRBAC.Y_ISVALIDATE+"'";
+	public List getQrcodeByCompanyId(Long companyId, String qrtype) {
+		String sql = "SELECT * FROM BLSK_QRCODE_INFO WHERE DEPTID = '"+companyId+"' AND TYPE = '"+qrtype+"' AND ISVALIDATE = '"+ConstantRBAC.Y_ISVALIDATE+"'";
 		return findByJDBCReturnList(sql);
 	}
 

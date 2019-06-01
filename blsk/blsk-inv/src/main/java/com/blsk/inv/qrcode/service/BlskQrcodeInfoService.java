@@ -24,7 +24,8 @@ public interface BlskQrcodeInfoService extends BaseService<BlskQrcodeInfo> {
 	 * @return
 	 * @createtime 2019年5月31日
 	 * @version V1.0
+	 * @param qrtype 
 	 */
-	String getQrcodeByCompanyId(Long companyId);
+	String getQrcodeByCompanyId(Long companyId, String qrtype);
 
 }
