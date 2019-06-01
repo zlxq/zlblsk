@@ -4,9 +4,11 @@
 package com.blsk.inv.invorder.service.impl;
 
 import java.io.Serializable;
+import java.util.List;
 
 import com.blsk.inv.invorder.dao.BlskBillDetailDao;
 import com.blsk.inv.invorder.service.BlskBillDetailService;
+import com.framework.util.PagingBean;
 import com.framework.web.ssh.dao.GenericDao;
 import com.zlxq.rbac.base.core.service.impl.BaseServiceImpl;
 
@@ -34,6 +36,22 @@ public class BlskBillDetailServiceImpl extends BaseServiceImpl<BlskBillDetail> i
 	public BlskBillDetailServiceImpl(BlskBillDetailDao blskBillDetailDao) {
 		super(blskBillDetailDao);
 		this.blskBillDetailDao = blskBillDetailDao;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.blsk.inv.invorder.service.BlskBillDetailService#getOrderDetailPage(com.framework.util.PagingBean, java.lang.String)
+	 */
+	@Override
+	public String getOrderDetailPage(PagingBean pb, String orderid) {
+		return this.blskBillDetailDao.getOrderDetailPage(pb, orderid);
+	}
+
+	/* (non-Javadoc)
+	 * @see com.blsk.inv.invorder.service.BlskBillDetailService#getDetailByOrderid(java.lang.Long)
+	 */
+	@Override
+	public List<BlskBillDetail> getDetailByOrderid(Long id) {
+		return this.blskBillDetailDao.getDetailByOrderid(id);
 	}
 
 }

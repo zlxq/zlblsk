@@ -29,12 +29,18 @@
 	</package>
 	
 	<package name="invorder" namespace="/" extends="struts-default">
-		<action name="getIOrderDetailPage" class="com.blsk.inv.invorder.action.BlskBillDetailAction" method="getIOrderDetailPage">
+		<action name="getOrderDetailPage" class="com.blsk.inv.invorder.action.BlskBillDetailAction" method="getOrderDetailPage">
 			<result>${successResultValue}</result>
 		</action>
 		
 		
-		<action name="getIOrderPage" class="com.blsk.inv.invorder.action.BlskBillInfoAction" method="getIOrderPage">
+		<action name="getRCOrderPage" class="com.blsk.inv.invorder.action.BlskBillInfoAction" method="getRCOrderPage">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="getCheckOrderPage" class="com.blsk.inv.invorder.action.BlskBillInfoAction" method="getCheckOrderPage">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="nextRCOrder" class="com.blsk.inv.invorder.action.BlskBillInfoAction" method="nextRCOrder">
 			<result>${successResultValue}</result>
 		</action>
 	</package>
