@@ -11,6 +11,9 @@
         <property name="qrcode" type="string">
             <column name="QRCODE" length="200" />
         </property>
+        <property name="type" type="string">
+            <column name="TYPE" length="110" />
+        </property>
         <property name="deptid" type="java.lang.Long">
             <column name="DEPTID">
                 <comment>&#181;&#165;&#206;&#187;ID</comment>

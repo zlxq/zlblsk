@@ -10,6 +10,7 @@ public class BlskQrcodeInfo implements java.io.Serializable {
 
 	private Long id;
 	private String qrcode;
+	private String type;
 	private Long deptid;
 	private Long creator;
 	private Date createtime;
@@ -19,9 +20,10 @@ public class BlskQrcodeInfo implements java.io.Serializable {
 	public BlskQrcodeInfo() {
 	}
 
-	public BlskQrcodeInfo(String qrcode, Long deptid, Long creator, Date createtime, Date updatetime,
+	public BlskQrcodeInfo(String qrcode, String type, Long deptid, Long creator, Date createtime, Date updatetime,
 			String isvalidate) {
 		this.qrcode = qrcode;
+		this.type = type;
 		this.deptid = deptid;
 		this.creator = creator;
 		this.createtime = createtime;
@@ -83,6 +85,20 @@ public class BlskQrcodeInfo implements java.io.Serializable {
 
 	public void setIsvalidate(String isvalidate) {
 		this.isvalidate = isvalidate;
+	}
+
+	/**
+	 * @return the type
+	 */
+	public String getType() {
+		return type;
+	}
+
+	/**
+	 * @param type the type to set
+	 */
+	public void setType(String type) {
+		this.type = type;
 	}
 
 }
