@@ -9,7 +9,7 @@ import java.util.Date;
 public class BlskTemplateDetail implements java.io.Serializable {
 
 	private Long id;
-	private BlskTemplateImp blskTemplateImp;
+	private BlskTemplateMain blskTemplateMain;
 	private String tplHeader;
 	private String OHeader;
 	private String type;
@@ -22,9 +22,9 @@ public class BlskTemplateDetail implements java.io.Serializable {
 	public BlskTemplateDetail() {
 	}
 
-	public BlskTemplateDetail(BlskTemplateImp blskTemplateImp, String tplHeader, String OHeader, String type,
+	public BlskTemplateDetail(BlskTemplateMain blskTemplateMain, String tplHeader, String OHeader, String type,
 			Long deptid, Long creator, Date createtime, Date updatetime, String isvalidate) {
-		this.blskTemplateImp = blskTemplateImp;
+		this.blskTemplateMain = blskTemplateMain;
 		this.tplHeader = tplHeader;
 		this.OHeader = OHeader;
 		this.type = type;
@@ -43,12 +43,12 @@ public class BlskTemplateDetail implements java.io.Serializable {
 		this.id = id;
 	}
 
-	public BlskTemplateImp getBlskTemplateImp() {
-		return this.blskTemplateImp;
+	public BlskTemplateMain getBlskTemplateMain() {
+		return this.blskTemplateMain;
 	}
 
-	public void setBlskTemplateImp(BlskTemplateImp blskTemplateImp) {
-		this.blskTemplateImp = blskTemplateImp;
+	public void setBlskTemplateMain(BlskTemplateMain blskTemplateMain) {
+		this.blskTemplateMain = blskTemplateMain;
 	}
 
 	public String getTplHeader() {

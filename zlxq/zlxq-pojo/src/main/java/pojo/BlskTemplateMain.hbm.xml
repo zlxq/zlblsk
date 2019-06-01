@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 2019-5-15 22:56:17 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="pojo.BlskTemplateImp" table="blsk_template_imp" catalog="blsk">
+    <class name="pojo.BlskTemplateMain" table="blsk_template_main" catalog="blsk">
         <id name="id" type="java.lang.Long">
             <column name="ID" />
             <generator class="identity" />

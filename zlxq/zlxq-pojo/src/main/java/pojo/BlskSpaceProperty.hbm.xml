@@ -19,6 +19,24 @@
                 &#192;&#224;&#208;&#205;&#163;&#168;&#196;&#172;&#200;&#207;&#178;&#187;&#191;&#201;&#181;&#247;&#213;&#251;&#163;&#172;&#191;&#201;&#181;&#247;&#213;&#251;&#163;&#169;</comment>
             </column>
         </property>
+        
+        <property name="materialid" type="java.lang.Long">
+            <column name="MATERIALID">
+                <comment>物料ID</comment>
+            </column>
+        </property>
+        
+        <property name="runcode" type="string">
+            <column name="RUNCODE">
+                <comment>执行码</comment>
+            </column>
+        </property>
+        
+        <property name="storerule" type="string">
+            <column name="STORERULE">
+                <comment>入库规则</comment>
+            </column>
+        </property>
         <property name="deptid" type="java.lang.Long">
             <column name="DEPTID">
                 <comment>&#181;&#165;&#206;&#187;ID</comment>
