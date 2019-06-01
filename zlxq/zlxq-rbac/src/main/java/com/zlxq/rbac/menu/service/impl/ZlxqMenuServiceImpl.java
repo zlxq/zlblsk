@@ -1,16 +1,9 @@
-/**
- * @Title: ZlxqMenuServiceImpl.java
- * @Package: com.rbac.menu.service.impl
- * @Description: 系统菜单业务层接口实现
- * @author: PUB
- * @date: 2019年5月2日 下午12:43:41
- * @version V1.0
- * @Copyright: 2019 www.zlxq.com Inc. All rights reserved.
- */
 package com.zlxq.rbac.menu.service.impl;
 
 import java.util.Date;
 import java.util.List;
+
+import javax.annotation.Resource;
 
 import org.apache.commons.lang.StringUtils;
 
@@ -19,37 +12,25 @@ import com.zlxq.rbac.base.core.service.impl.BaseServiceImpl;
 import com.zlxq.rbac.base.util.DictUtil;
 import com.zlxq.rbac.menu.dao.ZlxqMenuDao;
 import com.zlxq.rbac.menu.service.ZlxqMenuService;
+import com.zlxq.rbac.rolemenu.service.ZlxqRoleMenuService;
 
 import pojo.ZlxqMenu;
 public class ZlxqMenuServiceImpl extends BaseServiceImpl<ZlxqMenu> implements ZlxqMenuService {
 
 	private ZlxqMenuDao zlxqMenuDao;
 	
-	/**
-	 * @Title: ZlxqMenuServiceImpl
-	 * @Description: 构造方法注入系统菜单dao层
-	 * @param dao
-	 * @throws
-	 */
+	@Resource
+	private ZlxqRoleMenuService zlxqRoleMenuService;
+	
 	public ZlxqMenuServiceImpl(ZlxqMenuDao zlxqMenuDao) {
 		super(zlxqMenuDao);
 		this.zlxqMenuDao = zlxqMenuDao;
 	}
 
-	/**
-	 * @MethodName: getAllMenu
-	 * @Description: TODO(这里用一句话描述这个方法的作用)
-	 * @author: PUB
-	 * @date: 2019年5月5日 下午3:20:48
-	 * @param userno
-	 * @param object
-	 * @return
-	 * @throws
-	 */
 	@Override
 	public List<ZlxqMenu> getAllMenu(String userNo, String userType) {
 		List<ZlxqMenu> menuList = null;
-		if (DictUtil.role_lx.role_lx_super.equals(userType)) {
+		if (DictUtil.role_lx.role_super.equals(userType)) {
 			menuList = this.zlxqMenuDao.getAllMenu();
 		} else {
 			menuList =  this.zlxqMenuDao.getMenuByUserNo(userNo);
@@ -73,46 +54,16 @@ public class ZlxqMenuServiceImpl extends BaseServiceImpl<ZlxqMenu> implements Zl
 		zlxqMenu.setCzlxqMenu(menuList);
 	}
 
-
-	/**
-	 * @MethodName: getMenuPage
-	 * @Description: TODO(这里用一句话描述这个方法的作用)
-	 * @author: PUB
-	 * @date: 2019年5月6日 上午2:44:31
-	 * @param pb
-	 * @return
-	 * @throws
-	 */
 	@Override
 	public String getMenuPage(PagingBean pb) {
 		return this.zlxqMenuDao.getMenuPage(pb);
 	}
 
-	/**
-	 * @MethodName: getMenuTree
-	 * @Description: TODO(这里用一句话描述这个方法的作用)
-	 * @author: PUB
-	 * @date: 2019年5月6日 上午2:48:39
-	 * @param id
-	 * @return
-	 * @throws
-	 */
 	@Override
 	public String getMenuTree(String id) {
 		return this.zlxqMenuDao.getMenuTree(id);
 	}
 
-	/**
-	 * @MethodName: saveMenuInfo
-	 * @Description: TODO(这里用一句话描述这个方法的作用)
-	 * @author: PUB
-	 * @date: 2019年5月6日 上午2:52:49
-	 * @param zlxqMenu
-	 * @param menuid
-	 * @param pid
-	 * @return
-	 * @throws
-	 */
 	@Override
 	public String saveMenuInfo(ZlxqMenu zlxqMenu, String menuid, String pid) {
 		if (!"null".equals(menuid) && StringUtils.isNotEmpty(menuid)) {
@@ -151,15 +102,6 @@ public class ZlxqMenuServiceImpl extends BaseServiceImpl<ZlxqMenu> implements Zl
 		}
 	}
 
-	/**
-	 * @MethodName: delMenu
-	 * @Description: TODO(这里用一句话描述这个方法的作用)
-	 * @author: PUB
-	 * @date: 2019年5月6日 上午2:54:17
-	 * @param id
-	 * @return
-	 * @throws
-	 */
 	@Override
 	public String delMenu(String id) {
 		ZlxqMenu zlxqMenu = this.zlxqMenuDao.findByPk(Long.parseLong(id));
@@ -174,6 +116,24 @@ public class ZlxqMenuServiceImpl extends BaseServiceImpl<ZlxqMenu> implements Zl
 			// TODO: handle exception
 			return "删除失败";
 		}
+	}
+
+	@Override
+	public String getRoleMenu(String id) {
+		return this.zlxqMenuDao.getRoleMenu(id);
+	}
+
+	@Override
+	public String getNoRoleMenu(String id) {
+		return this.zlxqMenuDao.getNoRoleMenu(id);
+	}
+
+	/* (non-Javadoc)
+	 * @see com.zlxq.rbac.menu.service.ZlxqMenuService#saveRoleMenu(java.lang.String, java.lang.String)
+	 */
+	@Override
+	public String saveRoleMenu(String roleid, String selFuns) {
+		return this.zlxqRoleMenuService.saveRoleMenu(roleid, selFuns);
 	}
 
 }

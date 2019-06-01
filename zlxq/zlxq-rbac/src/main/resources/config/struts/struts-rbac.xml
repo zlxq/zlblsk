@@ -5,13 +5,13 @@
 
 <struts>
 	<package name="login" namespace="/" extends="struts-default">
-<!-- 		<action name="login" class="com.zlxq.rbac.login.LoginAction" method="login"> -->
-<!-- 			<result>${successResultValue}</result> -->
-<!-- 		</action> -->
 		<action name="login" class="com.zlxq.rbac.login.LoginAction" method="login">
-			<result name="success">moudles/frame/home/home.jsp</result>
-			<result name="failure">moudles/frame/index/index.html</result>
+			<result>${successResultValue}</result>
 		</action>
+<!-- 		<action name="login" class="com.zlxq.rbac.login.LoginAction" method="login"> -->
+<!-- 			<result name="success">moudles/frame/home/home.jsp</result> -->
+<!-- 			<result name="failure">moudles/frame/index/index.html</result> -->
+<!-- 		</action> -->
 		<action name="layout" class="com.zlxq.rbac.login.LoginAction" method="layout">
 			<result name="success">moudles/frame/index/index.html</result>
 		</action>
@@ -39,6 +39,66 @@
 			<result>${successResultValue}</result>
 		</action>
 		<action name="delMenu" class="com.zlxq.rbac.menu.action.ZlxqMenuAction" method="delMenu">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
+	
+	<package name="dict" namespace="/dict" extends="struts-default">
+		<action name="getDictTree" class="com.zlxq.rbac.dict.action.ZlxqDictionaryAction" method="getDictTree">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="getDictGrid" class="com.zlxq.rbac.dict.action.ZlxqDictionaryAction" method="getDictGrid">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="saveDict" class="com.zlxq.rbac.dict.action.ZlxqDictionaryAction" method="saveDict">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="editDict" class="com.zlxq.rbac.dict.action.ZlxqDictionaryAction" method="editDict">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="delDict" class="com.zlxq.rbac.dict.action.ZlxqDictionaryAction" method="delDict">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
+	
+	<package name="log" namespace="/log" extends="struts-default">
+		<action name="getLogInfo" class="com.zlxq.rbac.log.action.ZlxqLogAction" method="getLogInfo">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="exportSysLog" class="com.zlxq.rbac.log.action.ZlxqLogAction" method="exportSysLog">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
+	
+	<package name="role" namespace="/role" extends="struts-default">
+		<action name="getRoleInfo" class="com.zlxq.rbac.role.action.ZlxqRoleAction" method="getRoleInfo">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="saveRole" class="com.zlxq.rbac.role.action.ZlxqRoleAction" method="saveRole">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
+	
+	<package name="party" namespace="/party" extends="struts-default">
+		<action name="getCompanyPage" class="com.zlxq.rbac.party.action.ZlxqPartyAction" method="getCompanyPage">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="saveCompany" class="com.zlxq.rbac.party.action.ZlxqPartyAction" method="saveCompany">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="getDeptTree" class="com.zlxq.rbac.party.action.ZlxqPartyAction" method="getDeptTree">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="getDeptGrid" class="com.zlxq.rbac.party.action.ZlxqPartyAction" method="getDeptGrid">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="saveDept" class="com.zlxq.rbac.party.action.ZlxqPartyAction" method="saveDept">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="getUserPage" class="com.zlxq.rbac.party.action.ZlxqPartyAction" method="getUserPage">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="saveParty" class="com.zlxq.rbac.party.action.ZlxqPartyAction" method="saveParty">
 			<result>${successResultValue}</result>
 		</action>
 	</package>

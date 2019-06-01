@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE struts PUBLIC  
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"  
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="equip" namespace="/" extends="struts-default">
+		<action name="getEquipPage" class="com.blsk.inv.equip.action.BlskEquipInfoAction" method="getEquipPage">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="saveEquip" class="com.blsk.inv.equip.action.BlskEquipInfoAction" method="saveEquip">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
+	
+	<package name="material" namespace="/" extends="struts-default">
+		<action name="getMaterialPage" class="com.blsk.inv.material.action.BlskMaterialInfoAction" method="getMaterialPage">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="saveMaterial" class="com.blsk.inv.material.action.BlskMaterialInfoAction" method="saveMaterial">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
+	
+	<package name="qrcode" namespace="/" extends="struts-default">
+		<action name="printQrcode" class="com.blsk.inv.qrcode.action.BlskQrcodeInfoAction" method="printQrcode">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
+	
+	<package name="invorder" namespace="/" extends="struts-default">
+		<action name="getIOrderDetailPage" class="com.blsk.inv.invorder.action.BlskBillDetailAction" method="getIOrderDetailPage">
+			<result>${successResultValue}</result>
+		</action>
+		
+		
+		<action name="getIOrderPage" class="com.blsk.inv.invorder.action.BlskBillInfoAction" method="getIOrderPage">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
+	
+	<package name="invworkbench" namespace="/" extends="struts-default">
+		<action name="rkHandle" class="com.blsk.inv.invworkbench.action.BlskInvIoAction" method="rkHandle">
+			<result>${successResultValue}</result>
+		</action>
+		
+		<action name="rkHandle" class="com.blsk.inv.invworkbench.action.BlskInvItemAction" method="rkHandle">
+			<result>${successResultValue}</result>
+		</action>
+		
+		<action name="rkHandle" class="com.blsk.inv.invworkbench.action.BlskInvStoreAction" method="rkHandle">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
+</struts>

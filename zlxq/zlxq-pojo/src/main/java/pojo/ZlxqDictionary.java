@@ -16,6 +16,7 @@ public class ZlxqDictionary implements java.io.Serializable {
 	private String dicName;
 	private String dicType;
 	private String dicNode;
+	private String isLeaf;
 	private Date createtime;
 	private Date updatetime;
 	private String isvalidate;
@@ -25,12 +26,13 @@ public class ZlxqDictionary implements java.io.Serializable {
 	}
 
 	public ZlxqDictionary(ZlxqDictionary zlxqDictionary, String dicCode, String dicName, String dicType, String dicNode,
-			Date createtime, Date updatetime, String isvalidate, Set zlxqDictionaries) {
+			String isLeaf, Date createtime, Date updatetime, String isvalidate, Set zlxqDictionaries) {
 		this.zlxqDictionary = zlxqDictionary;
 		this.dicCode = dicCode;
 		this.dicName = dicName;
 		this.dicType = dicType;
 		this.dicNode = dicNode;
+		this.isLeaf = isLeaf;
 		this.createtime = createtime;
 		this.updatetime = updatetime;
 		this.isvalidate = isvalidate;
@@ -115,6 +117,24 @@ public class ZlxqDictionary implements java.io.Serializable {
 
 	public void setZlxqDictionaries(Set zlxqDictionaries) {
 		this.zlxqDictionaries = zlxqDictionaries;
+	}
+
+	/**
+	 * @Title: getIsLeaf <BR>
+	 * @Description: please write your description <BR>
+	 * @return: String <BR>
+	 */
+	public String getIsLeaf() {
+		return isLeaf;
+	}
+
+	/**
+	 * @Title: setIsLeaf <BR>
+	 * @Description: please write your description <BR>
+	 * @return: String <BR>
+	 */
+	public void setIsLeaf(String isLeaf) {
+		this.isLeaf = isLeaf;
 	}
 
 }

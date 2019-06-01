@@ -43,6 +43,7 @@
 <!-- scripts -->
 <script src="./statics/frame/js/login/particles.min.js"></script>
 <script src="./statics/frame/js/login/app.js"></script>
+<script type="text/javascript" src="./statics/frame/js/easyui/jquery-easyui-1.7.0/jquery.min.js"></script>
 <script type="text/javascript">
 	function hasClass(elem, cls) {
 	  cls = cls || '';
@@ -66,8 +67,22 @@
 	  }
 	}
 		document.querySelector(".login-button").onclick = function(){
-			var form = document.getElementById('loginFormId');
-			form.submit();
+			var loginForm = document.getElementById('loginFormId');
+// 			from.submit();
+			$.ajax({
+				url : loginForm.action,
+				type : 'post',
+				data : {
+					"userno" : document.getElementById('userNoId').value,
+					"password" : document.getElementById('loginPwdId').value
+				},
+				success : function(e, f) {
+					var m = eval('(' + e + ')');
+					if (m.msg == "success") {
+						window.location.href = './moudles/frame/home/home.jsp';
+					}
+				}
+			});
 		}
 </script>
 </body>

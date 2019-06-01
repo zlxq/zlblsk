@@ -15,7 +15,7 @@
 </head>
 <body class="easyui-layout" style="overflow-y: hidden;" scroll="no">
 	
-	<div region="west" title="字典树" split="true" style="width: 250px;padding: 1px; overflow-y: hidden">
+	<div region="west" title="系统参数结构树" split="true" style="width: 250px;padding: 1px; overflow-y: hidden">
 		<ul id="sysdicttree"></ul>
 	</div>
 
@@ -23,23 +23,29 @@
 		<div id="sysdictgrid" fit="true"></div>
 	</div>
 	
-	<div id="sysdictform-window" title="编辑字典" style="width: 600px; height: 400px;">
-		<div style="padding: 20px 20px 20px 40px;">
-			<form method="post">
-				<table>
-					<tr>
-						<td>字典编号：</td>
-						<td><input class="easyui-textbox" name="zlxqDictionary.dicCode" required="true" style="width: 200px;" /></td>
-					</tr>
-					<tr>
-						<td>字典名称：</td>
-						<td><input class="easyui-textbox" name="zlxqDictionary.dicName" required="true" style="width: 200px;" /></td>
-					</tr>
-				</table>
-			</form>
-		</div>
-		<div style="text-align: center; padding: 10px; margin-top: 100px;">
-			<a href="javascript:void(0)" onclick="saveDictFun()" id="btn-save-dict" icon="icon-save">保存</a> <a href="javascript:void(0)" onclick="closeWindow()" id="btn-cancel-dict" icon="icon-cancel"> 取消</a>
+	<div id="sysdictform-window" title="编辑系统参数" style="padding: 5px">
+		<div class="easyui-layout" data-options="fit:true">
+			<div data-options="region:'center'" style="border: 0;">
+				<div style="padding: 20px 20px 20px 40px;">
+					<form method="post">
+						<table>
+							<tr>
+								<td>系统编号：</td>
+								<td><input class="easyui-textbox" name="zlxqDictionary.dicCode" required="true" style="width: 200px;" /></td>
+							</tr>
+							<tr>
+								<td>系统名称：</td>
+								<td><input class="easyui-textbox" name="zlxqDictionary.dicName" required="true" style="width: 200px;" /></td>
+							</tr>
+						</table>
+					</form>
+				</div>
+			</div>
+			<div data-options="region:'south'" style="background-color: #C0C0C0; padding: 5px 0px 20px 0px; overflow-y: hidden" scroll="no">
+				<div style="text-align: center;">
+					<a href="javascript:void(0)" onclick="saveDictFun()" id="btn-save-dict" icon="icon-save">保存</a> <a href="javascript:void(0)" onclick="closeWindow()" id="btn-cancel-dict" icon="icon-cancel"> 取消</a>
+				</div>
+			</div>
 		</div>
 	</div>
 </body>

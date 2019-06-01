@@ -78,4 +78,28 @@ public interface ZlxqMenuDao extends BaseDao<ZlxqMenu> {
 	 */
 	String getMenuTree(String id);
 
+	/**
+	 * @MethodName: getRoleMenu
+	 * @Description: TODO(这里用一句话描述这个方法的作用) 
+	 * @author: PUB
+	 * @date: 2019年5月17日 上午12:07:12
+	 * @param id
+	 * @return
+	 * @return: String
+	 * @throws
+	 */
+	String getRoleMenu(String id);
+
+	/**
+	 * @MethodName: getNoRoleMenu
+	 * @Description: TODO(这里用一句话描述这个方法的作用) 
+	 * @author: PUB
+	 * @date: 2019年5月17日 上午12:10:59
+	 * @param id
+	 * @return
+	 * @return: String
+	 * @throws
+	 */
+	String getNoRoleMenu(String id);
+
 }

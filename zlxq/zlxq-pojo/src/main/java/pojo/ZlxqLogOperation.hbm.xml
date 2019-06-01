@@ -6,7 +6,7 @@
     <class name="pojo.ZlxqLogOperation" table="zlxq_log_operation" catalog="blsk">
         <id name="id" type="long">
             <column name="ID" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <many-to-one name="zlxqLog" class="pojo.ZlxqLog" fetch="select">
             <column name="LOGINID" />

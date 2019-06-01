@@ -31,6 +31,10 @@
                 <comment>&#215;&#214;&#181;&#228;&#195;&#232;&#202;&#246;</comment>
             </column>
         </property>
+        <property name="isLeaf" type="string">
+            <column name="ISLEAF" length="50">
+            </column>
+        </property>
         <property name="createtime" type="date">
             <column name="CREATETIME" length="10" />
         </property>

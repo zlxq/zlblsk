@@ -49,11 +49,7 @@ public class ZlxqFrameworkFilter implements Filter {
 	@Override
 	public void doFilter(ServletRequest arg0, ServletResponse arg1, FilterChain arg2)
 			throws IOException, ServletException {
-		System.out.println("");
-		HttpServletRequest request = (HttpServletRequest) arg0;
-		HttpServletResponse response = (HttpServletResponse) arg1;
-		String uri = request.getRequestURI();
-		arg2.doFilter(request, response);
+		logger.debug("调用 ZlxqFrameworkFilter doFilter  ");
 	}
 	
 	@Override

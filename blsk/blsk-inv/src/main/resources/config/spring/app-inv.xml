@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:cache="http://www.springframework.org/schema/cache"
+	xsi:schemaLocation="
+ http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd
+ http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd
+ http://www.springframework.org/schema/tx
+ http://www.springframework.org/schema/tx/spring-tx.xsd
+ http://www.springframework.org/schema/jdbc
+ http://www.springframework.org/schema/jdbc/spring-jdbc-3.1.xsd
+http://www.springframework.org/schema/cache
+ http://www.springframework.org/schema/cache/spring-cache-3.1.xsd
+ http://www.springframework.org/schema/aop
+http://www.springframework.org/schema/aop/spring-aop.xsd
+http://www.springframework.org/schema/util
+http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<bean id="blskEquipInfoDao" parent="baseDao"
+		class="com.blsk.inv.equip.dao.impl.BlskEquipInfoDaoImpl" />
+	<bean id="blskEquipInfoService"
+		class="com.blsk.inv.equip.service.impl.BlskEquipInfoServiceImpl">
+		<constructor-arg ref="blskEquipInfoDao" index="0" />
+	</bean>
+	
+	<bean id="blskEquipItemDao" parent="baseDao"
+		class="com.blsk.inv.equip.dao.impl.BlskEquipItemDaoImpl" />
+	<bean id="blskEquipItemService"
+		class="com.blsk.inv.equip.service.impl.BlskEquipItemServiceImpl">
+		<constructor-arg ref="blskEquipItemDao" index="0" />
+	</bean>
+	
+	<bean id="blskMaterialInfoDao" parent="baseDao"
+		class="com.blsk.inv.material.dao.impl.BlskMaterialInfoDaoImpl" />
+	<bean id="blskMaterialInfoService"
+		class="com.blsk.inv.material.service.impl.BlskMaterialInfoServiceImpl">
+		<constructor-arg ref="blskMaterialInfoDao" index="0" />
+	</bean>
+	
+	<bean id="blskQrcodeInfoDao" parent="baseDao"
+		class="com.blsk.inv.qrcode.dao.impl.BlskQrcodeInfoDaoImpl" />
+	<bean id="blskQrcodeInfoService"
+		class="com.blsk.inv.qrcode.service.impl.BlskQrcodeInfoServiceImpl">
+		<constructor-arg ref="blskQrcodeInfoDao" index="0" />
+	</bean>
+	
+	<bean id="blskBillDetailDao" parent="baseDao"
+		class="com.blsk.inv.invorder.dao.impl.BlskBillDetailDaoImpl" />
+	<bean id="blskBillDetailService"
+		class="com.blsk.inv.invorder.service.impl.BlskBillDetailServiceImpl">
+		<constructor-arg ref="blskBillDetailDao" index="0" />
+	</bean>
+	
+	<bean id="blskBillInfoDao" parent="baseDao"
+		class="com.blsk.inv.invorder.dao.impl.BlskBillInfoDaoImpl" />
+	<bean id="blskBillInfoService"
+		class="com.blsk.inv.invorder.service.impl.BlskBillInfoServiceImpl">
+		<constructor-arg ref="blskBillInfoDao" index="0" />
+	</bean>
+	
+	<bean id="blskInvIoDao" parent="baseDao"
+		class="com.blsk.inv.invworkbench.dao.impl.BlskInvIoDaoImpl" />
+	<bean id="blskInvIoService"
+		class="com.blsk.inv.invworkbench.service.impl.BlskInvIoServiceImpl">
+		<constructor-arg ref="blskInvIoDao" index="0" />
+	</bean>
+	
+	<bean id="blskInvItemDao" parent="baseDao"
+		class="com.blsk.inv.invworkbench.dao.impl.BlskInvItemDaoImpl" />
+	<bean id="blskInvItemService"
+		class="com.blsk.inv.invworkbench.service.impl.BlskInvItemServiceImpl">
+		<constructor-arg ref="blskInvItemDao" index="0" />
+	</bean>
+	
+	<bean id="blskInvStoreDao" parent="baseDao"
+		class="com.blsk.inv.invworkbench.dao.impl.BlskInvStoreDaoImpl" />
+	<bean id="blskInvStoreService"
+		class="com.blsk.inv.invworkbench.service.impl.BlskInvStoreServiceImpl">
+		<constructor-arg ref="blskInvStoreDao" index="0" />
+	</bean>
+</beans>

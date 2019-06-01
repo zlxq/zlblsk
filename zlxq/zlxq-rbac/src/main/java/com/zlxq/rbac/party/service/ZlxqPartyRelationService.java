@@ -1,19 +1,46 @@
 package com.zlxq.rbac.party.service;
 
+import java.util.List;
+
 import com.zlxq.rbac.base.core.service.BaseService;
 
+import pojo.ZlxqParty;
 import pojo.ZlxqPartyRelation;
 
-/**
- * @ClassName: ZlxqPartyRelationService.java
- * @Description: TODO(方法描述)
- * @author: PUB
- * @date: 2019年4月17日 下午10:30:24
- *
- * @param <T>
- * @Copyright: 2019 www.zlxq.com Inc. All rights reserved.
- *
- */
 public interface ZlxqPartyRelationService extends BaseService<ZlxqPartyRelation> {
+
+	/**
+	 * @TODO 通过partyno判断是否存在子项
+	 * @author zhangl
+	 *
+	 * @param partyno
+	 * @return
+	 * @createtime 2019年5月19日
+	 * @version V1.0
+	 */
+	List getCPartyByPartyno(String partyno);
+
+	/**
+	 * @TODO 保存父子关系
+	 * @author zhangl
+	 *
+	 * @param pParty
+	 * @param zlxqParty
+	 * @param relationType
+	 * @createtime 2019年5月20日
+	 * @version V1.0
+	 */
+	void savePartyRelation(ZlxqParty pParty, ZlxqParty zlxqParty, String relationType);
+
+	/**
+	 * @TODO 通过子节点查询父节点
+	 * @author zhangl
+	 *
+	 * @param cid
+	 * @return
+	 * @createtime 2019年5月30日
+	 * @version V1.0
+	 */
+	Long getPidByCid(Long cid);
 
 }

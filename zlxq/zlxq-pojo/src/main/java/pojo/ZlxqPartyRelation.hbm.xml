@@ -6,7 +6,7 @@
     <class name="pojo.ZlxqPartyRelation" table="zlxq_party_relation" catalog="blsk">
         <id name="id" type="long">
             <column name="ID" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <many-to-one name="zlxqPartyByPartyid2" class="pojo.ZlxqParty" fetch="select">
             <column name="PARTYID2">

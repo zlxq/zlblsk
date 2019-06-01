@@ -12,16 +12,20 @@ import java.util.Set;
  */
 public class ZlxqParty implements java.io.Serializable {
 
-	private Long id;
+	private Long id;	
+	private Long companyId;
+	private Long cruDeptId;
 	private String partyno;
 	private String loginno;
-	private String partname;
+	private String partyname;
 	private String password;
 	private String sex;
 	private String partytype;
 	private String email;
 	private String tel;
 	private String issuper;
+	private String isleaf;
+	private String iconcls;
 	private Long deptid;
 	private Long creator;
 	private Date createtime;
@@ -36,17 +40,19 @@ public class ZlxqParty implements java.io.Serializable {
 	public ZlxqParty() {
 	}
 
-	public ZlxqParty(String partyno, String loginno, String partname, String password, String sex, String partytype,
-			String email, String tel, Long deptid, Long creator, Date createtime, Date updatetime, String isvalidate,
+	public ZlxqParty(String partyno, String loginno, String partyname, String password, String sex, String partytype,
+			String email, String tel,String isleaf, String iconcls, Long deptid, Long creator, Date createtime, Date updatetime, String isvalidate,
 			Set zlxqUserRoles, Set zlxqPartyRelationsForPartyid1, Set zlxqPartyRelationsForPartyid2) {
 		this.partyno = partyno;
 		this.loginno = loginno;
-		this.partname = partname;
+		this.partyname = partyname;
 		this.password = password;
 		this.sex = sex;
 		this.partytype = partytype;
 		this.email = email;
 		this.tel = tel;
+		this.isleaf = isleaf;
+		this.iconcls = iconcls;
 		this.deptid = deptid;
 		this.creator = creator;
 		this.createtime = createtime;
@@ -81,12 +87,12 @@ public class ZlxqParty implements java.io.Serializable {
 		this.loginno = loginno;
 	}
 
-	public String getPartname() {
-		return this.partname;
+	public String getPartyname() {
+		return this.partyname;
 	}
 
-	public void setPartname(String partname) {
-		this.partname = partname;
+	public void setPartyname(String partyname) {
+		this.partyname = partyname;
 	}
 
 	public String getPassword() {
@@ -227,6 +233,62 @@ public class ZlxqParty implements java.io.Serializable {
 	 */
 	public void setMenuList(List<ZlxqMenu> menuList) {
 		this.menuList = menuList;
+	}
+
+	/**
+	 * @return the companyId
+	 */
+	public Long getCompanyId() {
+		return companyId;
+	}
+
+	/**
+	 * @param companyId the companyId to set
+	 */
+	public void setCompanyId(Long companyId) {
+		this.companyId = companyId;
+	}
+
+	/**
+	 * @return the cruDeptId
+	 */
+	public Long getCruDeptId() {
+		return cruDeptId;
+	}
+
+	/**
+	 * @param cruDeptId the cruDeptId to set
+	 */
+	public void setCruDeptId(Long cruDeptId) {
+		this.cruDeptId = cruDeptId;
+	}
+
+	/**
+	 * @return the isleaf
+	 */
+	public String getIsleaf() {
+		return isleaf;
+	}
+
+	/**
+	 * @param isleaf the isleaf to set
+	 */
+	public void setIsleaf(String isleaf) {
+		this.isleaf = isleaf;
+	}
+
+	/**
+	 * @return the iconcls
+	 */
+	public String getIconcls() {
+		return iconcls;
+	}
+
+	/**
+	 * @param iconcls the iconcls to set
+	 */
+	public void setIconcls(String iconcls) {
+		this.iconcls = iconcls;
 	}
 
 }

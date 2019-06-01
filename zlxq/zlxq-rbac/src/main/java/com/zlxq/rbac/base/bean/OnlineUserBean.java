@@ -18,6 +18,7 @@ public class OnlineUserBean {
 	 * 用户session
 	 */
 	private static final HashMap<String, Object> USER_SESSION_MAP = new HashMap<String, Object>();
+	private static final HashMap<Long, String> USER_MAP = new HashMap<Long, String>();
 
 	public static void putUserBySessionId(String sessionid, Object object) {
 		USER_SESSION_MAP.put(sessionid, object);
@@ -31,8 +32,16 @@ public class OnlineUserBean {
 		return USER_SESSION_MAP.get(sessionid);
 	}
 	
-	public static ZlxqParty getPartyBySessionId(String sessionid) {
-		return (ZlxqParty) getUserBySessionId(sessionid);
+	public static void putUserById(Long userid, String sessionid) {
+		USER_MAP.put(userid, sessionid);
+	}
+	
+	public static void removeUserById(Long userid) {
+		USER_MAP.remove(userid);
+	}
+	
+	public static String getUserById(Long userid) {
+		return USER_MAP.get(userid);
 	}
 	
 	public static int getUserLineCount() {

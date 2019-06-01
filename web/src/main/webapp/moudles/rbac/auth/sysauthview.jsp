@@ -23,33 +23,66 @@
 		<div id="sysauthgrid" fit="true"></div>
 	</div>
 	
-	<div id="sysauthform-window" title="角色授权" style="width: 600px; height: 400px; padding: 5px">
+	<div id="sysauthform-window" title="角色授权" style="padding: 5px">
 		<div class="easyui-layout" data-options="fit:true">
-			<div class="easyui-layout" data-options="fit:true">
-				<div data-options="region:'center'" style="border: 0;">
-					<div class="easyui-layout" data-options="fit:true">
-						<div data-options="region:'west'" style="width:45%;border: 0">
-							<ul id="sysauthtree1"></ul>
-						</div>
-						<div data-options="region:'center'">
-							<div style="position:absolute; top:40%; left: 20%">
-								<div>
-									<a href="javascript:void(0)" onclick="removeLeftToRightFun()" id="btn-save-auth">》</a>
-								</div>
-								<div style="margin-top: 10px">
-									<a href="javascript:void(0)" onclick="removeRightToLeftFun()" id="btn-save-auth">《</a>
-								</div>
+			<div data-options="region:'center'" style="border: 0;">
+				<div class="easyui-layout" data-options="fit:true">
+					<div data-options="region:'west'" style="width:45%;border: 0">
+						<ul id="sysauthtree1"></ul>
+					</div>
+					<div data-options="region:'center'">
+						<div style="position:absolute; top:40%; left: 20%">
+							<div>
+								<a href="javascript:void(0)" onclick="removeLeftToRightFun()" id="btn-save-auth">》</a>
+							</div>
+							<div style="margin-top: 10px">
+								<a href="javascript:void(0)" onclick="removeRightToLeftFun()" id="btn-save-auth">《</a>
 							</div>
 						</div>
-						<div data-options="region:'east'" style="width:50%;border:0">
-							<ul id="sysauthtree2"></ul>
-						</div>
+					</div>
+					<div data-options="region:'east'" style="width:50%;border:0">
+						<ul id="sysauthtree2"></ul>
 					</div>
 				</div>
-				<div data-options="region:'south'" style="padding: 10px">
-					<div style="text-align: center;">
-						<a href="javascript:void(0)" onclick="saveAuthFun()" id="btn-save-auth" icon="icon-save">保存</a> <a href="javascript:void(0)" onclick="closeWindow()" id="btn-cancel-auth" icon="icon-cancel"> 取消</a>
-					</div>
+			</div>
+			<div data-options="region:'south'" style="background-color: #C0C0C0; padding: 5px 0px 20px 0px; overflow-y: hidden" scroll="no">
+				<div style="text-align: center;">
+					<a href="javascript:void(0)" onclick="saveAuthFun()" id="btn-save-auth" icon="icon-save">保存</a> <a href="javascript:void(0)" onclick="closeWindow()" id="btn-cancel-auth" icon="icon-cancel"> 取消</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="sysroleform-window" title="角色编辑" style="padding: 5px">
+		<div class="easyui-layout" data-options="fit:true">
+			<div data-options="region:'center'" style="border: 0;">
+				<div style="padding: 20px 20px 20px 40px;">
+					<form method="post">
+						<table>
+							<tr>
+								<td>角色编号：</td>
+								<td><input class="easyui-textbox" name="zlxqRole.roleno" required="true" style="width: 200px;" /></td>
+							</tr>
+							<tr>
+								<td>角色名称：</td>
+								<td><input class="easyui-textbox" name="zlxqRole.rolename" required="true" style="width: 200px;" /></td>
+							</tr>
+							<tr>
+								<td>角色类型：</td>
+								<td>
+									<select class="easyui-combobox" data-options="editable:false" name="zlxqRole.roletype" required="true" style="width: 200px;">
+										<option value="100100">超级管理员</option>
+										<option value="100200">系统管理员</option>
+										<option value="100300" selected="selected">普通角色</option>
+									</select>
+								</td>
+							</tr>
+						</table>
+					</form>
+				</div>
+			</div>
+			<div data-options="region:'south'" style="background-color: #C0C0C0; padding: 5px 0px 20px 0px; overflow-y: hidden" scroll="no">
+				<div style="text-align: center;">
+					<a href="javascript:void(0)" onclick="saveRoleFun()" id="btn-save-auth" icon="icon-save">保存</a> <a href="javascript:void(0)" onclick="closeRoleWindow()" id="btn-cancel-auth" icon="icon-cancel"> 取消</a>
 				</div>
 			</div>
 		</div>

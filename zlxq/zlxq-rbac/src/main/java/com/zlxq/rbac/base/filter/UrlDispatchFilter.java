@@ -10,12 +10,15 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import com.framework.web.filter.ZlxqFrameworkFilter;
 import com.zlxq.rbac.base.bean.OnlineUserBean;
+
+import pojo.ZlxqParty;
 
 /**
  * url权限拦截过滤器
@@ -31,6 +34,7 @@ public class UrlDispatchFilter extends ZlxqFrameworkFilter {
 	/**
 	 * 过滤地址栏请求，必须通过系统登陆后，才能访问系统具体页面
 	 */
+	@SuppressWarnings("unused")
 	@Override
 	public void doFilter(ServletRequest arg0, ServletResponse arg1, FilterChain arg2)
 			throws IOException, ServletException {
@@ -39,60 +43,29 @@ public class UrlDispatchFilter extends ZlxqFrameworkFilter {
 
 		String uri = request.getRequestURI();
 
-		Object object = null;
-
-		if (uri.indexOf("api.jsp") != -1) {
-			arg2.doFilter(request, response);
-			return;
-		}
-		if (null == object) {
-
-			if (uri.indexOf("index.jsp") == -1) {
-				if (uri.contains(".css") || uri.contains(".js") || uri.contains(".png") || uri.contains(".jpg")
-						|| uri.indexOf("getAllSchool.do") > 0 || uri.indexOf("InterfaceServlet") > 0) {
-					if (uri.contains(".jsp")) {
-						PrintWriter out = response.getWriter();
-						out.println("<html>");
-						out.println("<script>");
-						out.println("window.open ('" + request.getContextPath() + "/index.jsp','_top')");
-						out.println("</script>");
-						out.println("</html>");
-						// response.sendRedirect(request.getContextPath() +
-						// "/index.jsp");
-					}
-				} else {
-					PrintWriter out = response.getWriter();
-					out.println("<html>");
-					out.println("<script>");
-					out.println("window.open ('" + request.getContextPath() + "/index.jsp','_top')");
-					out.println("</script>");
-					out.println("</html>");
-					// response.sendRedirect(request.getContextPath() +
-					// "/index.jsp");
-				}
-			}
+		HttpSession session = request.getSession();
+		String newSid = session.getId();
+		ZlxqParty zp = (ZlxqParty) OnlineUserBean.getUserBySessionId(session.getId());
+		
+		if (null == zp) {
+			logger.debug("被拦截：跳转到login页面！");
+			PrintWriter out = response.getWriter();
+			out.println("<html>");
+			out.println("<script>");
+			out.println("window.open ('" + request.getContextPath() + "','_top')");
+			out.println("</script>");
+			out.println("</html>");
+//			if (uri.indexOf(".jsp") != -1) {
+//				logger.debug("被拦截：跳转到login页面！");
+//				PrintWriter out = response.getWriter();
+//				out.println("<html>");
+//				out.println("<script>");
+//				out.println("window.open ('" + request.getContextPath() + "','_top')");
+//				out.println("</script>");
+//				out.println("</html>");
+//			} 
 		}
 		arg2.doFilter(request, response);
-
-		// if (uri.indexOf("getAllSchool.do") > 0) {
-		// arg2.doFilter(request, response);
-		// } else if (uri.indexOf("InterfaceServlet") > 0) {
-		// arg2.doFilter(request, response);
-		// } else if (uri.indexOf("login.do") > 0 || uri.indexOf("index.jsp") >
-		// 0) {
-		// arg2.doFilter(request, response);
-		// } else if (null != object) {
-		// arg2.doFilter(request, response);
-		// } else if (uri.contains(".css") || uri.contains(".js") ||
-		// uri.contains(".png") || uri.contains(".jpg")) {
-		// // 如果发现是css或者js文件，直接放行
-		// arg2.doFilter(request, response);
-		//
-		// } else {
-		// response.sendRedirect(request.getContextPath() + "/index.jsp");
-		// arg2.doFilter(request, response);
-		// }
-
 	}
 
 	@Override

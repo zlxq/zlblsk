@@ -8,6 +8,8 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.FlushMode;
+import org.hibernate.Session;
+import org.hibernate.query.Query;
 import org.springframework.jdbc.core.BatchPreparedStatementSetter;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
@@ -108,6 +110,34 @@ public abstract class GenericDaoImpl<T, PK extends Serializable> extends Hiberna
 		getHibernateTemplate().save(entity);
 		return entity;
 	}
+	
+	/**
+	 * 通过hibernate创建session
+	 * 
+	 * @author zhangl
+	 *
+	 * @param entity
+	 * @return
+	 * @createtime 2017年6月17日
+	 * @version V1.0
+	 */
+	private Session createSession() {
+		return getHibernateTemplate().getSessionFactory().getCurrentSession();
+	}
+	
+	/**
+	 * 创建hql create query
+	 * 
+	 * @author zhangl
+	 *
+	 * @param entity
+	 * @return
+	 * @createtime 2017年6月17日
+	 * @version V1.0
+	 */
+	public Query<?> createQuery(String hql) {
+		return this.createSession().createQuery(hql);
+	}
 
 	/**
 	 * 保存对象
@@ -121,7 +151,7 @@ public abstract class GenericDaoImpl<T, PK extends Serializable> extends Hiberna
 	 */
 	@SuppressWarnings("deprecation")
 	public T merge(T entity) {
-		getHibernateTemplate().getSessionFactory().getCurrentSession().setFlushMode(FlushMode.AUTO);
+		this.createSession().setFlushMode(FlushMode.AUTO);
 		getHibernateTemplate().merge(entity);
 		return entity;
 	}

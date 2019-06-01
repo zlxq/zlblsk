@@ -4,6 +4,8 @@ $(function() {
 
 	$('#btn-save-party,#btn-cancel-party').linkbutton();
 	win = $('#addparty-window').window({
+		width : "100%",
+	    height : "100%",
 		closed : true,
 		modal : true,
 		shadow : false
@@ -11,11 +13,6 @@ $(function() {
 	form = win.find('form');
 
 	$('#btn-search,#btn-search-cancel').linkbutton();
-	searchWin = $('#search-window').window({
-		closed : true,
-		modal : true
-	});
-	searchForm = searchWin.find('form');
 
 	impWin = $('#excelparty-window').window({
 		closed : true,
@@ -40,7 +37,7 @@ $(function() {
 
 	grid.datagrid({
 		iconCls : 'icon-save',
-		url : __ctxPath + '/party/getPersonInfo.do',
+		url : __ctxPath + '/party/getUserPage.do',
 		sortName : 'id',
 		sortOrder : 'asc',
 		idField : 'id',
@@ -98,10 +95,6 @@ $(function() {
 			text : '修改',
 			iconCls : 'icon-edit',
 			handler : editPartyFun
-		}, {
-			text : '上传文件',
-			iconCls : 'icon-add',
-			handler : importPartyFun
 		} ]
 	});
 	$('body').layout();
@@ -117,7 +110,7 @@ var impForm;
 function clickTree(nodeid) {
 	grid.datagrid('loadData',{total:0,rows:[]});
 	grid.datagrid({
-		url : __ctxPath + '/party/getPersonInfo.do?id=' + nodeid
+		url : __ctxPath + '/party/getUserPage.do?id=' + nodeid
 	});
 	grid.datagrid('load');
 }

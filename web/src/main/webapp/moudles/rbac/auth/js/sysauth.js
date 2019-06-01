@@ -6,18 +6,22 @@ $(function() {
 
 	$('#btn-save-auth,#btn-cancel-auth').linkbutton();
 	win = $('#sysauthform-window').window({
+	    width : "100%",
+	    height : "100%",
 		closed : true,
 		modal : true,
 		shadow : false
 	});
 	form = win.find('form');
-
-	$('#btn-search,#btn-search-cancel').linkbutton();
-	searchWin = $('#search-window').window({
+	
+	roleWin = $('#sysroleform-window').window({
+		width : "100%",
+		height : "100%",
 		closed : true,
-		modal : true
+		modal : true,
+		shadow : false
 	});
-	searchForm = searchWin.find('form');
+	roleForm = roleWin.find('form');
 
 	tree.treegrid({
 		url : '',
@@ -82,8 +86,27 @@ $(function() {
 			title : '角色名称',
 			width : 100,
 			sortable : true
+		}, {
+			field : 'roletype',
+			title : '角色类型',
+			width : 100,
+			sortable : true,
+			render : function(a, b, c){
+				if(a == '100100'){
+					return "超级管理员";
+				}
+				return a;
+			}
 		} ] ],
 		toolbar : [ {
+			text : '增加角色',
+			iconCls : 'icon-add',
+			handler : addRoleFun
+		}, {
+			text : '删除角色',
+			iconCls : 'icon-remove',
+			handler : delAuthFun
+		}, {
 			text : '角色授权',
 			iconCls : 'icon-add',
 			handler : addAuthFun
@@ -94,9 +117,20 @@ $(function() {
 });
 
 var win;
+var roleWin;
+var roleForm;
 var form
 var tree;
 var grid;
+
+function addRoleFun() {
+	roleWin.window('open');
+	roleForm.form('clear');
+}
+
+function delAuthFun() {
+	
+}
 
 function onClickDataGrid(index, row) {
 	tree.treegrid('loadData',{total:0,rows:[]});
@@ -300,12 +334,17 @@ function saveAuthFun() {
 		},
 		success : function(e, f) {
 			win.window('close');
-			tree2.treegrid('reload');
+			var rows = grid.datagrid('getSelections');
+			
+			tree.treegrid({
+				url : __ctxPath + '/menu/getRoleMenu.do?id=' + rows[0].id
+			});
+			
 			var m = eval('(' + e + ')');
 			
 			$.messager.show({
 				title : '提示',
-				msg : '请选择记录进行操作!',
+				msg : m.msg,
 				timeout : 500,
 				style:{
 					top:1, // 与左边界的距离
@@ -314,9 +353,43 @@ function saveAuthFun() {
 			});
 		}
 	});
+}
 
+function saveRoleFun() {
+	$.messager.progress();
+	
+	roleForm.form('submit', {
+		url : __ctxPath + '/role/saveRole.do',
+		onSubmit : function() {
+			var isValid = $(this).form('validate');
+			if (!isValid){
+				$.messager.progress('close');
+			}
+			return isValid;
+		},
+		success : function(e, f) {
+			grid.datagrid('reload');
+			roleWin.window('close');
+
+			$.messager.progress('close');
+			var m = eval('(' + e + ')');
+			$.messager.show({
+				title : '提示',
+				msg : m.msg,
+				timeout : 500,
+				style:{
+					top:1, // 与左边界的距离
+					left:document.body.clientWidth - document.body.clientWidth / 1.5 // 与顶部的距离
+				}
+			});
+		}
+	});
 }
 
 function closeWindow() {
 	win.window('close');
+}
+
+function closeRoleWindow() {
+	roleWin.window('close');
 }

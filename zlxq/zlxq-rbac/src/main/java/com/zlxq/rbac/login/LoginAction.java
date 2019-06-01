@@ -1,12 +1,18 @@
 package com.zlxq.rbac.login;
 
-import javax.annotation.Resource;
+import java.io.IOException;
 
+import javax.annotation.Resource;
+import javax.servlet.ServletException;
+
+import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import com.framework.util.IPUtil;
+import com.zlxq.rbac.base.bean.OnlineUserBean;
 import com.zlxq.rbac.base.core.action.BaseAction;
+import com.zlxq.rbac.base.util.ConstantRBAC;
 import com.zlxq.rbac.party.service.ZlxqPartyService;
 
 /**
@@ -38,18 +44,24 @@ public class LoginAction extends BaseAction {
 	public String login() {
 		String userno = this.getRequest().getParameter("userno");
 		String password = this.getRequest().getParameter("password");
-		System.out.println(userno);
+		
+		if (StringUtils.isEmpty(userno) || StringUtils.isEmpty(password)) {
+			setMessage("用户名或密码为空，请重新输入！");
+			return SUCCESS;
+		}
 		
 		String msg = zlxqPartyService.login(userno, password, this.getRequest());
 		
 		if (FAILURE.equals(msg)) {
-			setJsonString("用户名或密码错误，请重新输入？");
-			return FAILURE;
+			setMessage("用户名或密码错误，请重新输入？");
+			return SUCCESS;
+		} else if (ConstantRBAC.REDIECT.equals(msg)) {
 		}
 		
 		
 		System.out.println("\t\n" + "登陆人ip:" + IPUtil.getIpAddr(this.getRequest()) + "\t\n");
 		
+		setMessage("success");
 		return SUCCESS;
 	}
 	

@@ -6,7 +6,7 @@
     <class name="pojo.ZlxqLog" table="zlxq_log" catalog="blsk">
         <id name="id" type="long">
             <column name="ID" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <property name="loginno" type="string">
             <column name="LOGINNO" length="50">

@@ -4,6 +4,8 @@ $(function() {
 	$('#btn-save-menu,#btn-cancel-menu').linkbutton();
 
 	win = $('#addmenu-window').window({
+		width : "100%",
+	    height : "100%",
 		closed : true,
 		modal : true,
 		shadow : false
@@ -124,65 +126,68 @@ function editMenuFun() {
 }
 
 function delMenuFun() {
-	var rows = sysmenutree.treegrid('getSelections');
-    var num = rows.length;
-    if (num == 0) {
-        $.messager.alert('提示', '请选择一条记录进行操作!', 'info');
-        $.messager.show({
-			title : '提示',
-			msg : '请选择一条记录进行操作!',
-			timeout : 500,
-			style:{
-				top:1, // 与左边界的距离
-				left:document.body.clientWidth - document.body.clientWidth / 1.5 // 与顶部的距离
-			}
-		});
-        return;
-    }
-    else if (num > 1) {
-        $.messager.show({
-			title : '提示',
-			msg : '您选择了多条记录,只能选择一条记录进行修改!',
-			timeout : 500,
-			style:{
-				top:1, // 与左边界的距离
-				left:document.body.clientWidth - document.body.clientWidth / 1.5 // 与顶部的距离
-			}
-		});
-        return;
-    }
-    var menuid = rows[0].id;
-    
-	$.ajax({
-		url : __ctxPath + '/menu/delMenu.do',
-		type : 'post',
-		data : {
-			id : menuid
-		},
-		beforeSend: function () {
-			$.messager.progress({ 
-				title: '提示', 
-				msg: '正在处理,请稍候……', 
-				text: '' 
-			});
-		},
-		complete: function () {
-			$.messager.progress('close');
-		},
-		success : function(e, f) {
-			sysmenutree.treegrid('reload');
-			var m = eval('(' + e + ')');
-			
-			$.messager.show({
-				title : '提示',
-				msg : m.msg,
-				timeout : 500,
-				style:{
-					top:1, // 与左边界的距离
-					left:document.body.clientWidth - document.body.clientWidth / 1.5 // 与顶部的距离
-				}
-			});
-		}
+	$.messager.confirm('确认','确定删除菜单信息?',function(r){
+	    if (r){
+	    	var rows = sysmenutree.treegrid('getSelections');
+	        var num = rows.length;
+	        if (num == 0) {
+	            $.messager.show({
+	    			title : '提示',
+	    			msg : '请选择一条记录进行操作!',
+	    			timeout : 500,
+	    			style:{
+	    				top:1, // 与左边界的距离
+	    				left:document.body.clientWidth - document.body.clientWidth / 1.5 // 与顶部的距离
+	    			}
+	    		});
+	            return;
+	        }
+	        else if (num > 1) {
+	            $.messager.show({
+	    			title : '提示',
+	    			msg : '您选择了多条记录,只能选择一条记录进行修改!',
+	    			timeout : 500,
+	    			style:{
+	    				top:1, // 与左边界的距离
+	    				left:document.body.clientWidth - document.body.clientWidth / 1.5 // 与顶部的距离
+	    			}
+	    		});
+	            return;
+	        }
+	        var menuid = rows[0].id;
+	        
+	    	$.ajax({
+	    		url : __ctxPath + '/menu/delMenu.do',
+	    		type : 'post',
+	    		data : {
+	    			id : menuid
+	    		},
+	    		beforeSend: function () {
+	    			$.messager.progress({ 
+	    				title: '提示', 
+	    				msg: '正在处理,请稍候……', 
+	    				text: '' 
+	    			});
+	    		},
+	    		complete: function () {
+	    			$.messager.progress('close');
+	    		},
+	    		success : function(e, f) {
+	    			sysmenutree.treegrid('reload');
+	    			var m = eval('(' + e + ')');
+	    			
+	    			$.messager.show({
+	    				title : '提示',
+	    				msg : m.msg,
+	    				timeout : 500,
+	    				style:{
+	    					top:1, // 与左边界的距离
+	    					left:document.body.clientWidth - document.body.clientWidth / 1.5 // 与顶部的距离
+	    				}
+	    			});
+	    		}
+	    	});
+	    }
 	});
 }
 
