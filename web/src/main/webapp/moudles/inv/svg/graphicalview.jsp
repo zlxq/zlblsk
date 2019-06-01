@@ -62,10 +62,10 @@
 						</tr>
 						<tr>
 							<td>
-							<label for="space_x">库房X坐标: </label><input type="munber" id="space_x" name="space_x" style="width:120px;">
+							<label for="space_x">纬度: </label><input type="number" id="space_x" name="space_x" style="width:120px;">
 							</td>
 							<td>
-							<label for="space_y">库房Y坐标: </label><input type="number" id="space_y" name="space_y" style="width:120px;">
+							<label for="space_y">经度: </label><input type="number" id="space_y" name="space_y" style="width:120px;">
 							</td>
 						</tr>	
 						<tr>

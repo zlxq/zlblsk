@@ -99,7 +99,7 @@ $(function() {
 			idField : 'ID',
 			pagination : true,
 			rownumbers : true,
-			singleSelect : false,
+			singleSelect : true,
 			pageSize : 30,
 			loadMsg : '数据加载中请稍后……',
 			fitColumns : true,
@@ -739,7 +739,6 @@ $(function() {
 //				  node.setAttribute('fill',fillD);
 				  node.setAttribute('stroke',strokeD);
 				  node.setAttribute('stroke-width','1px');
-				  break;
 			  }
 		  } 
 	  }
@@ -856,7 +855,6 @@ var wingrid;
 
 
 function setProperty(e){
-	
 	var selectvalue = null;
 	var latticeOptions = $("[name='latticeOptions']");
 	if(e == "b"){
