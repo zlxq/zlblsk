@@ -15,53 +15,38 @@
 <script type="text/javascript">
 
 	function doSearch() {
-		grid.datagrid('load',{
-			partyno: $('#partyno').val(),
-			partyname: $('#partyname').val()
+		ordergrid.datagrid('load',{
+			partyno: $('#billno').val(),
+			partyname: $('#billtype').val()
 		});
 	}
 	
 	function doReset() {
-		$('#partyno').val("");
-		$('#partyname').val("");
+		$('#billno').val("");
+		$('#billtype').val("");
 	}
 </script>
 </head>
 <body class="easyui-layout" style="overflow-y: hidden;" scroll="no">
 	
-	<div region="west" split="true" style="width: 250px;padding: 1px; overflow-y: hidden">
-		<div class="easyui-layout" data-options="fit:true">
-			<div region="north" style="padding: 1px; background: #eee; overflow-y: hidden">
-				<div id="tb" style="padding:10px">
-			    	<span>单据编号:</span>
-			    	<input class="easyui-textbox" type="text" id="billno" style="border:1px solid #ccc">
-			    	<span>单据类型:</span>
-			    	<input class="easyui-textbox" id="billtype" style="border:1px solid #ccc">
-			    	<a href="javascript:;" class="easyui-linkbutton" plain="true" onclick="doSearch()" icon="icon-search">查询</a>
-			    	<a href="javascript:;" class="easyui-linkbutton" plain="true" onclick="doReset()" icon="icon-clear">重置</a>
-		    	</div>
-			</div>
-			<div region="center" split="true" style="padding: 1px; background: #eee; overflow-y: hidden">
-				<div id="invordergrid" fit="true"></div>
-			</div>
-		</div>
-	</div>
+	<div region="north" style="padding: 1px; overflow-y: hidden">
+		<div id="tb" style="padding:10px">
+	    	<span>单据编号:</span>
+	    	<input class="easyui-textbox" id="billno" style="border:1px solid #ccc">
+	    	<span>单据类型:</span>
+	    	<input class="easyui-textbox" id="billtype" style="border:1px solid #ccc">
+	    	<a href="javascript:;" class="easyui-linkbutton" plain="true" onclick="doSearch()" icon="icon-search">查询</a>
+	    	<a href="javascript:;" class="easyui-linkbutton" plain="true" onclick="doReset()" icon="icon-clear">重置</a>
+    	</div>
 	</div>
 
-	<div region="center" split="true" style="padding: 1px; background: #eee; overflow-y: hidden">
+	<div region="center" style="padding: 1px; background: #eee; overflow-y: hidden">
 		<div class="easyui-layout" data-options="fit:true">
-			<div region="north" style="padding: 1px; background: #eee; overflow-y: hidden">
-				<div id="tb" style="padding:1px">
-			    	<span>组织编号:</span>
-			    	<input type="text" id="partyno" style="border:1px solid #ccc">
-			    	<span>组织名称:</span>
-			    	<input id="partyname" style="border:1px solid #ccc">
-			    	<a href="javascript:;" class="easyui-linkbutton" plain="true" onclick="doSearch()" icon="icon-search">查询</a>
-			    	<a href="javascript:;" class="easyui-linkbutton" plain="true" onclick="doReset()" icon="icon-clear">重置</a>
-		    	</div>
+			<div region="west" split="true" style="width: 500px; padding: 1px; background: #eee; overflow-y: hidden">
+				<div id="ordergrid" fit="true"></div>
 			</div>
-			<div region="center" split="true" style="padding: 1px; background: #eee; overflow-y: hidden">
-				<div id="sysdeptgrid" fit="true"></div>
+			<div region="center" title="单据明细" split="true" style="padding: 1px; background: #eee; overflow-y: hidden">
+				<div id="detailgrid" fit="true"></div>
 			</div>
 		</div>
 	</div>
