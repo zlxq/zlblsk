@@ -14,7 +14,7 @@ public class BlskSpaceAddressDaoImpl extends BaseDaoImpl<BlskSpaceAddress> imple
 
 	@Override
 	public String getSpaceAddress() {
-		String sql = "SELECT DISTINCT A.LONGITUDE, A.LATITUDE, S.SAPCE_NAME FROM BLSK_SPACE_ADDRESS A, BLSK_INV_SPACE S WHERE A.ISVALIDATE = '1' AND S.ISVALIDATE = '1' AND A.SPACEID = S.ID";
+		String sql = "SELECT DISTINCT A.LONGITUDE, A.LATITUDE, S.SAPCE_NAME FROM BLSK_SPACE_ADDRESS A, BLSK_INV_SPACE S WHERE A.ISVALIDATE = '"+ ConstantRBAC.Y_ISVALIDATE +"' AND S.ISVALIDATE = '"+ ConstantRBAC.Y_ISVALIDATE +"' AND A.SPACEID = S.ID";
 		return findByJDBCReturnJSON(sql);
 	
 	}

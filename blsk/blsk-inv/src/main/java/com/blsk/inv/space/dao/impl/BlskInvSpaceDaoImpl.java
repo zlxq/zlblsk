@@ -6,6 +6,7 @@ import org.apache.commons.lang.StringUtils;
 
 import com.blsk.inv.space.dao.BlskInvSpaceDao;
 import com.zlxq.rbac.base.core.dao.impl.BaseDaoImpl;
+import com.zlxq.rbac.base.util.ConstantRBAC;
 
 import pojo.BlskInvSpace;
 
@@ -17,7 +18,7 @@ public class BlskInvSpaceDaoImpl extends BaseDaoImpl<BlskInvSpace> implements Bl
 
 	@Override
 	public BlskInvSpace getSpaceUnit(Long pid, String storeRoom, String storeRoom_unit) {
-		String hql = "select t from BlskInvSpace t where t.isvalidate = '1' and t.type = '单元'";
+		String hql = "select t from BlskInvSpace t where t.isvalidate = '"+ ConstantRBAC.Y_ISVALIDATE +"' and t.type = '单元'";
 		
 		if (pid != 0) {
 			hql += " and t.blskInvSpace.id = " + pid + "";
@@ -38,7 +39,7 @@ public class BlskInvSpaceDaoImpl extends BaseDaoImpl<BlskInvSpace> implements Bl
 
 	@Override
 	public BlskInvSpace getSpace(String storeRoom) {
-		String hql = "select t from BlskInvSpace t where t.isvalidate = '1' and t.type = '库房'";
+		String hql = "select t from BlskInvSpace t where t.isvalidate = '"+ ConstantRBAC.Y_ISVALIDATE +"' and t.type = '库房'";
 		
 		if (StringUtils.isNotEmpty(storeRoom)) {
 			hql += " and t.name = '" + storeRoom + "'";
@@ -53,7 +54,7 @@ public class BlskInvSpaceDaoImpl extends BaseDaoImpl<BlskInvSpace> implements Bl
 
 	@Override
 	public BlskInvSpace getInvColumn(String rect, Long unitid, String type) {
-		String hql = "select t from BlskInvSpace t where t.isvalidate = '1'";
+		String hql = "select t from BlskInvSpace t where t.isvalidate = '"+ ConstantRBAC.Y_ISVALIDATE +"'";
 		
 		if (StringUtils.isNotEmpty(rect)) {
 			hql += " and t.svgid = '" + rect + "'";

@@ -6,6 +6,7 @@ import org.apache.commons.lang.StringUtils;
 
 import com.blsk.inv.space.dao.BlskSpaceEquipDao;
 import com.zlxq.rbac.base.core.dao.impl.BaseDaoImpl;
+import com.zlxq.rbac.base.util.ConstantRBAC;
 
 import pojo.BlskInvSpace;
 import pojo.BlskSpaceEquip;
@@ -18,7 +19,7 @@ public class BlskSpaceEquipDaoImpl extends BaseDaoImpl<BlskSpaceEquip> implement
 
 	@Override
 	public BlskSpaceEquip getSpaceEquip(BlskInvSpace spaceEntry, BlskInvSpace unitEntry, String equipId, String lor) {
-		String hql = "select t from BlskSpaceEquip t where t.isvalidate = '1'";
+		String hql = "select t from BlskSpaceEquip t where t.isvalidate = '"+ ConstantRBAC.Y_ISVALIDATE +"'";
 		
 		if (spaceEntry != null) {
 			hql += " and t.blskInvSpace.id = " + spaceEntry.getId() + "";

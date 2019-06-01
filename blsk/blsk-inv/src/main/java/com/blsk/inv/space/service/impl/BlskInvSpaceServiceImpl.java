@@ -24,6 +24,7 @@ import com.blsk.inv.space.dao.BlskInvSpaceDao;
 import com.blsk.inv.space.dao.BlskSpaceAddressDao;
 import com.blsk.inv.space.dao.BlskSpaceEquipDao;
 import com.blsk.inv.space.dao.BlskSpaceFileDao;
+import com.blsk.inv.space.dao.BlskSpacePropertyDao;
 import com.blsk.inv.space.service.BlskInvSpaceService;
 import com.zlxq.rbac.base.core.service.impl.BaseServiceImpl;
 import com.zlxq.rbac.base.util.ConstantRBAC;
@@ -35,6 +36,7 @@ import pojo.BlskInvSpace;
 import pojo.BlskSpaceAddress;
 import pojo.BlskSpaceEquip;
 import pojo.BlskSpaceFile;
+import pojo.BlskSpaceProperty;
 
 public class BlskInvSpaceServiceImpl extends BaseServiceImpl<BlskInvSpace> implements BlskInvSpaceService {
 
@@ -54,6 +56,9 @@ public class BlskInvSpaceServiceImpl extends BaseServiceImpl<BlskInvSpace> imple
 	
 	@Resource
 	private BlskSpaceAddressDao blskSpaceAddressDao;
+	
+	@Resource
+	private BlskSpacePropertyDao blskSpacePropertyDao;
 	
 	public BlskInvSpaceServiceImpl(BlskInvSpaceDao blskInvSpaceDao) {
 		super(blskInvSpaceDao);
@@ -119,6 +124,7 @@ public class BlskInvSpaceServiceImpl extends BaseServiceImpl<BlskInvSpace> imple
 				blskInvSpace.setCreatetime(new Date());
 				blskInvSpace.setIsvalidate("1");
 				blskInvSpaceDao.save(blskInvSpace);
+				
 			}else{
 				blskInvSpace.setIsclose(isclose);
 				blskInvSpace.setLength(Long.valueOf(rectangle_long));
@@ -132,11 +138,10 @@ public class BlskInvSpaceServiceImpl extends BaseServiceImpl<BlskInvSpace> imple
 				blskInvSpaceDao.save(blskInvSpace);
 			}
 					
-			
-			this.saveInvSpaceProperty(materialId, runCode, inStoreRule, blskInvSpace);
-			
 			if(type.equals("platform") || type.equals("stocker")) {
 				this.saveSpaceEquip(equipId, lor, spaceEntry, unitEntry, isclose);
+			}else {
+				this.saveInvSpaceProperty(materialId, runCode, inStoreRule, blskInvSpace);
 			}
 			
 			
@@ -172,7 +177,22 @@ public class BlskInvSpaceServiceImpl extends BaseServiceImpl<BlskInvSpace> imple
 	}
 	private void saveInvSpaceProperty(String materialId, String runCode, String inStoreRule,
 			BlskInvSpace blskInvSpace) {
-		// TODO Auto-generated method stub
+		BlskSpaceProperty BlskSpaceProperty = this.blskSpacePropertyDao.getProperty(blskInvSpace.getId(), materialId, runCode, inStoreRule);
+		
+		if(BlskSpaceProperty == null) {
+			BlskSpaceProperty = new BlskSpaceProperty();
+			BlskSpaceProperty.setBlskInvSpace(blskInvSpace);
+			BlskSpaceProperty.setCreator(UserUtil.getUserId());
+			BlskSpaceProperty.setDeptid(UserUtil.getCompanyId());
+			BlskSpaceProperty.setMaterialid(Long.valueOf(materialId));
+			BlskSpaceProperty.setRuncode(runCode);
+			BlskSpaceProperty.setStorerule(inStoreRule);
+			BlskSpaceProperty.setCreatetime(new Date());
+			BlskSpaceProperty.setIsvalidate(ConstantRBAC.Y_ISVALIDATE);
+			blskSpacePropertyDao.save(BlskSpaceProperty);
+		}
+		
+		
 		
 	}
 	public BlskInvSpace getUnitEntry(BlskInvSpace spaceEntry, String storeRoom, String storeRoom_unit, String svg) throws IOException {
