@@ -18,8 +18,8 @@ public class BlskInvItem implements java.io.Serializable {
 	private String manme;
 	private Long userid;
 	private String username;
-	private Long reqNum;
-	private Long count;
+	private String reqNum;
+	private String count;
 	private Date exectime;
 	private String itemState;
 	private String itemType;
@@ -34,7 +34,7 @@ public class BlskInvItem implements java.io.Serializable {
 	}
 
 	public BlskInvItem(BlskInvIo blskInvIo, Long materialid, String mno, String mcode, String manme, Long userid,
-			String username, Long reqNum, Long count, Date exectime, String itemState, String itemType, Long deptid,
+			String username, String reqNum, String count, Date exectime, String itemState, String itemType, Long deptid,
 			Long creator, Date createtime, Date updatetime, String isvalidate, Set blskEquipItems) {
 		this.blskInvIo = blskInvIo;
 		this.materialid = materialid;
@@ -120,19 +120,19 @@ public class BlskInvItem implements java.io.Serializable {
 		this.username = username;
 	}
 
-	public Long getReqNum() {
+	public String getReqNum() {
 		return this.reqNum;
 	}
 
-	public void setReqNum(Long reqNum) {
+	public void setReqNum(String reqNum) {
 		this.reqNum = reqNum;
 	}
 
-	public Long getCount() {
+	public String getCount() {
 		return this.count;
 	}
 
-	public void setCount(Long count) {
+	public void setCount(String count) {
 		this.count = count;
 	}
 

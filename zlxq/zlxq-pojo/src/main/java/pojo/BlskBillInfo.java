@@ -15,6 +15,7 @@ public class BlskBillInfo implements java.io.Serializable {
 	private String billname;
 	private String billtype;
 	private String billLevel;
+	private String billstate;
 	private Long userid;
 	private String username;
 	private Date reqTime;
@@ -29,13 +30,14 @@ public class BlskBillInfo implements java.io.Serializable {
 	public BlskBillInfo() {
 	}
 
-	public BlskBillInfo(String billno, String billname, String billtype, String billLevel, Long userid, String username,
+	public BlskBillInfo(String billno, String billname, String billtype, String billLevel, String billstate, Long userid, String username,
 			Date reqTime, Long deptid, Long creator, Date createtime, Date updatetime, String isvalidate,
 			Set blskBillDetails, Set blskInvIos) {
 		this.billno = billno;
 		this.billname = billname;
 		this.billtype = billtype;
 		this.billLevel = billLevel;
+		this.billstate = billstate;
 		this.userid = userid;
 		this.username = username;
 		this.reqTime = reqTime;
@@ -166,6 +168,20 @@ public class BlskBillInfo implements java.io.Serializable {
 
 	public void setBlskInvIos(Set blskInvIos) {
 		this.blskInvIos = blskInvIos;
+	}
+
+	/**
+	 * @return the billstate
+	 */
+	public String getBillstate() {
+		return billstate;
+	}
+
+	/**
+	 * @param billstate the billstate to set
+	 */
+	public void setBillstate(String billstate) {
+		this.billstate = billstate;
 	}
 
 }

@@ -15,6 +15,7 @@ public class BlskInvIo implements java.io.Serializable {
 	private String billno;
 	private String iono;
 	private String iotype;
+	private String iostate;
 	private String level;
 	private String execType;
 	private Long deptid;
@@ -27,13 +28,14 @@ public class BlskInvIo implements java.io.Serializable {
 	public BlskInvIo() {
 	}
 
-	public BlskInvIo(BlskBillInfo blskBillInfo, String billno, String iono, String iotype, String level,
+	public BlskInvIo(BlskBillInfo blskBillInfo, String billno, String iono, String iotype, String iostate, String level,
 			String execType, Long deptid, Long creator, Date createtime, Date updatetime, String isvalidate,
 			Set blskInvItems) {
 		this.blskBillInfo = blskBillInfo;
 		this.billno = billno;
 		this.iono = iono;
 		this.iotype = iotype;
+		this.iostate = iostate;
 		this.level = level;
 		this.execType = execType;
 		this.deptid = deptid;
@@ -146,6 +148,20 @@ public class BlskInvIo implements java.io.Serializable {
 
 	public void setBlskInvItems(Set blskInvItems) {
 		this.blskInvItems = blskInvItems;
+	}
+
+	/**
+	 * @return the iostate
+	 */
+	public String getIostate() {
+		return iostate;
+	}
+
+	/**
+	 * @param iostate the iostate to set
+	 */
+	public void setIostate(String iostate) {
+		this.iostate = iostate;
 	}
 
 }

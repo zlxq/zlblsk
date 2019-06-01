@@ -14,7 +14,9 @@ public class BlskBillDetail implements java.io.Serializable {
 	private String mno;
 	private String mcode;
 	private String mname;
+	private String state;
 	private String count;
+	private String wcnum;
 	private String unit;
 	private Long deptid;
 	private Long creator;
@@ -26,13 +28,15 @@ public class BlskBillDetail implements java.io.Serializable {
 	}
 
 	public BlskBillDetail(BlskBillInfo blskBillInfo, Long materialid, String mno, String mcode, String mname,
-			String count, String unit, Long deptid, Long creator, Date createtime, Date updatetime, String isvalidate) {
+			String state, String count, String wcnum, String unit, Long deptid, Long creator, Date createtime, Date updatetime, String isvalidate) {
 		this.blskBillInfo = blskBillInfo;
 		this.materialid = materialid;
 		this.mno = mno;
 		this.mcode = mcode;
 		this.mname = mname;
+		this.state = state;
 		this.count = count;
+		this.wcnum = wcnum;
 		this.unit = unit;
 		this.deptid = deptid;
 		this.creator = creator;
@@ -143,6 +147,34 @@ public class BlskBillDetail implements java.io.Serializable {
 
 	public void setIsvalidate(String isvalidate) {
 		this.isvalidate = isvalidate;
+	}
+
+	/**
+	 * @return the state
+	 */
+	public String getState() {
+		return state;
+	}
+
+	/**
+	 * @param state the state to set
+	 */
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	/**
+	 * @return the wcnum
+	 */
+	public String getWcnum() {
+		return wcnum;
+	}
+
+	/**
+	 * @param wcnum the wcnum to set
+	 */
+	public void setWcnum(String wcnum) {
+		this.wcnum = wcnum;
 	}
 
 }
