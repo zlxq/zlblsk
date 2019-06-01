@@ -12,12 +12,13 @@
 	var __ctxPath="<%=request.getContextPath()%>";
 </script>
 <script type="text/javascript">
-	function printQrcodeFun() {
+	function printCKQrcodeFun() {
 		var w = window.open();
 		$.ajax({
 			url : __ctxPath + '/qrcode/printQrcode.do',
 			type : 'post',
 			data : {
+				qrtype : '500200'
 			},
 			beforeSend: function () {
 			},
@@ -25,7 +26,46 @@
 				var m = eval('(' + e + ')');
 				
 				if (m.msg) {
-					w.location.href = "C:\\qrcode\\qrcode.png";
+// 					window.location.href = "http://localhost:8080/web/statics/file/qrcode/qrcode-500200.png";
+					w.location.href = m.msg;
+				}
+			}
+		});
+	}
+	function printRKQrcodeFun() {
+		var w = window.open();
+		$.ajax({
+			url : __ctxPath + '/qrcode/printQrcode.do',
+			type : 'post',
+			data : {
+				qrtype : '500100'
+			},
+			beforeSend: function () {
+			},
+			success : function(e, f) {
+				var m = eval('(' + e + ')');
+				
+				if (m.msg) {
+					w.location.href = m.msg;
+				}
+			}
+		});
+	}
+	function printCHECKQrcodeFun() {
+		var w = window.open();
+		$.ajax({
+			url : __ctxPath + '/qrcode/printQrcode.do',
+			type : 'post',
+			data : {
+				qrtype : '500300'
+			},
+			beforeSend: function () {
+			},
+			success : function(e, f) {
+				var m = eval('(' + e + ')');
+				
+				if (m.msg) {
+					w.location.href = m.msg;
 				}
 			}
 		});
@@ -34,8 +74,10 @@
 </head>
 <body class="easyui-layout" style="overflow-y: hidden;" scroll="no">
 	<div region="center" split="true" style="padding: 1px; background: #eee; overflow-y: hidden">
-		<div style="text-align: center; padding-top: 10%">
-			<img style="cursor: pointer;" onclick="printQrcodeFun()" src="<%=request.getContextPath()%>/statics/blsk/images/qrcode-blsk-print.png">
+		<div style="text-align: center; padding-top: 15%">
+			<img style="width:30%; cursor: pointer;" onclick="printCKQrcodeFun()" src="<%=request.getContextPath()%>/statics/blsk/images/out-wh-qrcode-blsk.png">
+			<img style="width:30%; cursor: pointer;" onclick="printRKQrcodeFun()" src="<%=request.getContextPath()%>/statics/blsk/images/in-wh-qrcode-blsk.png">
+			<img style="width:30%; cursor: pointer;" onclick="printCHECKQrcodeFun()" src="<%=request.getContextPath()%>/statics/blsk/images/check-wh-qrcode-blsk.png">
 		</div>
 	</div>
 </body>
