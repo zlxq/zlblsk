@@ -5,8 +5,8 @@ public class DictUtil {
 	public static String roleString = "100"; //角色
 	public static String deptString = "200"; //party表中partytype类型
 	public static String partyRelationString = "300"; //partyrelation表中type类型
-	
 	public static String equipString = "400"; //设备类型
+	public static String qrtypeSting = "500"; //执行码类型
 	
 	
 	public static final class role_lx {
@@ -31,5 +31,11 @@ public class DictUtil {
 	public static final class equip_lx {
 		public static String equip_ddj = "400100";//堆垛机
 		public static String equip_cgq = "400200";//传感器
+	}
+
+	public static final class qrtype_lx {
+		public static String qrtype_rk = "500100";//入库执行码
+		public static String qrtype_ck = "500200";//出库执行码
+		public static String qrtype_pd = "500300";//盘点执行码
 	}
 }
