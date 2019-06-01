@@ -4,6 +4,9 @@ import java.util.List;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import flexjson.JSONSerializer;
 
@@ -54,5 +57,39 @@ public class JsonUtil {
 		jsonObject.put("rows", json);
 		jsonUtilLogger.debug("=======输出结果=======\n" + jsonObject.toString());
 		return jsonObject.toString();
+	}
+	
+	public static JSONObject getJsonObject(String json) {
+		JSONObject jo = null;
+		try {
+			jo = new JSONObject(json);
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		return jo;
+	}
+	
+	public static JSONArray getJsonArray(String array) {
+		JSONArray jsonArray = null;
+		try {
+			jsonArray = new JSONArray(array);
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		return jsonArray;
+	}
+	
+	public static String getStringByKey(String json, String resultKey, String key) {
+		JSONObject jsonObject = getJsonObject(json);
+		String result = null;
+		try {
+			String s = jsonObject.getString(resultKey);
+			JSONArray jsonArray = getJsonArray(s);
+			JSONObject jo = jsonArray.getJSONObject(0);
+			result = jo.getString(key);
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		return result;
 	}
 }
