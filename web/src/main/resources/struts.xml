@@ -22,4 +22,5 @@
 	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
 
 	<include file="config/struts/struts-rbac.xml"></include>
+	<include file="config/struts/struts-inv.xml"></include>
 </struts> 
