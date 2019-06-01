@@ -9,6 +9,7 @@ import org.json.JSONObject;
 
 import com.framework.util.PagingBean;
 import com.zlxq.rbac.base.core.dao.impl.BaseDaoImpl;
+import com.zlxq.rbac.base.util.ConstantRBAC;
 import com.zlxq.rbac.menu.dao.ZlxqMenuDao;
 
 import pojo.ZlxqMenu;
@@ -28,28 +29,29 @@ public class ZlxqMenuDaoImpl extends BaseDaoImpl<ZlxqMenu> implements ZlxqMenuDa
 	@Override
 	public List<ZlxqMenu> getMenuByUserNo(String userNo) {
 		String roleid = this.getRoleByUserNo(userNo);
-		String hql = "select t from ZlxqMenu t, ZlxqRolemenu zrm where t.zlxqMenu.id is null and t.id = zrm.zlxqMenu.id and zrm.zlxqRole.id in "+roleid+" and t.isvalidate = '1' and zrm.isvalidate = '1' ORDER BY t.menusort";
+		String hql = "select t from ZlxqMenu t, ZlxqRolemenu zrm where t.zlxqMenu.id is null and t.id = zrm.zlxqMenu.id and zrm.zlxqRole.id in "
+				+ roleid + " and t.isvalidate = '1' and zrm.isvalidate = '1' ORDER BY t.menusort";
 		return (List<ZlxqMenu>) findByHQL(hql);
 	}
 
 	private String getRoleByUserNo(String userNo) {
-		String sql = "SELECT\n" + "  zar.role_id\n" + "FROM\n" + "  zlxq_account za,\n" + "  zlxq_accountrole zar\n"
-				+ "WHERE loginno = '"+userNo+"'\n" + "  AND za.id = zar.acount_id\n" + "  AND za.isvalidate = '1'\n"
-				+ "  AND zar.isvalidate = '1'";
+		String sql = "SELECT\n" + "  zur.role_id\n" + "FROM\n" + "  zlxq_party zp,\n" + "  zlxq_user_role zur\n"
+				+ "WHERE zp.loginno = '" + userNo + "'\n" + "  AND zp.id = zur.userid\n" + "  AND zur.isvalidate = '"
+				+ ConstantRBAC.Y_ISVALIDATE + "'\n" + "  AND zp.isvalidate = '" + ConstantRBAC.Y_ISVALIDATE + "'";
 		String json = findByJDBCReturnJSON(sql);
-		
+
 		StringBuffer buff = new StringBuffer("(");
 		try {
 			JSONObject jo = new JSONObject(json);
 			JSONArray ja = jo.getJSONArray("rows");
 			for (int i = 0; i < ja.length(); i++) {
 				JSONObject info = ja.getJSONObject(i);
-				
+
 				String roleid = info.getString("role_id");
-				
+
 				buff.append("'" + roleid + "'");
-				
-				if (i < ja.length() -1) {
+
+				if (i < ja.length() - 1) {
 					buff.append(",");
 				}
 			}
@@ -61,16 +63,10 @@ public class ZlxqMenuDaoImpl extends BaseDaoImpl<ZlxqMenu> implements ZlxqMenuDa
 	}
 
 	/**
-	 * @MethodName: getCMenuByMenuid
-	 * @Description: TODO(这里用一句话描述这个方法的作用)
-	 * @author: PUB
-	 * @date: 2019年5月5日 下午3:26:01
-	 * @param id
-	 * @param userNo
-	 * @return
-	 * @throws
+	 * @MethodName: getCMenuByMenuid @Description: TODO(这里用一句话描述这个方法的作用) @author:
+	 * PUB @date: 2019年5月5日 下午3:26:01 @param id @param userNo @return @throws
 	 */
-	
+
 	@Override
 	public List<ZlxqMenu> getCMenuByMenuid(Long id, String userNo) {
 //		String roleid = this.getRoleByUserNo(userNo);
@@ -78,7 +74,8 @@ public class ZlxqMenuDaoImpl extends BaseDaoImpl<ZlxqMenu> implements ZlxqMenuDa
 			String hql = "select t from ZlxqMenu t where t.isvalidate = '1' and t.zlxqMenu.id = " + id + "";
 			return (List<ZlxqMenu>) findByHQL(hql);
 		}
-		String hql = "select t from ZlxqMenu t, ZlxqRolemenu zrm where t.zlxqMenu.id = " + id + " and t.id = zrm.zlxqMenu.id and zrm.zlxqRole.id in ('') and t.isvalidate = '1' and zrm.isvalidate = '1' ORDER BY t.menusort";
+		String hql = "select t from ZlxqMenu t, ZlxqRolemenu zrm where t.zlxqMenu.id = " + id
+				+ " and t.id = zrm.zlxqMenu.id and zrm.zlxqRole.id in ('') and t.isvalidate = '1' and zrm.isvalidate = '1' ORDER BY t.menusort";
 		return (List<ZlxqMenu>) findByHQL(hql);
 	}
 

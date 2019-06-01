@@ -27,4 +27,5 @@ public class ConstantRBAC extends Constant {
 	public static final String ICONCLS_DEFAULT = "icon-city";
 	
 	public static final String QRCODE_PRE = "QR";
+	public static final String IONO_PRE = "IO";
 }

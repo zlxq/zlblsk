@@ -15,6 +15,10 @@ import java.util.Random;
 public class SequenceUtil {
 	private static final int N_LENGTH = 6;
 	
+	public static String getIoNo() {
+		return getVaule(ConstantRBAC.IONO_PRE);
+	}
+	
 	public static String getQrcode() {
 		return getVaule(ConstantRBAC.QRCODE_PRE);
 	}
