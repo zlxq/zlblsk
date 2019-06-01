@@ -36,11 +36,11 @@
 	
 		<div class="easyui-layout" data-options="fit:true">
 			<div region="north" style="padding: 1px; background: #eee; overflow-y: hidden">
-				<div id="tb" style="padding:1px">
+				<div id="tb" style="padding:10px">
 			    	<span>编号:</span>
-			    	<input type="text" id="partyno" style="border:1px solid #ccc">
+			    	<input class="easyui-textbox" id="partyno" style="border:1px solid #ccc">
 			    	<span>姓名:</span>
-			    	<input id="partyname" style="border:1px solid #ccc">
+			    	<input class="easyui-textbox" id="partyname" style="border:1px solid #ccc">
 			    	<a href="javascript:;" class="easyui-linkbutton" plain="true" onclick="doSearch()" icon="icon-search">查询</a>
 			    	<a href="javascript:;" class="easyui-linkbutton" plain="true" onclick="doReset()" icon="icon-clear">重置</a>
 		    	</div>
