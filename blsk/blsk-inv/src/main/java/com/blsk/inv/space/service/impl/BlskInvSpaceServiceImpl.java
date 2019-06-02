@@ -26,6 +26,7 @@ import com.blsk.inv.space.dao.BlskSpaceEquipDao;
 import com.blsk.inv.space.dao.BlskSpaceFileDao;
 import com.blsk.inv.space.dao.BlskSpacePropertyDao;
 import com.blsk.inv.space.service.BlskInvSpaceService;
+import com.framework.util.WebAppUtil;
 import com.zlxq.rbac.base.core.service.impl.BaseServiceImpl;
 import com.zlxq.rbac.base.util.ConstantRBAC;
 import com.zlxq.rbac.base.util.UserUtil;
@@ -221,8 +222,10 @@ public class BlskInvSpaceServiceImpl extends BaseServiceImpl<BlskInvSpace> imple
 	
 	public void uploadSvgFile(BlskInvSpace unitEntry, String svg) throws IOException {
 		// 上传文件
+		String serverPath = WebAppUtil.getGetCtxPath();
 		String localPath = "E:/XdSystem/test/doc/";
-		String serverPath = "C:/Users/Administrator/git/zlblsk/web/src/main/webapp/statics/frame/uploadfile/";
+		serverPath = serverPath + "/statics/uploadfile/";
+//		String serverPath = "C:/Users/Administrator/git/zlblsk/web/src/main/webapp/statics/frame/uploadfile/";
 		String fix = ".svg";
 		String fileNmae = unitEntry.getSapceName() + "_" + unitEntry.getName() + fix;
 		
@@ -232,7 +235,13 @@ public class BlskInvSpaceServiceImpl extends BaseServiceImpl<BlskInvSpace> imple
 		
 		File file = new File(tempFile);
 		if(!file.exists()) {
-			file.createNewFile();
+			file.getParentFile().mkdirs();
+
+		    try {
+		    	file.createNewFile();
+		    } catch (IOException var10) {
+		     var10.printStackTrace();
+		    }
 		}else {
 			file.delete();
 			file.createNewFile();
@@ -241,7 +250,13 @@ public class BlskInvSpaceServiceImpl extends BaseServiceImpl<BlskInvSpace> imple
 		
 		File uploadFile = new File(tempServerFile);
 		if(!uploadFile.exists()){
-			uploadFile.createNewFile();
+			uploadFile.getParentFile().mkdirs();
+
+		    try {
+		    	uploadFile.createNewFile();
+		    } catch (IOException var10) {
+		    	var10.printStackTrace();
+		    }
 		}else {
 			uploadFile.delete();
 			uploadFile.createNewFile();
