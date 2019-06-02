@@ -71,6 +71,9 @@ public class SocketClient {
 			// 注意指定编码格式，发送方和接收方一定要统一，建议使用UTF-8
 			sb.append(new String(bytes, 0, len, "UTF-8"));
 			System.out.println("client receive Message is come from server: " + sb);
+			
+			//此处需用协议的结束标记进行退出while循环
+			break;
 		}
 
 		inputStream.close();
