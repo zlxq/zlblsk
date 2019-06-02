@@ -65,7 +65,7 @@ $(function() {
 			width : 50,
 			sortable : true
 		}, {
-			field : 'HEIGHT',
+			field : 'HIGHT',
 			title : '高',
 			width : 50,
 			sortable : true
