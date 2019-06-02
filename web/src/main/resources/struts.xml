@@ -23,4 +23,5 @@
 
 	<include file="config/struts/struts-rbac.xml"></include>
 	<include file="config/struts/struts-inv.xml"></include>
+	<include file="config/struts/struts-api.xml"></include>
 </struts> 

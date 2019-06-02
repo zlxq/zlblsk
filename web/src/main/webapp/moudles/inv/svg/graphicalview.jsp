@@ -82,10 +82,14 @@
 				<table cellspacing="10">
 					<tr>
 						<th><span>左侧储位信息:</span></th>
-						<td><label for="level_num">层级数量: </label><input type="number"
+					</tr>
+					<tr>
+						<td><label for="level_num"">层级数量: </label><input type="number"
 							value=0 id="level_num" name="level_num" style="width: 120px;"></td>
 						<td><label for="lattice_num">储位数量: </label><input
 							type="number" value=0 id="lattice_num" name="lattice_num" style="width: 120px;"></td>
+					</tr>
+					<tr>
 						<td><label for="rectangle_long">长(cm):</label><input
 							type="number" value=0 id="rectangle_long" name="rectangle_long" style="width: 120px;"></td>
 						<td><label for="rectangle_width">宽(cm):</label><input
@@ -96,11 +100,15 @@
 					</tr>
 					<tr>
 						<th><span>右侧储位信息:</span></th>
+					</tr>
+					<tr>
 						<td><label for="level_num_right">层级数量: </label><input
 							type="number" value=0 id="level_num_right" name="level_num_right" style="width: 120px;"></td>
 						<td><label for="lattice_num_right">储位数量: </label><input
 							type="number" value=0 id="lattice_num_right"
 							name="lattice_num_right" style="width: 120px;"></td>
+					</tr>
+					<tr>
 						<td><label for="rectangle_long_right">长(cm):</label><input
 							type="number" value=0 id="rectangle_long_right"
 							name="rectangle_long_right" style="width: 120px;"></td>
@@ -112,7 +120,7 @@
 							name="rectangle_height_right" style="width: 120px;"></td>
 					</tr>
 					<tr>
-						<td><button id="createSvg">生成平面图</button></td>
+						<td><button style="width: 100px" id="createSvg">生成平面图</button></td>
 						
 					</tr>
 				</table>
