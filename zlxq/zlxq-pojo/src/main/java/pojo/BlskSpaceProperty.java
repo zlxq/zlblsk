@@ -11,6 +11,9 @@ public class BlskSpaceProperty implements java.io.Serializable {
 	private Long id;
 	private BlskInvSpace blskInvSpace;
 	private String type;
+	private Long materialid;
+	private String runcode;
+	private String storerule;
 	private Long deptid;
 	private Long creator;
 	private Date createtime;
@@ -20,10 +23,13 @@ public class BlskSpaceProperty implements java.io.Serializable {
 	public BlskSpaceProperty() {
 	}
 
-	public BlskSpaceProperty(BlskInvSpace blskInvSpace, String type, Long deptid, Long creator, Date createtime,
+	public BlskSpaceProperty(BlskInvSpace blskInvSpace, String type, Long materialid, String runcode, String storerule, Long deptid, Long creator, Date createtime,
 			Date updatetime, String isvalidate) {
 		this.blskInvSpace = blskInvSpace;
 		this.type = type;
+		this.materialid = materialid;
+		this.runcode = runcode;
+		this.storerule = storerule;
 		this.deptid = deptid;
 		this.creator = creator;
 		this.createtime = createtime;
@@ -53,6 +59,30 @@ public class BlskSpaceProperty implements java.io.Serializable {
 
 	public void setType(String type) {
 		this.type = type;
+	}
+	
+	public Long getMaterialid() {
+		return materialid;
+	}
+
+	public void setMaterialid(Long materialid) {
+		this.materialid = materialid;
+	}
+
+	public String getRuncode() {
+		return runcode;
+	}
+
+	public void setRuncode(String runcode) {
+		this.runcode = runcode;
+	}
+
+	public String getStorerule() {
+		return storerule;
+	}
+
+	public void setStorerule(String storerule) {
+		this.storerule = storerule;
 	}
 
 	public Long getDeptid() {

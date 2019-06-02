@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2019-5-31 14:43:34 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 2019-5-15 22:56:17 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="pojo.BlskTemplateDetail" table="blsk_template_detail" catalog="blsk">
         <id name="id" type="java.lang.Long">
@@ -52,6 +52,11 @@
         <property name="isvalidate" type="string">
             <column name="ISVALIDATE" length="1">
                 <comment>&#202;&#199;&#183;&#241;&#211;&#208;&#208;&#167;</comment>
+            </column>
+        </property>
+        <property name="lineno" type="java.lang.Long">
+            <column name="LINENO">
+                <comment>列号</comment>
             </column>
         </property>
     </class>

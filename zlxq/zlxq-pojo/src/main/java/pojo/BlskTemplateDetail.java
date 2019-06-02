@@ -1,5 +1,5 @@
 package pojo;
-// Generated 2019-5-31 14:43:34 by Hibernate Tools 3.4.0.CR1
+// Generated 2019-5-15 22:56:17 by Hibernate Tools 3.4.0.CR1
 
 import java.util.Date;
 
@@ -18,12 +18,13 @@ public class BlskTemplateDetail implements java.io.Serializable {
 	private Date createtime;
 	private Date updatetime;
 	private String isvalidate;
+	private Long lineno;
 
 	public BlskTemplateDetail() {
 	}
 
 	public BlskTemplateDetail(BlskTemplateMain blskTemplateMain, String tplHeader, String OHeader, String type,
-			Long deptid, Long creator, Date createtime, Date updatetime, String isvalidate) {
+			Long deptid, Long creator, Date createtime, Date updatetime, String isvalidate, Long lineno) {
 		this.blskTemplateMain = blskTemplateMain;
 		this.tplHeader = tplHeader;
 		this.OHeader = OHeader;
@@ -33,6 +34,7 @@ public class BlskTemplateDetail implements java.io.Serializable {
 		this.createtime = createtime;
 		this.updatetime = updatetime;
 		this.isvalidate = isvalidate;
+		this.lineno = lineno;
 	}
 
 	public Long getId() {
@@ -114,5 +116,15 @@ public class BlskTemplateDetail implements java.io.Serializable {
 	public void setIsvalidate(String isvalidate) {
 		this.isvalidate = isvalidate;
 	}
+
+	public Long getLineno() {
+		return lineno;
+	}
+
+	public void setLineno(Long lineno) {
+		this.lineno = lineno;
+	}
+	
+	
 
 }

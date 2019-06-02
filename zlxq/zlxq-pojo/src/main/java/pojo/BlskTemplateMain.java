@@ -1,5 +1,5 @@
 package pojo;
-// Generated 2019-5-31 14:43:34 by Hibernate Tools 3.4.0.CR1
+// Generated 2019-5-15 22:56:17 by Hibernate Tools 3.4.0.CR1
 
 import java.util.Date;
 import java.util.HashSet;
@@ -24,14 +24,13 @@ public class BlskTemplateMain implements java.io.Serializable {
 	private Date updatetime;
 	private String isvalidate;
 	private Set blskTemplateDetails = new HashSet(0);
-	private Set blskTemplateDetails_1 = new HashSet(0);
 
 	public BlskTemplateMain() {
 	}
 
 	public BlskTemplateMain(Long docid, String no, String type, String orderno, Long onoLine, String header,
 			Long headerLine, Long deptid, Long creator, Date createtime, Date updatetime, String isvalidate,
-			Set blskTemplateDetails, Set blskTemplateDetails_1) {
+			Set blskTemplateDetails) {
 		this.docid = docid;
 		this.no = no;
 		this.type = type;
@@ -45,7 +44,6 @@ public class BlskTemplateMain implements java.io.Serializable {
 		this.updatetime = updatetime;
 		this.isvalidate = isvalidate;
 		this.blskTemplateDetails = blskTemplateDetails;
-		this.blskTemplateDetails_1 = blskTemplateDetails_1;
 	}
 
 	public Long getId() {
@@ -158,14 +156,6 @@ public class BlskTemplateMain implements java.io.Serializable {
 
 	public void setBlskTemplateDetails(Set blskTemplateDetails) {
 		this.blskTemplateDetails = blskTemplateDetails;
-	}
-
-	public Set getBlskTemplateDetails_1() {
-		return this.blskTemplateDetails_1;
-	}
-
-	public void setBlskTemplateDetails_1(Set blskTemplateDetails_1) {
-		this.blskTemplateDetails_1 = blskTemplateDetails_1;
 	}
 
 }
