@@ -10,6 +10,7 @@
 		<module>zlxq</module>
 		<module>blsk</module>
 		<module>web</module>
+		<module>tools</module>
 	</modules>
 
 	<properties>
