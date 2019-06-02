@@ -8,6 +8,10 @@ $(function() {
 		 } 
 		});
 	
+	$("#choosefile").onChnage({
+		
+	});
+	
 	grid.datagrid({
 		iconCls : 'icon-save',
 		sortName : 'ID',
