@@ -7,6 +7,27 @@
   </parent>
   <artifactId>blsk-inv</artifactId>
   
+  <dependencies>
+		<dependency>
+			<groupId>zlxq</groupId>
+			<artifactId>zlxq-framework</artifactId>
+			<version>0.0.1</version>
+			<scope>jar</scope>
+		</dependency>
+		<dependency>
+			<groupId>zlxq</groupId>
+			<artifactId>zlxq-pojo</artifactId>
+			<version>0.0.1</version>
+			<scope>jar</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>zlxq</groupId>
+			<artifactId>zlxq-rbac</artifactId>
+			<version>0.0.1</version>
+			<scope>jar</scope>
+		</dependency>
+	</dependencies>
   <build>
 		<plugins>
 			<plugin>
@@ -15,9 +36,40 @@
 				<configuration>
 					<!-- 指定打包的jar包输出路径 -->
 					<outputDirectory>
-						F:/work/maven/maven-lib/blsk/blsk-inv/0.0.1
+						E:/XdSystem/develop/maven-lib/blsk/blsk-inv/0.0.1
 					</outputDirectory>
+				   <!--不打入jar包的文件类型或者路径 -->
+					<excludes>
+						<exclude>**/*.properties</exclude>
+						<exclude>**/*.xml</exclude>
+						<exclude>**/*.yml</exclude>
+						<exclude>static/**</exclude>
+						<exclude>templates/**</exclude>
+					</excludes>
 				</configuration>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy-resources</id>
+						<phase>validate</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>C:/Users/Administrator/git/zlblsk/web/target/classes</outputDirectory>
+							<resources>
+								<resource>
+									<directory>src/main/resources</directory>
+									<filtering>true</filtering>
+								</resource>
+							</resources>
+						</configuration>
+
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
