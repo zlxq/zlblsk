@@ -73,8 +73,8 @@ public class SocketClient {
 			System.out.println("client receive Message is come from server: " + sb);
 		}
 
-		inputStream.close();
-		outputStream.close();
+//		inputStream.close();
+//		outputStream.close();
 		socket.close();
 
 		return sb.toString();
