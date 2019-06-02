@@ -58,4 +58,22 @@
 			<result>${successResultValue}</result>
 		</action>
 	</package>
+	
+	<package name="inv" namespace="/inv" extends="struts-default">
+		<action name="saveInvSpaceInfo" class="com.blsk.inv.space.action.InvAction" method="saveInvSpaceInfo">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="getSpaceAddress" class="com.blsk.inv.space.action.InvAction" method="getSpaceAddress">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
+	
+	<package name="template" namespace="/template" extends="struts-default">
+		<action name="saveTemplate" class="com.blsk.inv.template.action.TemplateAction" method="saveTemplate">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="getTemplate" class="com.blsk.inv.template.action.TemplateAction" method="getTemplate">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
 </struts>

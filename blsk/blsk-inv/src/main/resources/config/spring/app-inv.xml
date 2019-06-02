@@ -86,4 +86,75 @@ http://www.springframework.org/schema/util/spring-util.xsd">
 		class="com.blsk.inv.invworkbench.service.impl.BlskInvStoreServiceImpl">
 		<constructor-arg ref="blskInvStoreDao" index="0" />
 	</bean>
+	
+	<!--库房基础信息 start -->
+		
+	<bean id="blskInvSpaceDao" parent="baseDao"
+		class="com.blsk.inv.space.dao.impl.BlskInvSpaceDaoImpl" />
+		
+		
+	<bean id="blskInvSpaceService"
+		class="com.blsk.inv.space.service.impl.BlskInvSpaceServiceImpl">
+		<constructor-arg ref="blskInvSpaceDao" index="0" />
+	</bean>
+	
+	
+	<bean id="blskSpaceFileDao" parent="baseDao"
+		class="com.blsk.inv.space.dao.impl.BlskSpaceFileDaoImpl" />
+		
+	<bean id="blskSpaceFileService"
+		class="com.blsk.inv.space.service.impl.BlskSpaceFileServiceImpl">
+		<constructor-arg ref="blskSpaceFileDao" index="0" />
+	</bean>
+	
+	<bean id="blskDocInfoDao" parent="baseDao"
+		class="com.blsk.inv.space.dao.impl.BlskDocInfoDaoImpl" />
+		
+	<bean id="blskDocInfoService"
+		class="com.blsk.inv.space.service.impl.BlskDocInfoServiceImpl">
+		<constructor-arg ref="blskDocInfoDao" index="0" />
+	</bean>
+	
+	<bean id="blskSpaceEquipDao"  parent="baseDao"
+		class="com.blsk.inv.space.dao.impl.BlskSpaceEquipDaoImpl" />
+	
+	<bean id="blskSpaceEquipService"
+		class="com.blsk.inv.space.service.impl.BlskSpaceEquipServiceImpl">
+		<constructor-arg ref="blskSpaceEquipDao" index="0" />
+	</bean>
+	
+	<bean id="blskSpaceAddressDao"  parent="baseDao"
+		class="com.blsk.inv.space.dao.impl.BlskSpaceAddressDaoImpl" />
+	
+	<bean id="blskSpaceAddressService"
+		class="com.blsk.inv.space.service.impl.BlskSpaceAddressServiceImpl">
+		<constructor-arg ref="blskSpaceAddressDao" index="0" />
+	</bean>
+	
+	<bean id="blskSpacePropertyDao"  parent="baseDao"
+		class="com.blsk.inv.space.dao.impl.BlskSpacePropertyDaoImpl" />
+	
+	<bean id="blskSpacePropertyService"
+		class="com.blsk.inv.space.service.impl.BlskSpacePropertyServiceImpl">
+		<constructor-arg ref="blskSpacePropertyDao" index="0" />
+	</bean>
+	
+<!--库房基础信息 end -->
+<!-- 模板start -->
+	<bean id="blskTemplateMainDao" parent="baseDao"
+		class="com.blsk.inv.template.dao.impl.BlskTemplateMainDaoImpl" />
+		
+	<bean id="blskTemplateMainService"
+		class="com.blsk.inv.template.service.impl.BlskTemplateMainServiceImpl">
+		<constructor-arg ref="blskTemplateMainDao" index="0" />
+	</bean>
+	
+	<bean id="blskTemplateDetailDao" parent="baseDao"
+		class="com.blsk.inv.template.dao.impl.BlskTemplateDetailDaoImpl" />
+		
+	<bean id="blskTemplateDetailService"
+		class="com.blsk.inv.template.service.impl.BlskTemplateDetailServiceImpl">
+		<constructor-arg ref="blskTemplateDetailDao" index="0" />
+	</bean>
+<!-- 模板end -->
 </beans>
