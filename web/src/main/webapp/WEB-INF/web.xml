@@ -17,6 +17,11 @@
 	<listener>
 		<listener-class>com.framework.web.listener.SpringContextLoaderListener</listener-class>
 	</listener>
+	
+	<!-- Socket监听器 -->
+	<listener>
+		<listener-class>com.tools.socket.listener.SocketLoaderListener</listener-class>
+	</listener>
 
 	<context-param>
 		<param-name>isLog4jAutoInitializationDisabled</param-name>
