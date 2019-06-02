@@ -1,0 +1,66 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.blsk</groupId>
+		<artifactId>tools</artifactId>
+		<version>0.0.1</version>
+	</parent>
+	<artifactId>tools-redis</artifactId>
+
+	<dependencies>
+		<dependency>
+			<groupId>zlxq</groupId>
+			<artifactId>zlxq-framework</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<!-- 指定打包的jar包输出路径 -->
+					<outputDirectory>
+						F:/work/maven/maven-lib/tools/tools-redis/0.0.1
+					</outputDirectory>
+					<!--不打入jar包的文件类型或者路径 -->
+					<excludes>
+						<exclude>**/*.properties</exclude>
+						<exclude>**/*.xml</exclude>
+						<exclude>**/*.yml</exclude>
+						<exclude>static/**</exclude>
+						<exclude>templates/**</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy-resources</id>
+						<phase>validate</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>F:/work/project/workspace/zlblsk/web/target/classes</outputDirectory>
+							<resources>
+								<resource>
+									<directory>src/main/resources</directory>
+									<filtering>true</filtering>
+								</resource>
+							</resources>
+						</configuration>
+
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+	</build>
+</project>

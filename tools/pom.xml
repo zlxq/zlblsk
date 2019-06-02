@@ -8,7 +8,7 @@
   <artifactId>tools</artifactId>
   <packaging>pom</packaging>
   <modules>
-  	<module>socket</module>
-  	<module>redis</module>
+  	<module>tools-socket</module>
+  	<module>tools-redis</module>
   </modules>
 </project>
